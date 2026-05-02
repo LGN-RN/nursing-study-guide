@@ -1,0 +1,8 @@
+# PDFs (too large and not for distribution)
+*.pdf
+
+# Raw extracted text (intermediate files, can be regenerated)
+*_raw.txt
+
+# Local Claude Code config
+.claude/

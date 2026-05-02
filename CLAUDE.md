@@ -1,7 +1,7 @@
 # FundStudyGuide — Claude Instructions
 
 ## Project Purpose
-Generate HTML study guides from `FundamentalsNursing.pdf` (Potter & Perry), one per chapter.
+Generate HTML study guides from nursing/medical textbook PDFs, one guide per chapter, organized by book.
 
 ---
 
@@ -9,46 +9,109 @@ Generate HTML study guides from `FundamentalsNursing.pdf` (Potter & Perry), one 
 
 - **Python 3.12** installed
 - **PyMuPDF** (`fitz`) installed via pip
-- **Extraction script**: `extract_pages.py` in this directory
-- **PDF page offset**: +20 (PDF page = book page + 20)
+- **Extraction script**: `extract_pages.py` at the project root (works with any PDF)
+
+---
+
+## Directory Structure
+
+```
+FundStudyGuide/
+  extract_pages.py        # PDF extraction script (book-agnostic)
+  books.json              # Registry: all books, offsets, completed chapters
+  books/
+    fundamentals-nursing/ # One folder per book slug
+      chapter42_study_guide.html
+    <new-book-slug>/
+      chapter<N>_study_guide.html
+```
+
+PDFs live in `C:\Users\logan\Projects\FundStudyGuide\` alongside this repo but are excluded from git via `.gitignore`.
+
+---
+
+## Adding a New Book
+
+### 1. Determine the page offset
+The PDF page index ≠ book page number because of front-matter pages. Run a probe:
+```powershell
+python extract_pages.py <PdfFile.pdf> 1 3 probe_raw.txt
+```
+Read `probe_raw.txt` and look for the actual page number printed on page 1 of the book body. The offset = PDF page index − book page number. Delete `probe_raw.txt` when done.
+
+### 2. Register the book in books.json
+Add an entry to the `books` array:
+```json
+{
+  "slug": "short-kebab-name",
+  "title": "Full Book Title (Author)",
+  "pdf": "FileName.pdf",
+  "page_offset": <offset>,
+  "notes": "how offset was determined",
+  "completed_chapters": []
+}
+```
+
+### 3. Create the book folder
+```powershell
+New-Item -ItemType Directory -Path "books\<slug>"
+```
 
 ---
 
 ## Workflow for Each New Chapter
 
-### 1. Calculate PDF page range
-```
-pdf_start = book_page + 20
-```
-Probe a few pages beyond the expected end to find where the chapter ends.
+### 1. Look up the book in books.json
+Find the book's `slug` and `page_offset`.
 
-### 2. Extract chapter text
+### 2. Calculate PDF page range
+```
+pdf_start = book_page + page_offset
+```
+Extract a couple of pages at the expected end to confirm where the chapter ends.
+
+### 3. Extract chapter text
 ```powershell
-python extract_pages.py FundamentalsNursing.pdf <pdf_start> <pdf_end> chapter<N>_raw.txt
+python extract_pages.py <PdfFile.pdf> <pdf_start> <pdf_end> chapter<N>_raw.txt
 ```
 
-### 3. Read extracted text
-Read `chapter<N>_raw.txt` in chunks using the Read tool (offset 0 through ~6000+ lines depending on chapter length).
+### 4. Read extracted text
+Read `chapter<N>_raw.txt` in chunks with the Read tool (offset 0 through end, ~300 lines at a time for large chapters).
 
-### 4. Generate HTML study guide
-Output: `chapter<N>_study_guide.html`
+### 5. Generate HTML study guide
+Output: `books/<slug>/chapter<N>_study_guide.html`
 
-Use `chapter42_study_guide.html` as the format template. Every guide must include:
-- **13 collapsible sections** using native `<details>`/`<summary>` HTML (no JavaScript)
+Use `books/fundamentals-nursing/chapter42_study_guide.html` as the format template. Every guide must include:
+- **Collapsible sections** using native `<details>`/`<summary>` HTML (no JavaScript)
 - **Blue gradient summary bars** with ▼/▲ toggle indicators; Section 1 open by default, rest collapsed
 - **Proper chemical formula markup**: `<sub>` and `<sup>` tags — never raw HTML entities like `&sub2;`
   - Examples: `Na<sup>+</sup>`, `K<sup>+</sup>`, `Ca<sup>2+</sup>`, `HCO<sub>3</sub><sup>-</sup>`, `CO<sub>2</sub>`, `H<sub>2</sub>O`
-- **Section 13: NCLEX Critical To Knows** with red-themed cards (`#c0392b`) — 6–10 high-yield cards
+- **NCLEX Critical To Knows** section at the end with red-themed cards (`#c0392b`) — 6–10 high-yield cards
 - **Expandable Q&A review questions** using inner `<details class="qa">` elements
 - Fully self-contained (inline CSS, no external dependencies)
 
+### 6. Record completion in books.json
+Add the completed chapter to the book's `completed_chapters` array.
+
+### 7. Delete the raw text file
+`chapter<N>_raw.txt` is an intermediate file — delete it after the guide is generated. It is already gitignored.
+
+### 8. Commit and push
+```powershell
+git add books/<slug>/chapter<N>_study_guide.html books.json
+git commit -m "Add <BookTitle> Chapter <N> study guide"
+git push
+```
+
 ---
 
-## Completed Chapters
+## Known Books & Offsets
 
-| Chapter | Book Page | PDF Pages | Output File |
-|---------|-----------|-----------|-------------|
-| 42 — Fluid, Electrolyte, Acid-Base Balance | 1042 | 1062–1124 | `chapter42_study_guide.html` |
+See `books.json` for the authoritative registry. Quick reference:
+
+| Slug | PDF File | Page Offset |
+|------|----------|-------------|
+| fundamentals-nursing | FundamentalsNursing.pdf | +20 |
 
 ---
 

@@ -1,0 +1,20 @@
+{
+  "books": [
+    {
+      "slug": "fundamentals-nursing",
+      "title": "Fundamentals of Nursing (Potter & Perry)",
+      "pdf": "FundamentalsNursing.pdf",
+      "page_offset": 20,
+      "notes": "PDF page = book page + 20 (confirmed empirically)",
+      "completed_chapters": [
+        {
+          "chapter": 42,
+          "title": "Fluid, Electrolyte, Acid-Base Balance",
+          "book_page": 1042,
+          "pdf_pages": "1062-1124",
+          "output": "books/fundamentals-nursing/chapter42_study_guide.html"
+        }
+      ]
+    }
+  ]
+}

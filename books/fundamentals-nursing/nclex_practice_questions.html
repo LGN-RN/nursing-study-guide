@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCLEX Practice Questions – Fundamentals of Nursing</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.7;color:#1a1a2e;background:#f4f6fb;padding:0 20px 60px;max-width:980px;margin:0 auto}
+h1{font-size:2em;color:#0d3b66;border-bottom:4px solid #0d3b66;padding:28px 0 12px;margin-bottom:6px}
+.subtitle{color:#555;font-style:italic;margin-bottom:4px;font-size:.95em}
+.meta{color:#777;font-size:.86em;margin-bottom:28px}
+
+/* ── Score Tracker ── */
+#tracker{position:fixed;top:16px;right:16px;background:#0d3b66;color:#fff;padding:12px 18px;border-radius:12px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.28);z-index:999;min-width:108px;transition:background .4s}
+#tracker.g{background:#1a6e2e}
+#tracker.y{background:#7d6400}
+#tracker.r{background:#8b1a1a}
+#tracker .lbl{font-size:.7em;text-transform:uppercase;letter-spacing:1px;opacity:.8;margin-bottom:2px;font-family:Arial,sans-serif}
+#tracker #snum{font-size:1.6em;font-weight:bold;line-height:1.1}
+#tracker #spct{font-size:.82em;opacity:.88;margin-top:2px;font-family:Arial,sans-serif}
+
+/* ── Sections ── */
+details.section{margin:12px 0;border:1px solid #b8cfe8;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 4px rgba(13,59,102,.08)}
+details.section>summary{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,#0d3b66,#155a8a);color:#fff;padding:13px 18px;cursor:pointer;font-size:1.08em;font-weight:bold;font-family:Georgia,serif;list-style:none;user-select:none}
+details.section>summary::-webkit-details-marker{display:none}
+details.section>summary::after{content:"▼";font-size:.75em;opacity:.8;margin-left:10px}
+details.section[open]>summary::after{content:"▲"}
+details.section>summary:hover{background:linear-gradient(90deg,#0a2e50,#0d3b66)}
+.sec-body{padding:18px 22px 24px}
+
+/* ── Question Block ── */
+.qb{background:#f9fbff;border:1px solid #d0dff0;border-radius:7px;padding:16px 18px 14px;margin-bottom:16px}
+.qb:last-child{margin-bottom:0}
+.qhdr{display:flex;gap:10px;align-items:baseline;margin-bottom:8px}
+.qnum{background:#0d3b66;color:#fff;font-size:.76em;font-weight:bold;padding:2px 8px;border-radius:4px;font-family:Arial,sans-serif;white-space:nowrap}
+.qtag{font-size:.76em;color:#888;font-style:italic;font-family:Arial,sans-serif}
+.sata-badge{font-size:.72em;background:#6a0dad;color:#fff;padding:2px 8px;border-radius:4px;font-family:Arial,sans-serif;white-space:nowrap}
+.qstem{font-weight:bold;margin-bottom:11px;line-height:1.5}
+.opts{list-style:none;margin:0 0 4px}
+
+/* ── Option States ── */
+.opt{padding:9px 13px;margin-bottom:6px;border-radius:6px;border:2px solid #c8d8ea;background:#eef3fb;cursor:pointer;transition:background .15s,border-color .15s;user-select:none}
+.opt:not(.done):hover{background:#dce8f8;border-color:#4a90d9}
+.opt.done{cursor:default}
+.opt.sel{border-color:#0d3b66;background:#cce0f5}   /* SATA pre-submit selected */
+.opt.ok{background:#d4edda;border-color:#28a745;color:#155724}
+.opt.bad{background:#f8d7da;border-color:#dc3545;color:#721c24}
+.opt.miss{background:#fff3cd;border-color:#e0a800;color:#6d4c00}
+.opt-row{display:flex;align-items:baseline;gap:8px}
+.opt-ltr{font-weight:bold;color:#0d3b66;font-family:Arial,sans-serif;min-width:20px}
+.opt.ok .opt-ltr{color:#155724}
+.opt.bad .opt-ltr{color:#721c24}
+.opt.miss .opt-ltr{color:#6d4c00}
+
+/* ── Per-option Rationale ── */
+.rat{display:none;margin-top:8px;padding:7px 10px;border-radius:4px;font-size:.87em;line-height:1.55;font-style:italic;font-family:Arial,sans-serif;border-top:1px solid rgba(0,0,0,.1)}
+.opt.ok .rat{background:rgba(40,167,69,.08);color:#14532d}
+.opt.bad .rat{background:rgba(220,53,69,.08);color:#5c1111}
+.opt.miss .rat{background:rgba(255,193,7,.12);color:#5a3e00}
+
+/* ── SATA Submit ── */
+.sata-submit{margin-top:10px;padding:8px 22px;background:#6a0dad;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.92em;font-family:Arial,sans-serif;font-weight:bold;transition:background .15s}
+.sata-submit:hover{background:#520da3}
+.sata-submit:disabled{background:#aaa;cursor:default}
+.nclex-tip{display:none;margin-top:12px;padding:8px 12px 8px 14px;background:#fff8e1;border-left:4px solid #f9a825;border-radius:0 5px 5px 0;font-size:.86em;color:#5d4037;font-family:Arial,sans-serif;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div id="tracker">
+  <div class="lbl">Score</div>
+  <div id="snum">0 / 0</div>
+  <div id="spct">—</div>
+</div>
+
+<h1>NCLEX Practice Questions</h1>
+<p class="subtitle">Fundamentals of Nursing — Potter, Perry, Stockert &amp; Hall (11th ed.)</p>
+<p class="meta">50 questions · 6 Select-All-That-Apply · Click an answer to reveal feedback · Score tracked top-right</p>
+
+<!-- ═══════════════════════════════════ UNIT 1 ═══════════════════════════════════ -->
+<details class="section" open>
+<summary>Unit 1 — Nursing and the Health Care Environment <span style="font-weight:normal;font-size:.84em;opacity:.85">(Ch 1–5 · Q1–5)</span></summary>
+<div class="sec-body">
+
+<div class="qb" id="q1">
+<div class="qhdr"><span class="qnum">Q1</span><span class="qtag">Ch 1 · Nursing Today</span></div>
+<p class="qstem">Which characteristic BEST distinguishes nursing as a profession rather than an occupation?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Nurses carry out tasks assigned by the physician</span></div><div class="rat">✗ Task performance describes occupational work; professions are defined by autonomy and specialized knowledge, not task-following.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Nursing has a specialized body of knowledge, code of ethics, and professional autonomy</span></div><div class="rat">✓ Correct. Professions are defined by specialized knowledge, self-regulation, a code of ethics, accountability to the public, and autonomous practice.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Nurses must be licensed by the state to practice</span></div><div class="rat">✗ Licensure is a legal requirement shared by many skilled trades; it is necessary but not sufficient to define a profession.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Nurses follow hospital policies and procedures at all times</span></div><div class="rat">✗ Following institutional policies is an employment expectation, not a defining characteristic of professional status.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q2">
+<div class="qhdr"><span class="qnum">Q2</span><span class="qtag">Ch 2 · Health Care Delivery</span></div>
+<p class="qstem">Which service represents TERTIARY level health care?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Annual flu vaccinations at a community clinic</span></div><div class="rat">✗ Flu vaccination is primary prevention — preventing disease before it occurs.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Blood pressure screening at a health fair</span></div><div class="rat">✗ Screening detects existing conditions early — that is secondary prevention, not tertiary.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Cardiac rehabilitation following open-heart surgery</span></div><div class="rat">✓ Correct. Tertiary care focuses on restoring function and reducing disability after illness or injury. Cardiac rehab is the classic example.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Prenatal education classes for expectant mothers</span></div><div class="rat">✗ Prenatal education promotes healthy outcomes and prevents complications — primary prevention.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q3">
+<div class="qhdr"><span class="qnum">Q3</span><span class="qtag">Ch 3 · Community-Based Nursing</span></div>
+<p class="qstem">Which action is an example of PRIMARY prevention?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Teaching a diabetic patient daily foot inspection</span></div><div class="rat">✗ Foot care in a diabetic patient prevents complications of an existing disease — that is tertiary prevention.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Administering childhood vaccines at a school clinic</span></div><div class="rat">✓ Correct. Vaccination prevents disease before it occurs — the definition of primary prevention.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Providing wound care to a post-surgical patient at home</span></div><div class="rat">✗ Wound care treats an existing condition — this is direct treatment, not prevention.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Conducting mammography screening for early cancer detection</span></div><div class="rat">✗ Mammography detects existing disease early — that is secondary prevention.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q4">
+<div class="qhdr"><span class="qnum">Q4</span><span class="qtag">Ch 4 · Theoretical Foundations</span></div>
+<p class="qstem">Using Maslow's hierarchy, a patient reports loneliness, has not eaten in 24 hrs with blood glucose 58 mg/dL, and is anxious about job loss. Which need is addressed FIRST?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Social belonging — the patient feels lonely and isolated</span></div><div class="rat">✗ Love/belonging is a mid-level need; physiological threats must be resolved first.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Physiological — blood glucose 58 mg/dL represents hypoglycemia</span></div><div class="rat">✓ Correct. Physiological survival needs form Maslow's base. Hypoglycemia is an immediate threat to life and is addressed first.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Safety and security — anxiety about job loss</span></div><div class="rat">✗ Safety is the second tier; it cannot be addressed before physiological needs are stabilized.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Esteem — the patient's self-worth is threatened</span></div><div class="rat">✗ Esteem is near the top of the hierarchy — far below the physiological base.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q5">
+<div class="qhdr"><span class="qnum">Q5</span><span class="qtag">Ch 5 · Evidence-Based Practice</span></div>
+<p class="qstem">Which resource represents the HIGHEST level of evidence for guiding nursing practice?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>A single case report published in a nursing journal</span></div><div class="rat">✗ Case reports are the lowest level of evidence; they describe one patient and cannot be generalized.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Expert opinion from a wound care clinical nurse specialist</span></div><div class="rat">✗ Expert opinion is considered weak evidence due to potential bias and subjectivity.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>A systematic review and meta-analysis of randomized controlled trials</span></div><div class="rat">✓ Correct. Systematic reviews synthesize multiple high-quality RCTs and represent the highest level of the evidence hierarchy.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>A clinical practice guideline from a hospital policy committee</span></div><div class="rat">✗ Guidelines vary in quality; those based on expert consensus (rather than systematic research) rank lower than systematic reviews.</div></li>
+</ul>
+</div>
+
+</div></details>
+
+<!-- ═══════════════════════════════════ UNIT 2 ═══════════════════════════════════ -->
+<details class="section">
+<summary>Unit 2 — Caring Throughout the Life Span <span style="font-weight:normal;font-size:.84em;opacity:.85">(Ch 6–14 · Q6–11)</span></summary>
+<div class="sec-body">
+
+<div class="qb" id="q6">
+<div class="qhdr"><span class="qnum">Q6</span><span class="qtag">Ch 6 · Health and Wellness</span></div>
+<p class="qstem">A patient repeatedly visits the ED for minor complaints but refuses recommended treatment. This behavior BEST represents which stage of illness?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Symptom experience stage</span></div><div class="rat">✗ Symptom experience is the first stage — noticing something is wrong before seeking any care.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Medical care contact stage</span></div><div class="rat">✓ Correct. The patient seeks professional validation of symptoms but does not commit to treatment — defining the medical care contact stage.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Dependent patient role stage</span></div><div class="rat">✗ Dependent patient role is when the patient fully accepts illness and follows prescribed treatment — the opposite of what this patient does.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Recovery and rehabilitation stage</span></div><div class="rat">✗ Recovery is the final stage, when the patient works to regain normal function.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q7">
+<div class="qhdr"><span class="qnum">Q7</span><span class="qtag">Ch 7 · Caring in Nursing</span></div>
+<p class="qstem">A nurse is with a terminally ill patient who is frightened and alone. Which action BEST reflects Watson's Theory of Human Caring?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Completing all documentation efficiently before family arrives</span></div><div class="rat">✗ Task efficiency reflects a biomedical model; Watson's theory centers on being fully present with the patient, not task completion.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Sitting with the patient, holding their hand, and inviting them to share their fears</span></div><div class="rat">✓ Correct. Watson's transpersonal caring moment is defined by full presence, emotional engagement, and honoring the patient's human experience.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Administering scheduled analgesics on time for comfort</span></div><div class="rat">✗ Medication administration is a technical intervention; Watson's caring theory focuses on the relational/transpersonal dimension.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Coordinating with the team to update the care plan</span></div><div class="rat">✗ Care planning is an organizational task; it does not constitute a transpersonal caring relationship as Watson described.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q8">
+<div class="qhdr"><span class="qnum">Q8</span><span class="qtag">Ch 9 · Cultural Competence</span></div>
+<p class="qstem">A patient from a Southeast Asian background consistently refuses the prescribed high-protein diet. What is the nurse's BEST initial response?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Explain that the diet is medically necessary and strongly encourage compliance</span></div><div class="rat">✗ Insisting without exploring cultural context is culturally incompetent and violates patient autonomy.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Document the refusal and notify the provider</span></div><div class="rat">✗ Documenting without exploring reasons misses the opportunity for culturally competent negotiation.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Ask the patient about food preferences and cultural or religious beliefs</span></div><div class="rat">✓ Correct. Cultural competence requires assessing beliefs before intervening — understanding the "why" allows a culturally acceptable care plan.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Ask dietary services to serve the same foods in a different form</span></div><div class="rat">✗ Changing presentation without understanding the cultural concern does not address the underlying issue.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q9">
+<div class="qhdr"><span class="qnum">Q9</span><span class="qtag">Ch 12 · Growth and Development</span></div>
+<p class="qstem">A nurse assesses a 9-month-old infant. Which developmental milestone should the nurse EXPECT?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Walking independently without support</span></div><div class="rat">✗ Independent walking is a 12-month milestone, not 9 months.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Speaking 2–3 word sentences</span></div><div class="rat">✗ Two-to-three word phrases develop around 18–24 months.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Using a pincer grasp to pick up small objects</span></div><div class="rat">✓ Correct. Pincer grasp (opposing thumb and forefinger) typically develops at 9–10 months.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Pedaling a tricycle</span></div><div class="rat">✗ Pedaling a tricycle is a 3-year-old gross motor milestone.</div></li>
+</ul>
+</div>
+
+<!-- Q10 SATA -->
+<div class="qb" id="q10">
+<div class="qhdr"><span class="qnum">Q10</span><span class="qtag">Ch 14 · Older Adults</span><span class="sata-badge">SELECT ALL THAT APPLY</span></div>
+<p class="qstem">Which of the following are NORMAL age-related changes in an older adult? (Select all that apply)</p>
+<ul class="opts">
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Decreased skin elasticity and increased fragility</span></div><div class="rat">✓ Loss of collagen and subcutaneous fat is a well-documented normal aging change.</div></li>
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Increased glomerular filtration rate</span></div><div class="rat">✗ GFR decreases with age (approximately 1% per year after age 40); increased GFR would be abnormal.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Sarcopenia — progressive loss of muscle mass</span></div><div class="rat">✓ Sarcopenia begins in the 4th decade and accelerates with aging.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Increased susceptibility to constipation due to decreased GI motility</span></div><div class="rat">✓ Decreased peristalsis and GI motility are normal aging changes that increase constipation risk.</div></li>
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">E.</span><span>Enhanced immune response to infection</span></div><div class="rat">✗ Immunosenescence — declining immune function — is the normal aging pattern; enhanced immunity would be abnormal.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">F.</span><span>Increased lens rigidity causing presbyopia</span></div><div class="rat">✓ Lens rigidity (loss of accommodation) causing difficulty with near vision is a classic normal aging change.</div></li>
+</ul>
+<button class="sata-submit" onclick="submitSATA(this)">Submit Answer</button>
+</div>
+
+<div class="qb" id="q11">
+<div class="qhdr"><span class="qnum">Q11</span><span class="qtag">Ch 8 · Chronic Illness</span></div>
+<p class="qstem">Which patient statement indicates EFFECTIVE chronic disease self-management in a patient with type 2 diabetes?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>"I only check my blood sugar when I feel symptomatic."</span></div><div class="rat">✗ Symptom-driven monitoring misses asymptomatic hyperglycemia and leads to poor long-term glycemic control.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>"I take my medication only when my glucose bothers me."</span></div><div class="rat">✗ Inconsistent medication use undermines glycemic control and increases risk of complications.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>"I keep a log of my blood sugars and bring it to every appointment."</span></div><div class="rat">✓ Correct. Active monitoring, record-keeping, and shared data with the provider are hallmarks of effective chronic disease self-management.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>"I will call my doctor whenever I need guidance."</span></div><div class="rat">✗ Reactive, provider-dependent behavior does not support the self-efficacy required for effective chronic disease management.</div></li>
+</ul>
+</div>
+
+</div></details>
+
+<!-- ═══════════════════════════════════ UNIT 3 ═══════════════════════════════════ -->
+<details class="section">
+<summary>Unit 3 — Clinical Judgment in Nursing Practice <span style="font-weight:normal;font-size:.84em;opacity:.85">(Ch 15–21 · Q12–17)</span></summary>
+<div class="sec-body">
+
+<div class="qb" id="q12">
+<div class="qhdr"><span class="qnum">Q12</span><span class="qtag">Ch 15 · Critical Thinking</span></div>
+<p class="qstem">A nurse uses SBAR to communicate about a deteriorating patient. What does the "A" represent?</p>
+<ul class="opts">
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Assessment — the nurse's clinical interpretation of the data</span></div><div class="rat">✓ Correct. SBAR = Situation, Background, <strong>Assessment</strong> (nurse's synthesis of what is happening clinically), Recommendation.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Action — interventions the nurse has already implemented</span></div><div class="rat">✗ Actions taken may be mentioned in Background or Situation, but "Action" is not a formal SBAR component.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Alert — a critical notification that the patient is unstable</span></div><div class="rat">✗ "Alert" is not a component of SBAR; it describes tone, not a formal step in the framework.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Acknowledgment — confirmation of receipt of the communication</span></div><div class="rat">✗ Acknowledgment may follow communication but is not part of the SBAR acronym itself.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q13">
+<div class="qhdr"><span class="qnum">Q13</span><span class="qtag">Ch 16 · Nursing Assessment</span></div>
+<p class="qstem">A patient says "I feel dizzy when I stand up." The nurse measures blood pressure lying and standing. How is each piece of data classified?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Both are subjective data</span></div><div class="rat">✗ Blood pressure is measured and quantified by the nurse — it is objective data.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>The patient's report is objective; the BP readings are subjective</span></div><div class="rat">✗ This reverses the definitions. A patient's verbal report is subjective; measured values are objective.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>The patient's report is subjective; the BP readings are objective</span></div><div class="rat">✓ Correct. Subjective = what the patient reports (only they can describe it). Objective = measurable data collected by the nurse through examination.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Both are objective because the nurse collected them both</span></div><div class="rat">✗ Who collects the data does not determine its classification; it is the nature of the data (measurable vs. perceived) that matters.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q14">
+<div class="qhdr"><span class="qnum">Q14</span><span class="qtag">Ch 17 · Nursing Diagnosis</span></div>
+<p class="qstem">A patient with COPD has SpO<sub>2</sub> 87% and uses accessory muscles. Which is a correctly written NANDA nursing diagnosis?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>"Respiratory failure related to COPD"</span></div><div class="rat">✗ "Respiratory failure" is a medical diagnosis. Nursing diagnoses address human responses, not medical conditions.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>"Patient needs supplemental oxygen therapy"</span></div><div class="rat">✗ This is a nursing order/intervention, not a diagnostic statement.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>"Impaired gas exchange related to alveolar hypoventilation as evidenced by SpO<sub>2</sub> 87% and accessory muscle use"</span></div><div class="rat">✓ Correct. Three-part NANDA format: [Problem] related to [Etiology] as evidenced by [Defining characteristics].</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>"COPD causing low oxygen saturation and labored breathing"</span></div><div class="rat">✗ This is a descriptive sentence linking a medical condition to symptoms — not a standardized NANDA diagnostic statement.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q15">
+<div class="qhdr"><span class="qnum">Q15</span><span class="qtag">Ch 18 · Planning</span></div>
+<p class="qstem">Which patient goal is correctly written using SMART criteria?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>"Patient will improve mobility before discharge."</span></div><div class="rat">✗ "Improve" is vague (not measurable); "before discharge" lacks specificity. Neither is SMART.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>"Nurse will assist patient with ambulation three times daily."</span></div><div class="rat">✗ Goals must be patient-centered (subject = patient), not nurse-centered.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>"Patient will ambulate 50 feet in the hallway with one-person assist within 24 hours of surgery."</span></div><div class="rat">✓ Correct. Specific (50 ft, hallway, assist level), measurable, attainable, relevant, and time-bound (24 hours).</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>"Patient will walk better each day."</span></div><div class="rat">✗ "Better" and "each day" are vague; not measurable or time-specific per SMART criteria.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q16">
+<div class="qhdr"><span class="qnum">Q16</span><span class="qtag">Ch 19 · Implementing Care</span></div>
+<p class="qstem">A post-op patient has: acute pain 7/10, impaired mobility, risk for infection, and ineffective airway clearance (SpO<sub>2</sub> 91%). Which diagnosis is addressed FIRST?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Acute pain — the patient is highly distressed</span></div><div class="rat">✗ Pain is important but not immediately life-threatening; impaired oxygenation takes ABC priority.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Impaired physical mobility — early ambulation prevents complications</span></div><div class="rat">✗ Mobility is a functional concern; it is not prioritized over an active threat to airway and breathing.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Risk for infection — prevention is always a priority</span></div><div class="rat">✗ "Risk for" diagnoses are lower priority than actual problems currently compromising a vital function.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Ineffective airway clearance — SpO<sub>2</sub> 91% is a life-threatening concern</span></div><div class="rat">✓ Correct. Using ABCs: Airway/Breathing is always the first priority. SpO<sub>2</sub> 91% indicates impaired oxygenation requiring immediate intervention.</div></li>
+</ul>
+</div>
+
+<!-- Q17 SATA -->
+<div class="qb" id="q17">
+<div class="qhdr"><span class="qnum">Q17</span><span class="qtag">Ch 21 · Managing Patient Care</span><span class="sata-badge">SELECT ALL THAT APPLY</span></div>
+<p class="qstem">Which tasks are APPROPRIATE to delegate to a certified nursing assistant (CNA)? (Select all that apply)</p>
+<ul class="opts">
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Performing the initial nursing assessment on a newly admitted patient</span></div><div class="rat">✗ Initial assessments require RN-level clinical judgment and cannot be delegated to a CNA.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Measuring and recording vital signs on a stable patient</span></div><div class="rat">✓ Routine vital signs on stable patients are a standard CNA task — predictable, low-risk data collection.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Ambulating a stable patient in the hallway</span></div><div class="rat">✓ Assisting stable patients with ambulation is within CNA scope of practice.</div></li>
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Evaluating a patient's response to a PRN pain medication</span></div><div class="rat">✗ Evaluation of therapeutic response requires nursing clinical judgment — RN scope only.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">E.</span><span>Collecting a routine urine specimen per protocol</span></div><div class="rat">✓ Routine specimen collection is a delegable, predictable task appropriate for CNAs.</div></li>
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">F.</span><span>Teaching a newly diagnosed diabetic patient about insulin injection</span></div><div class="rat">✗ Patient teaching requires specialized nursing knowledge and cannot be delegated.</div></li>
+</ul>
+<button class="sata-submit" onclick="submitSATA(this)">Submit Answer</button>
+</div>
+
+</div></details>
+
+<!-- ═══════════════════════════════════ UNIT 4 ═══════════════════════════════════ -->
+<details class="section">
+<summary>Unit 4 — Professional Standards in Nursing Practice <span style="font-weight:normal;font-size:.84em;opacity:.85">(Ch 22–26 · Q18–22)</span></summary>
+<div class="sec-body">
+
+<div class="qb" id="q18">
+<div class="qhdr"><span class="qnum">Q18</span><span class="qtag">Ch 22 · Ethics</span></div>
+<p class="qstem">A nurse suspects a colleague is diverting narcotics after observing them wasting without a witness. What is the nurse's ETHICAL obligation?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Confront the colleague privately and offer support resources</span></div><div class="rat">✗ Private confrontation is not sufficient; it allows diversion to continue and does not protect patients.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Report the behavior to the charge nurse or appropriate authority per facility policy</span></div><div class="rat">✓ Correct. The ANA Code of Ethics obligates nurses to safeguard patients and report unsafe or unethical practice through proper channels.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Document the observation in the patient's medical record</span></div><div class="rat">✗ The patient's chart is not the appropriate channel for reporting staff misconduct.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Wait and observe again before reporting to be certain</span></div><div class="rat">✗ Waiting for confirmation allows ongoing diversion and patient harm; reasonable suspicion is sufficient to report.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q19">
+<div class="qhdr"><span class="qnum">Q19</span><span class="qtag">Ch 23 · Legal Implications</span></div>
+<p class="qstem">A nurse administers double the prescribed dose; the patient experiences no harm. Which legal concept BEST applies?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Assault — the patient was threatened</span></div><div class="rat">✗ Assault involves a credible threat of harmful contact; an accidental dosing error does not constitute assault.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Battery — medication given without proper consent</span></div><div class="rat">✗ Battery is intentional harmful or offensive contact; this was an unintentional error, not intentional harm.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Negligence — the nurse failed to meet the standard of care</span></div><div class="rat">✓ Correct. Negligence is the failure to act as a reasonably prudent nurse would. Doubling the dose is a breach of duty regardless of whether harm occurred.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>No liability — no harm occurred, so there is no issue</span></div><div class="rat">✗ The absence of harm may limit malpractice damages, but the breach of standard of care (negligence) still occurred and must be reported.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q20">
+<div class="qhdr"><span class="qnum">Q20</span><span class="qtag">Ch 24 · Communication</span></div>
+<p class="qstem">A patient is crying and says "I feel like no one understands what I'm going through." Which response is MOST therapeutic?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>"You shouldn't feel that way — your care team really cares about you."</span></div><div class="rat">✗ "You shouldn't feel that way" dismisses and invalidates the patient's emotional experience — a non-therapeutic response.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>"Tell me more about what you're feeling right now."</span></div><div class="rat">✓ Correct. Open-ended exploration validates feelings and invites the patient to elaborate — a core therapeutic communication technique.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>"Everything is going to be okay. Try not to worry."</span></div><div class="rat">✗ False reassurance minimizes the patient's concerns and closes down therapeutic communication.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>"Have you been able to talk to your family about how you feel?"</span></div><div class="rat">✗ Redirecting to family deflects attention away from the patient's expressed need, avoiding rather than addressing the feeling.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q21">
+<div class="qhdr"><span class="qnum">Q21</span><span class="qtag">Ch 25 · Patient Education</span></div>
+<p class="qstem">A nurse finishes teaching a patient insulin self-injection. Which action BEST evaluates whether learning occurred?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Ask the patient if they have any remaining questions</span></div><div class="rat">✗ Asking about questions evaluates confusion but not actual skill acquisition.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Provide written step-by-step instructions for the patient to take home</span></div><div class="rat">✗ Written materials support but do not replace confirmation of learning through demonstration.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Ask the patient to demonstrate the injection technique (return demonstration)</span></div><div class="rat">✓ Correct. Return demonstration (teach-back) is the gold standard for evaluating psychomotor skill learning.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Document in the chart that teaching was completed</span></div><div class="rat">✗ Documentation should reflect the outcome of evaluation, not substitute for it — charting without evaluating learning is inadequate.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q22">
+<div class="qhdr"><span class="qnum">Q22</span><span class="qtag">Ch 26 · Informatics &amp; Documentation</span></div>
+<p class="qstem">A nurse sees a colleague accessing the EHR for a celebrity patient out of curiosity, with no care relationship. This violates which principle?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>The patient's right to informed consent</span></div><div class="rat">✗ Informed consent relates to medical procedures and treatment decisions, not health record privacy.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>HIPAA — unauthorized access to protected health information</span></div><div class="rat">✓ Correct. HIPAA prohibits accessing patient records without a treatment-related need, regardless of the patient's public status. This is a federal violation.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>The patient's right to refuse treatment</span></div><div class="rat">✗ Right to refuse treatment is a patient autonomy right regarding care decisions, not information privacy.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>The Nurse Practice Act regarding scope of practice</span></div><div class="rat">✗ The NPA governs clinical scope of practice, not health information privacy.</div></li>
+</ul>
+</div>
+
+</div></details>
+
+<!-- ═══════════════════════════════════ UNIT 5 ═══════════════════════════════════ -->
+<details class="section">
+<summary>Unit 5 — Foundations for Nursing Practice <span style="font-weight:normal;font-size:.84em;opacity:.85">(Ch 27–32 · Q23–30)</span></summary>
+<div class="sec-body">
+
+<div class="qb" id="q23">
+<div class="qhdr"><span class="qnum">Q23</span><span class="qtag">Ch 27 · Patient Safety</span></div>
+<p class="qstem">An elderly confused patient is at high fall risk. Which intervention is the HIGHEST priority?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Apply bilateral wrist restraints to keep the patient in bed</span></div><div class="rat">✗ Restraints are a last resort, require a physician order, and can increase agitation and injury risk — never the first intervention.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Keep the bed in the highest position for easy staff access</span></div><div class="rat">✗ Beds must be in the LOWEST position to minimize injury if the patient falls.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Place call light within reach and instruct patient to call before getting up</span></div><div class="rat">✓ Correct. Ensuring the patient can call for help is the priority least-restrictive intervention for fall prevention.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Place a "High Fall Risk" armband and sign on the door only</span></div><div class="rat">✗ Signage communicates risk to staff but provides no direct protection to the patient.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q24">
+<div class="qhdr"><span class="qnum">Q24</span><span class="qtag">Ch 27 · Patient Safety</span></div>
+<p class="qstem">A fire breaks out on the unit. In what ORDER should the nurse use the RACE mnemonic?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Extinguish → Rescue → Alarm → Contain</span></div><div class="rat">✗ Attempting to extinguish before rescuing patients puts lives at risk; rescue always comes first.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Rescue → Alarm → Contain → Extinguish/Evacuate</span></div><div class="rat">✓ Correct. RACE: Rescue patients in immediate danger → Alarm (pull fire alarm/call 911) → Contain (close doors) → Extinguish if safe, or Evacuate.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Alarm → Rescue → Extinguish → Contain</span></div><div class="rat">✗ Alarming before rescuing delays rescue of patients in immediate danger; rescue is the first priority.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Contain → Alarm → Rescue → Extinguish</span></div><div class="rat">✗ Containing before rescuing and alarming delays both emergency response and patient safety.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q25">
+<div class="qhdr"><span class="qnum">Q25</span><span class="qtag">Ch 28 · Infection Prevention</span></div>
+<p class="qstem">Before inserting a urinary catheter using sterile technique, which action is MOST important to prevent HAI?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Don sterile gown and mask before entering the room</span></div><div class="rat">✗ A gown and mask are not required for routine urinary catheter insertion; hand hygiene precedes all procedures.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Perform hand hygiene before donning sterile gloves</span></div><div class="rat">✓ Correct. Hand hygiene is the single most important measure to prevent HAI and must be performed before gloving for every procedure.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Open the sterile field carefully without touching the sterile zone</span></div><div class="rat">✗ Maintaining a sterile field is important but does not replace performing hand hygiene prior to the procedure.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Apply clean gloves first, then change to sterile gloves</span></div><div class="rat">✗ Applying clean gloves before sterile gloves contaminates the outer sterile gloves; hand hygiene precedes all gloving.</div></li>
+</ul>
+</div>
+
+<!-- Q26 SATA -->
+<div class="qb" id="q26">
+<div class="qhdr"><span class="qnum">Q26</span><span class="qtag">Ch 28 · Infection Prevention</span><span class="sata-badge">SELECT ALL THAT APPLY</span></div>
+<p class="qstem">A patient is on droplet precautions for influenza. Which PPE items are REQUIRED when entering the room? (Select all that apply)</p>
+<ul class="opts">
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Surgical/procedure mask</span></div><div class="rat">✓ A surgical mask is required for droplet precautions to prevent exposure to respiratory droplets.</div></li>
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>N95 respirator</span></div><div class="rat">✗ N95 respirators are required for airborne precautions (TB, measles, varicella) — not for droplet precautions.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Disposable gloves</span></div><div class="rat">✓ Gloves are required under both standard and droplet precautions.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Isolation gown</span></div><div class="rat">✓ An isolation gown is required when entering a droplet precaution room.</div></li>
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">E.</span><span>Negative-pressure (airborne isolation) room</span></div><div class="rat">✗ Negative-pressure rooms are required for airborne precautions only (TB, measles, varicella) — not droplet precautions.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">F.</span><span>Eye protection/face shield when splash risk is anticipated</span></div><div class="rat">✓ Eye protection is recommended when there is a risk of splashing secretions onto mucous membranes.</div></li>
+</ul>
+<button class="sata-submit" onclick="submitSATA(this)">Submit Answer</button>
+</div>
+
+<div class="qb" id="q27">
+<div class="qhdr"><span class="qnum">Q27</span><span class="qtag">Ch 29 · Vital Signs</span></div>
+<p class="qstem">A patient has BP 148/94 mmHg on two separate visits. How should this be classified per ACC/AHA guidelines?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Normal — within acceptable limits for an adult</span></div><div class="rat">✗ Normal BP is &lt;120/&lt;80 mmHg; 148/94 significantly exceeds this.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Elevated blood pressure (prehypertension)</span></div><div class="rat">✗ Elevated BP is defined as systolic 120–129/&lt;80; 148/94 exceeds Stage 1 on both measures.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Stage 2 hypertension</span></div><div class="rat">✓ Correct. ACC/AHA: Stage 2 HTN = systolic ≥140 OR diastolic ≥90. At 148/94, both thresholds are met.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Hypertensive crisis requiring emergency treatment</span></div><div class="rat">✗ Hypertensive crisis requires systolic &gt;180 AND/OR diastolic &gt;120. 148/94 does not meet this threshold.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q28">
+<div class="qhdr"><span class="qnum">Q28</span><span class="qtag">Ch 30 · Health Assessment</span></div>
+<p class="qstem">In what sequence should a nurse perform physical assessment of the ABDOMEN?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Inspection → Percussion → Palpation → Auscultation</span></div><div class="rat">✗ Palpating/percussing before auscultating can artificially stimulate or suppress bowel sounds, giving a false baseline.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Inspection → Auscultation → Percussion → Palpation</span></div><div class="rat">✓ Correct. The abdomen is the EXCEPTION: auscultate before palpating/percussing to get accurate bowel sounds unaltered by manipulation.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Auscultation → Inspection → Palpation → Percussion</span></div><div class="rat">✗ Auscultation before inspection skips the visual assessment that should guide the entire examination.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Inspection → Palpation → Percussion → Auscultation</span></div><div class="rat">✗ This is the standard sequence for most body systems — NOT the abdomen, where auscultation precedes palpation/percussion.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q29">
+<div class="qhdr"><span class="qnum">Q29</span><span class="qtag">Ch 31 · Medication Administration</span></div>
+<p class="qstem">A nurse infusing IV vancomycin notes the site is red, swollen, and warm, and the patient reports pain. What should the nurse do FIRST?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Slow the infusion rate and apply a warm compress</span></div><div class="rat">✗ Slowing the rate does not address tissue damage and continues delivering a vesicant to a compromised site.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Stop the infusion and remove the peripheral IV catheter immediately</span></div><div class="rat">✓ Correct. Signs of phlebitis or infiltration require immediately stopping the infusion and removing the catheter — before any other intervention.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Flush the IV line with normal saline to assess patency</span></div><div class="rat">✗ Flushing pushes medication into already damaged or infiltrated tissue, worsening injury — especially dangerous with vancomycin.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Notify the physician before taking any action</span></div><div class="rat">✗ The nurse must stop the infusion and remove the catheter first; provider notification follows after the immediate threat is addressed.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q30">
+<div class="qhdr"><span class="qnum">Q30</span><span class="qtag">Ch 31 · Medication Administration</span></div>
+<p class="qstem">A nurse finds the patient's allergy list includes the prescribed drug class and cannot reach the prescribing physician. What is the APPROPRIATE action?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Administer the medication and document the notification attempt</span></div><div class="rat">✗ Administering a potentially allergenic drug could cause a life-threatening reaction; the medication must be held.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Hold the medication and contact the charge nurse or supervisor for guidance</span></div><div class="rat">✓ Correct. Patient safety requires holding the medication and escalating through the chain of command when a documented allergy conflict exists.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Ask another nurse to confirm the allergy and then give the medication</span></div><div class="rat">✗ Another nurse's confirmation does not change the documented allergy or make the drug safe to administer.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Give the medication since a physician ordered it</span></div><div class="rat">✗ A physician's order does not override a documented drug allergy; the nurse has an independent duty to ensure medication safety.</div></li>
+</ul>
+</div>
+
+</div></details>
+
+<!-- ═══════════════════════════════════ UNIT 6 ═══════════════════════════════════ -->
+<details class="section">
+<summary>Unit 6 — Psychosocial Basis for Nursing Practice <span style="font-weight:normal;font-size:.84em;opacity:.85">(Ch 33–37 · Q31–34)</span></summary>
+<div class="sec-body">
+
+<div class="qb" id="q31">
+<div class="qhdr"><span class="qnum">Q31</span><span class="qtag">Ch 33 · Self-Concept</span></div>
+<p class="qstem">A mastectomy patient refuses to look at the surgical site and says "I don't feel like a woman anymore." Which nursing diagnosis is MOST appropriate?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Chronic sorrow related to loss of a body part</span></div><div class="rat">✗ Chronic sorrow is a cyclical, recurrent grief pattern; the patient's acute post-surgical response points more directly to body image disturbance.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Disturbed body image related to surgical alteration</span></div><div class="rat">✓ Correct. Refusal to view the affected area + verbalized change in identity/femininity are defining characteristics of disturbed body image.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Risk for impaired skin integrity related to the surgical wound</span></div><div class="rat">✗ This addresses physical wound care; the patient's statement and behavior indicate a psychological/self-perception concern.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Ineffective coping related to new diagnosis</span></div><div class="rat">✗ Ineffective coping may be secondary, but the primary defining characteristics (body view avoidance, identity statement) point to body image disturbance.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q32">
+<div class="qhdr"><span class="qnum">Q32</span><span class="qtag">Ch 35 · Spiritual Health</span></div>
+<p class="qstem">A patient nearing end of life says "I can't die yet — my family still needs me." Which response BEST addresses the patient's spiritual distress?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>"Your family will be well taken care of. Don't worry."</span></div><div class="rat">✗ This is false reassurance — it dismisses the patient's existential concern and shuts down the conversation.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>"Tell me more about what gives your life meaning and what your family needs from you."</span></div><div class="rat">✓ Correct. Spiritual care begins with exploring sources of meaning and purpose — open-ended exploration before any referral or reassurance.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>"Would you like me to call the hospital chaplain to speak with you?"</span></div><div class="rat">✗ A chaplain referral may be appropriate later, but the nurse should first explore the patient's spiritual needs directly.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>"The medical team is doing everything possible to help you."</span></div><div class="rat">✗ Focusing on the medical team does not address the patient's spiritual/existential distress about meaning and family connectedness.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q33">
+<div class="qhdr"><span class="qnum">Q33</span><span class="qtag">Ch 36 · Loss and Grief</span></div>
+<p class="qstem">A patient whose spouse died 5 months ago still cries daily and says "I can't imagine being happy again." The nurse BEST interprets this as:</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Complicated grief — the patient needs immediate psychiatric referral</span></div><div class="rat">✗ Complicated (prolonged) grief involves severe functional impairment persisting beyond 12 months; intense sadness at 5 months is within normal range.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Normal grieving within the expected timeline for spousal bereavement</span></div><div class="rat">✓ Correct. Grief following spousal loss can involve intense sadness for 1–2 years or longer. Daily crying at 5 months is within the normal range.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Major depressive disorder requiring antidepressant therapy</span></div><div class="rat">✗ Diagnosing MDD at 5 months post-loss requires more than crying and anticipated sadness; clinical assessment must rule out normal grief first.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Denial — the first stage of Kübler-Ross's model</span></div><div class="rat">✗ Denial is the initial stage; this patient is clearly experiencing active grief, not refusing to accept the loss.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q34">
+<div class="qhdr"><span class="qnum">Q34</span><span class="qtag">Ch 37 · Stress and Coping</span></div>
+<p class="qstem">A patient admitted for hypertensive urgency says "I've been working 70-hour weeks since my company threatened layoffs." The nurse identifies this as which type of stressor?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Maturational (developmental) stressor</span></div><div class="rat">✗ Maturational stressors are tied to normal life-stage transitions (marriage, parenthood, retirement) — not external work threats.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Physiological stressor</span></div><div class="rat">✗ Physiological stressors arise from physical sources such as injury or disease — not workplace circumstances.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Situational (external) stressor</span></div><div class="rat">✓ Correct. Situational stressors arise from specific external life events or circumstances — the job threat and overwork are classic situational stressors.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Intrapsychic stressor</span></div><div class="rat">✗ Intrapsychic stressors originate from internal conflicts (values, beliefs, thoughts) rather than external circumstances.</div></li>
+</ul>
+</div>
+
+</div></details>
+
+<!-- ═══════════════════════════════════ UNIT 7 ═══════════════════════════════════ -->
+<details class="section">
+<summary>Unit 7 — Physiological Basis for Nursing Practice <span style="font-weight:normal;font-size:.84em;opacity:.85">(Ch 38–50 · Q35–50)</span></summary>
+<div class="sec-body">
+
+<div class="qb" id="q35">
+<div class="qhdr"><span class="qnum">Q35</span><span class="qtag">Ch 38 · Activity and Exercise</span></div>
+<p class="qstem">A patient has left-sided weakness and is partially weight-bearing. What is the CORRECT wheelchair transfer technique?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Position the wheelchair on the patient's left (weak) side for easy pivot</span></div><div class="rat">✗ Positioning the chair on the weak side forces weight-bearing on the weak extremity, increasing fall risk.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Position the wheelchair on the right (strong) side and lead with the strong leg</span></div><div class="rat">✓ Correct. Transfer toward strength: wheelchair on the strong side, lead with the strong leg, pivot using intact strength.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Force weight-bearing on the left side to strengthen it during the transfer</span></div><div class="rat">✗ Forcing weight on a weak limb during transfer is unsafe and may cause injury; strengthening is done during therapy, not transfers.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Place the transfer belt around the patient's shoulders for support</span></div><div class="rat">✗ Transfer/gait belts are placed at the waist — never around the shoulders, which could cause cervical or shoulder injury.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q36">
+<div class="qhdr"><span class="qnum">Q36</span><span class="qtag">Ch 39 · Immobility</span></div>
+<p class="qstem">A patient on bed rest for 6 days reports calf pain with erythema and warmth over the posterior lower leg. This MOST likely represents:</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Muscle atrophy from disuse</span></div><div class="rat">✗ Disuse atrophy causes weakness and reduced muscle bulk — not localized heat, redness, and pain.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Deep vein thrombosis (DVT)</span></div><div class="rat">✓ Correct. Calf pain, erythema, and warmth after prolonged immobility are classic DVT signs. Do NOT massage — it can dislodge the clot.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Peripheral arterial disease</span></div><div class="rat">✗ PAD causes cold, pale extremities and claudication (pain with activity) — not localized warmth and redness at rest.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Orthostatic hypotension</span></div><div class="rat">✗ Orthostatic hypotension causes dizziness upon standing — not localized calf findings.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q37">
+<div class="qhdr"><span class="qnum">Q37</span><span class="qtag">Ch 40 · Hygiene</span></div>
+<p class="qstem">A nurse is providing oral care to an unconscious patient. Which position BEST prevents aspiration?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Supine with head of bed flat (0°)</span></div><div class="rat">✗ Supine flat is the highest-risk position for aspiration as secretions pool at the pharynx.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Semi-Fowler's with neck hyperextended</span></div><div class="rat">✗ Neck hyperextension opens the glottis and increases aspiration risk by directing fluid toward the trachea.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Side-lying (lateral) position</span></div><div class="rat">✓ Correct. Side-lying allows oral secretions and rinse water to drain by gravity, preventing aspiration in unconscious patients.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>High Fowler's at 90° without suction equipment present</span></div><div class="rat">✗ High Fowler's may help conscious patients but does not prevent aspiration in unconscious patients; suction must always be at the bedside.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q38">
+<div class="qhdr"><span class="qnum">Q38</span><span class="qtag">Ch 41 · Oxygenation</span></div>
+<p class="qstem">A COPD patient has SpO<sub>2</sub> 87% and is in moderate respiratory distress. What should the nurse do FIRST?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Prepare the patient for intubation</span></div><div class="rat">✗ Intubation is an advanced, invasive intervention; less invasive positioning and oxygen must be tried first.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Notify the physician immediately</span></div><div class="rat">✗ The nurse must take immediate independent actions (positioning, O₂) before calling the provider.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Position the patient upright (high Fowler's) and apply supplemental oxygen</span></div><div class="rat">✓ Correct. Upright positioning maximizes diaphragmatic excursion; oxygen corrects hypoxemia. These are immediate independent nursing actions that do not require an order for urgent application.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Administer the ordered PRN bronchodilator first</span></div><div class="rat">✗ Bronchodilator therapy is appropriate but comes after positioning and oxygen are initiated.</div></li>
+</ul>
+</div>
+
+<!-- Q39 SATA -->
+<div class="qb" id="q39">
+<div class="qhdr"><span class="qnum">Q39</span><span class="qtag">Ch 41 · Oxygenation</span><span class="sata-badge">SELECT ALL THAT APPLY</span></div>
+<p class="qstem">Which of the following actions reflect CORRECT airway suctioning technique? (Select all that apply)</p>
+<ul class="opts">
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Pre-oxygenate the patient with 100% oxygen for 30 seconds before each pass</span></div><div class="rat">✓ Pre-oxygenation minimizes the hypoxia that results from removing oxygen along with secretions.</div></li>
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Apply continuous suction while inserting the catheter</span></div><div class="rat">✗ Suction is applied only during WITHDRAWAL — not insertion. Applying it during advancement causes mucosal trauma and increases hypoxia.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Limit each pass to no longer than 10–15 seconds</span></div><div class="rat">✓ Limiting pass duration to 10–15 seconds prevents hypoxia and mucosal damage.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Maintain sterile technique throughout the procedure</span></div><div class="rat">✓ Sterile technique prevents introducing pathogens into the lower airway.</div></li>
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">E.</span><span>Suction the oropharynx (mouth) before the trachea to clear the most accessible area first</span></div><div class="rat">✗ The trachea is suctioned FIRST, then the oropharynx. Moving from clean (trachea) to contaminated (mouth) preserves sterile technique.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">F.</span><span>Allow the patient to rest 20–30 seconds between passes if needed</span></div><div class="rat">✓ Resting between passes allows SpO₂ to recover and reduces cumulative hypoxia risk.</div></li>
+</ul>
+<button class="sata-submit" onclick="submitSATA(this)">Submit Answer</button>
+</div>
+
+<div class="qb" id="q40">
+<div class="qhdr"><span class="qnum">Q40</span><span class="qtag">Ch 42 · Fluid &amp; Electrolyte Balance</span></div>
+<p class="qstem">A patient is receiving 0.9% sodium chloride IV. The nurse correctly classifies this solution as:</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Hypotonic — it will cause cells to swell</span></div><div class="rat">✗ Hypotonic solutions (0.45% NaCl, D5W after dextrose metabolism) cause water to move into cells. Normal saline does not.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Hypertonic — it will pull fluid from cells into the vasculature</span></div><div class="rat">✗ Hypertonic solutions (3% NaCl, D10W) shift water out of cells. 0.9% NaCl does not have this effect.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Isotonic — it has approximately the same osmolarity as plasma</span></div><div class="rat">✓ Correct. 0.9% NaCl (~308 mOsm/L) matches plasma osmolarity and causes no fluid shift between compartments.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Colloid — it contains large protein molecules</span></div><div class="rat">✗ Colloids contain large molecules such as albumin or blood products. 0.9% NaCl is a crystalloid solution.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q41">
+<div class="qhdr"><span class="qnum">Q41</span><span class="qtag">Ch 42 · Fluid &amp; Electrolyte Balance</span></div>
+<p class="qstem">A heart failure patient has bilateral pitting edema in the lower extremities. The nurse recognizes this as:</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Intracellular fluid deficit</span></div><div class="rat">✗ Intracellular fluid deficit causes cellular dehydration and is not visible as dependent edema.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Intravascular fluid deficit (hypovolemia)</span></div><div class="rat">✗ Hypovolemia causes tachycardia, hypotension, and decreased urine output — not pitting edema.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Extracellular (interstitial) fluid excess</span></div><div class="rat">✓ Correct. In heart failure, increased venous hydrostatic pressure shifts fluid from the vasculature into the interstitium, producing pitting edema.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Intracellular fluid excess</span></div><div class="rat">✗ Intracellular excess causes cellular swelling (seen in certain neurological emergencies) — not dependent pitting edema.</div></li>
+</ul>
+</div>
+
+<!-- Q42 SATA -->
+<div class="qb" id="q42">
+<div class="qhdr"><span class="qnum">Q42</span><span class="qtag">Ch 43 · Sleep</span><span class="sata-badge">SELECT ALL THAT APPLY</span></div>
+<p class="qstem">A patient has taken diphenhydramine (Benadryl) nightly for 6 months for insomnia. Which of the following are recognized risks of this practice? (Select all that apply)</p>
+<ul class="opts">
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Development of drug tolerance, requiring higher doses for the same effect</span></div><div class="rat">✓ Tolerance to diphenhydramine's sedative effect develops with regular use within days to weeks.</div></li>
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Improved sleep architecture and enhanced REM sleep quality</span></div><div class="rat">✗ Diphenhydramine actually suppresses REM sleep and disrupts normal sleep architecture with chronic use — it does not improve sleep quality.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Anticholinergic side effects including urinary retention and dry mouth</span></div><div class="rat">✓ Diphenhydramine's anticholinergic properties cause urinary retention, dry mouth, constipation, and blurred vision — especially problematic in older adults.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Next-day sedation and cognitive impairment ("hangover effect")</span></div><div class="rat">✓ Residual sedation and cognitive slowing the next day are well-recognized effects of diphenhydramine.</div></li>
+<li class="opt sata" data-correct="true" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">E.</span><span>Increased fall risk, especially in older adults</span></div><div class="rat">✓ Sedation, dizziness, and anticholinergic confusion significantly increase fall risk in older adults.</div></li>
+<li class="opt sata" data-correct="false" onclick="toggleSATA(this)"><div class="opt-row"><span class="opt-ltr">F.</span><span>Permanent cure of chronic insomnia with continued use</span></div><div class="rat">✗ Diphenhydramine does not cure insomnia; tolerance reduces its effectiveness over time and underlying causes remain untreated.</div></li>
+</ul>
+<button class="sata-submit" onclick="submitSATA(this)">Submit Answer</button>
+</div>
+
+<div class="qb" id="q43">
+<div class="qhdr"><span class="qnum">Q43</span><span class="qtag">Ch 44 · Pain Management</span></div>
+<p class="qstem">A post-op patient rates pain 9/10. Orders include acetaminophen 650 mg PO, ibuprofen 400 mg PO, and oxycodone 5 mg PO PRN. Which approach is MOST appropriate?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Acetaminophen alone — start with the lowest level</span></div><div class="rat">✗ Acetaminophen alone is appropriate for mild pain (1–3/10); it is insufficient for severe pain rated 9/10.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Oxycodone combined with acetaminophen for multimodal analgesia</span></div><div class="rat">✓ Correct. Per the WHO analgesic ladder, severe pain (7–10/10) warrants opioids. Combining with acetaminophen (multimodal) achieves better control with lower opioid doses.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Non-pharmacologic measures only (heat, cold, repositioning)</span></div><div class="rat">✗ Non-pharmacologic measures supplement but do not replace pharmacologic analgesia for severe post-operative pain.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Ibuprofen only — it treats post-surgical inflammation</span></div><div class="rat">✗ Ibuprofen alone addresses inflammation but is insufficient monotherapy for 9/10 post-operative pain.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q44">
+<div class="qhdr"><span class="qnum">Q44</span><span class="qtag">Ch 44 · Pain Management</span></div>
+<p class="qstem">A nurse needs to assess pain in a crying 4-year-old after a procedure. Which pain scale is MOST appropriate?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Numeric Rating Scale (NRS) 0–10</span></div><div class="rat">✗ NRS requires abstract numerical reasoning not fully developed in preschool-age children.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Visual Analog Scale (VAS)</span></div><div class="rat">✗ VAS requires abstract spatial reasoning; it is not developmentally appropriate for young children.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Wong-Baker FACES Pain Rating Scale</span></div><div class="rat">✓ Correct. FACES scale is validated for children ages 3+; children point to the face that matches their pain experience.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>FLACC Scale (Face, Legs, Activity, Cry, Consolability)</span></div><div class="rat">✗ FLACC is for pre-verbal or cognitively impaired patients who cannot self-report; a 4-year-old can self-report and use FACES.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q45">
+<div class="qhdr"><span class="qnum">Q45</span><span class="qtag">Ch 45 · Nutrition</span></div>
+<p class="qstem">After inserting a nasogastric feeding tube, which method is the MOST reliable for confirming correct placement before initiating feedings?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Auscultating a "whoosh" sound over the epigastrium while injecting air</span></div><div class="rat">✗ The air auscultation method is unreliable and no longer recommended — sounds can be transmitted even from the esophagus or lung.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Observing that the patient is not coughing or showing respiratory distress</span></div><div class="rat">✗ Absence of respiratory symptoms does not rule out esophageal or pulmonary tube placement, especially in obtunded patients.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Checking the pH of gastric aspirate (≤ 4 indicates gastric placement)</span></div><div class="rat">✗ pH testing is a useful bedside check but can be unreliable with PPIs/H₂ blockers; it is not the gold standard for initial confirmation.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Obtaining an abdominal X-ray to confirm tube position</span></div><div class="rat">✓ Correct. Radiographic confirmation (X-ray) is the gold standard for verifying NG tube placement before initiating feedings.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q46">
+<div class="qhdr"><span class="qnum">Q46</span><span class="qtag">Ch 46 · Urinary Elimination</span></div>
+<p class="qstem">A patient has burning urination, frequency, and cloudy foul-smelling urine. The nurse suspects a UTI. What is the PRIORITY action?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Administer the ordered antibiotic immediately to begin treatment</span></div><div class="rat">✗ Starting antibiotics before obtaining culture eliminates the ability to identify the causative organism; targeted therapy becomes impossible.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Collect a midstream clean-catch urine specimen for culture and sensitivity BEFORE starting antibiotics</span></div><div class="rat">✓ Correct. Culture must be collected before antibiotics to identify the organism and sensitivity — this guides appropriate treatment.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Encourage the patient to drink 3 liters of fluid to flush the bladder</span></div><div class="rat">✗ Fluid encouragement is helpful but does not take priority over obtaining the culture that will guide the choice of antibiotic.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Insert an indwelling catheter to monitor urine output accurately</span></div><div class="rat">✗ Catheterization is invasive, increases infection risk (CAUTI), and is not appropriate management for an uncomplicated UTI.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q47">
+<div class="qhdr"><span class="qnum">Q47</span><span class="qtag">Ch 46 · Urinary Elimination</span></div>
+<p class="qstem">During sterile catheter insertion, the nurse accidentally touches the catheter tip against the patient's thigh. What should the nurse do?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Wipe the tip with a sterile gauze pad and proceed</span></div><div class="rat">✗ There is no accepted technique to restore sterility to a contaminated catheter tip — wiping does not make it sterile.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Continue — the thigh was cleaned with betadine before the procedure</span></div><div class="rat">✗ Skin cleaned with antiseptic is not a sterile surface; contact with any non-sterile surface (including prepped skin) contaminates the catheter.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Discard the contaminated catheter and open a new sterile kit</span></div><div class="rat">✓ Correct. Any break in sterile technique requires stopping and using new sterile equipment; a contaminated catheter is the primary cause of CAUTI.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Document the contamination and wait for a supervisor before proceeding</span></div><div class="rat">✗ The nurse should independently open new sterile equipment; waiting for a supervisor is unnecessary and delays patient care.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q48">
+<div class="qhdr"><span class="qnum">Q48</span><span class="qtag">Ch 48 · Skin Integrity &amp; Wound Care</span></div>
+<p class="qstem">A bedbound patient has a shallow open wound on the coccyx with a moist pink/red wound bed and no slough or eschar. How should the nurse document this?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Stage 1 pressure injury — non-blanchable erythema on intact skin</span></div><div class="rat">✗ Stage 1 has no break in skin — only non-blanchable redness on intact skin. This wound is already open.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Stage 2 pressure injury — partial-thickness skin loss with exposed dermis</span></div><div class="rat">✓ Correct. Stage 2 = partial-thickness loss with viable (pink/red) wound bed, moist; may present as shallow open wound or intact/ruptured blister. No slough/eschar.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Stage 3 pressure injury — full-thickness skin loss</span></div><div class="rat">✗ Stage 3 shows full-thickness loss with visible subcutaneous fat; this patient has only partial-thickness (shallow) loss.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Unstageable — wound bed obscured by slough</span></div><div class="rat">✗ Unstageable injuries are covered by slough or eschar obscuring depth assessment; this wound bed is clearly visible with no coverage.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q49">
+<div class="qhdr"><span class="qnum">Q49</span><span class="qtag">Ch 49 · Sensory Alterations</span></div>
+<p class="qstem">An older adult in a windowless hospital room becomes agitated at night, insisting it is daytime. The nurse recognizes this as:</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>Sundowning syndrome secondary to dementia</span></div><div class="rat">✗ Sundowning occurs specifically in dementia patients at dusk/evening. There is no indication of dementia here, and the trigger is environmental deprivation.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>Sensory overload from hospital monitoring equipment</span></div><div class="rat">✗ Sensory overload presents with anxiety and overwhelm from excessive stimuli — not time disorientation from lack of natural cues.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>Sensory deprivation leading to altered perception and confusion</span></div><div class="rat">✓ Correct. Lack of natural light, clocks, and meaningful stimulation causes sensory deprivation — producing disorientation and misperception in hospitalized patients.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>Acute psychosis unrelated to the hospitalization</span></div><div class="rat">✗ The environmental cause (no windows, monotonous setting) clearly points to sensory deprivation rather than a psychiatric origin.</div></li>
+</ul>
+</div>
+
+<div class="qb" id="q50">
+<div class="qhdr"><span class="qnum">Q50</span><span class="qtag">Ch 50 · Perioperative Nursing</span></div>
+<p class="qstem">A pre-op patient says "I've never had surgery before and I'm terrified I won't wake up." Which response is MOST therapeutic?</p>
+<ul class="opts">
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">A.</span><span>"This is a very routine procedure — there's nothing to worry about."</span></div><div class="rat">✗ Minimizing fear with "nothing to worry about" invalidates the patient's concern and closes therapeutic communication.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">B.</span><span>"Your surgeon is excellent and has performed this hundreds of times."</span></div><div class="rat">✗ Praising the surgeon deflects from the patient's emotional need and does not directly address their expressed fear.</div></li>
+<li class="opt" data-correct="true" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">C.</span><span>"It's completely normal to feel frightened. Tell me more about what concerns you."</span></div><div class="rat">✓ Correct. Acknowledging the emotion as normal and inviting elaboration validates the experience and opens therapeutic dialogue — the most therapeutic first response.</div></li>
+<li class="opt" data-correct="false" onclick="pick(this)"><div class="opt-row"><span class="opt-ltr">D.</span><span>"Would you like me to call the anesthesiologist to explain the risks?"</span></div><div class="rat">✗ Offering a referral before fully exploring the patient's concerns bypasses the nurse-patient relationship and may feel dismissive.</div></li>
+</ul>
+</div>
+
+</div></details>
+
+<p style="text-align:center;color:#888;font-size:.83em;margin-top:36px;font-family:Arial,sans-serif">
+  Fundamentals of Nursing (Potter, Perry, Stockert &amp; Hall, 11th ed.) · 50 questions · 6 SATA
+</p>
+
+<script>
+const TIPS={
+  q1:"A profession requires: specialized body of knowledge, code of ethics, autonomy, and public accountability.",
+  q2:"Primary = prevent | Secondary = detect/treat early | Tertiary = rehabilitate/restore function.",
+  q3:"Vaccination and education = primary prevention. Screening = secondary. Rehab/disease management = tertiary.",
+  q4:"When Maslow and ABCs overlap, address physiological survival needs (food, O₂, fluid) first.",
+  q5:"Evidence hierarchy: Systematic review > RCT > cohort study > case-control > expert opinion.",
+  q6:"Illness behavior stages: symptom experience → medical care contact → dependent patient role → recovery.",
+  q7:"Watson's theory centers on transpersonal caring — the nurse-patient relationship as a healing encounter.",
+  q8:"Cultural competence: Always assess beliefs and values before intervening. Never impose care without exploring.",
+  q9:"Key milestones: 3 mo = head control; 6 mo = sits with support; 9 mo = pincer grasp; 12 mo = walks.",
+  q10:"Normal aging = decreased function: GFR↓, skin fragility↑, sarcopenia↑, GI motility↓, immunity↓.",
+  q11:"Effective chronic self-management = active monitoring + record-keeping + partnership with the provider.",
+  q12:"SBAR = Situation, Background, Assessment, Recommendation. 'A' is the nurse's clinical interpretation.",
+  q13:"Subjective = what the patient reports (symptoms only they can describe). Objective = measurable data.",
+  q14:"3-part NANDA: [Problem] related to [Etiology] as evidenced by [Defining characteristics].",
+  q15:"SMART goals: Specific, Measurable, Attainable, Relevant, Time-bound. Subject = patient, not nurse.",
+  q16:"Priority order: ABCs first (Airway > Breathing > Circulation). Actual > risk. Physiological > psychosocial.",
+  q17:"CNAs may collect data (vital signs, specimens, ambulation). RNs must assess, evaluate, and teach.",
+  q18:"The ANA Code of Ethics requires reporting unsafe practice through proper channels. Silence enables harm.",
+  q19:"4 elements of malpractice: duty, breach of duty, causation, damages. All 4 required for legal liability.",
+  q20:"Non-therapeutic responses: false reassurance, giving advice, changing subject, defensiveness, 'why' questions.",
+  q21:"Teach-back/return demonstration = gold standard for evaluating skill learning. Verbal 'yes' ≠ demonstrated ability.",
+  q22:"HIPAA: Access records only with a care relationship. Celebrity status provides no exception to privacy rules.",
+  q23:"Fall bundle: lowest bed, call light accessible, non-skid footwear, uncluttered room, frequent rounding. Restraints = last resort.",
+  q24:"RACE = Rescue → Alarm → Contain → Extinguish/Evacuate. PASS for fire extinguisher = Pull, Aim, Squeeze, Sweep.",
+  q25:"WHO 5 Moments for Hand Hygiene: before patient contact, before aseptic task, after body fluid exposure, after patient contact, after patient environment contact.",
+  q26:"Airborne = N95 + negative-pressure room. Droplet = surgical mask + gown + gloves. Contact = gown + gloves.",
+  q27:"ACC/AHA BP: Normal <120/<80 · Elevated 120-129/<80 · Stage 1 130-139/80-89 · Stage 2 ≥140/≥90 · Crisis >180/>120.",
+  q28:"Abdomen exception: Inspect → Auscultate → Percuss → Palpate. All other systems: Inspect → Palpate → Percuss → Auscultate.",
+  q29:"Infiltration/phlebitis: STOP infusion → remove catheter → elevate extremity → apply compress → start new IV site → notify provider.",
+  q30:"Never administer a drug with a documented allergy without first clarifying the order. Hold and escalate.",
+  q31:"Disturbed body image: avoidance of viewing/touching body part, negative self-statements about appearance.",
+  q32:"Spiritual care sequence: explore meaning/purpose → active listening → chaplain referral if patient desires.",
+  q33:"Complicated grief = severe functional impairment persisting >12 months. Normal grief has no strict time limit.",
+  q34:"Stressor types: Situational = external events. Maturational = life-stage transitions. Physiological = body-based sources.",
+  q35:"Transfer toward strength: wheelchair on the strong side, lead with the strong leg, pivot to the chair.",
+  q36:"Suspected DVT: do NOT massage (PE risk). Elevate extremity, notify provider, anticipate anticoagulation orders.",
+  q37:"Oral care for unconscious patients: lateral (side-lying) position, soft suction toothbrush, suction always at bedside.",
+  q38:"Respiratory distress: position upright → O₂ → reassess → notify provider. Take independent action first.",
+  q39:"Suctioning: apply suction only during withdrawal. Limit to 10–15 sec/pass. Trachea before oropharynx.",
+  q40:"Isotonic: 0.9% NaCl, LR, D5W. Hypotonic: 0.45% NaCl. Hypertonic: 3% NaCl, D10W. Colloids: albumin, blood products.",
+  q41:"In heart failure: ↑venous pressure → fluid shifts to interstitium → pitting edema = extracellular fluid excess.",
+  q42:"First-line chronic insomnia: sleep hygiene + CBT-I. Diphenhydramine causes tolerance, anticholinergic effects, and fall risk.",
+  q43:"WHO pain ladder: mild 1–3 = non-opioid; moderate 4–6 = weak opioid; severe 7–10 = strong opioid ± adjuvant.",
+  q44:"Pain scales by population: FLACC = non-verbal/infant. FACES = age 3+. NRS/VAS = school age+. CPOT = ICU/intubated.",
+  q45:"X-ray = gold standard for INITIAL NG placement verification. pH ≤4 supports gastric placement for subsequent checks.",
+  q46:"Culture BEFORE antibiotics — always. Applies to all infections: UTI, blood cultures, sputum, wound cultures.",
+  q47:"Any break in sterile technique requires stopping and using a new sterile kit. There are no safe exceptions.",
+  q48:"Stages: 1=intact redness, 2=dermis exposed/blister, 3=fat visible, 4=bone/tendon/muscle, Unstageable=covered by slough/eschar.",
+  q49:"Prevent sensory deprivation: provide clocks, calendars, natural light, familiar objects, and meaningful interaction.",
+  q50:"Pre-op anxiety: acknowledge → explore → educate. Never minimize with 'don't worry' or empty reassurance."
+};
+
+function showTip(block){
+  const tip=TIPS[block.id];
+  if(!tip)return;
+  let el=block.querySelector('.nclex-tip');
+  if(!el){
+    el=document.createElement('div');
+    el.className='nclex-tip';
+    el.innerHTML='<strong>⚡ NCLEX TIP:</strong> '+tip;
+    block.appendChild(el);
+  }
+}
+
+let score=0,answered=0;
+
+function pick(el){
+  const block=el.closest('.qb');
+  if(block.dataset.done)return;
+  block.dataset.done='1';
+  answered++;
+  const correct=el.dataset.correct==='true';
+  const all=block.querySelectorAll('.opt');
+  all.forEach(o=>o.classList.add('done'));
+  if(correct){
+    el.classList.add('ok');
+    el.querySelector('.rat').style.display='block';
+    score++;
+  }else{
+    el.classList.add('bad');
+    el.querySelector('.rat').style.display='block';
+    all.forEach(o=>{
+      if(o.dataset.correct==='true'){o.classList.add('ok');o.querySelector('.rat').style.display='block';}
+    });
+  }
+  showTip(block);
+  updateTracker();
+}
+
+function toggleSATA(el){
+  if(el.closest('.qb').dataset.done)return;
+  el.classList.toggle('sel');
+}
+
+function submitSATA(btn){
+  const block=btn.closest('.qb');
+  if(block.dataset.done)return;
+  block.dataset.done='1';
+  answered++;
+  btn.disabled=true;
+  btn.textContent='Submitted';
+  const all=block.querySelectorAll('.opt');
+  const correctSet=[...all].filter(o=>o.dataset.correct==='true');
+  all.forEach(o=>{
+    o.classList.add('done');
+    const isC=o.dataset.correct==='true';
+    const isSel=o.classList.contains('sel');
+    const rat=o.querySelector('.rat');
+    if(isC&&isSel){o.classList.add('ok');rat.style.display='block';}
+    else if(!isC&&isSel){o.classList.add('bad');rat.style.display='block';}
+    else if(isC&&!isSel){o.classList.add('miss');rat.style.display='block';}
+  });
+  const selC=[...all].filter(o=>o.classList.contains('sel')&&o.dataset.correct==='true').length;
+  const selW=[...all].filter(o=>o.classList.contains('sel')&&o.dataset.correct!=='true').length;
+  if(selC===correctSet.length&&selW===0)score++;
+  showTip(block);
+  updateTracker();
+}
+
+function updateTracker(){
+  document.getElementById('snum').textContent=score+' / '+answered;
+  const pct=answered?Math.round(score/answered*100):0;
+  document.getElementById('spct').textContent=answered?pct+'%':'—';
+  const t=document.getElementById('tracker');
+  t.className=answered===0?'':pct>=80?'g':pct>=60?'y':'r';
+}
+</script>
+</body>
+</html>

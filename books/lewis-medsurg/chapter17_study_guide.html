@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 17 Study Guide – Fluid, Electrolyte, and Acid-Base Imbalances</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #f4f6fb;
+    padding: 0 20px 60px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 2em;
+    color: #0d3b66;
+    border-bottom: 4px solid #0d3b66;
+    padding: 28px 0 12px;
+    margin-bottom: 6px;
+  }
+  .subtitle { color: #555; font-style: italic; margin-bottom: 6px; font-size: 0.95em; }
+  .source-info {
+    background: #e8f4fd;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    padding: 12px 18px;
+    margin: 14px 0 24px;
+    font-size: 0.9em;
+    color: #1a3a5c;
+  }
+  .source-info strong { display: inline; }
+
+  /* ── Collapsible sections ── */
+  details.section {
+    margin: 12px 0;
+    border: 1px solid #b8cfe8;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(13,59,102,.08);
+  }
+  details.section > summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg,#0d3b66 0%,#155a8a 100%);
+    color: #fff;
+    padding: 13px 18px;
+    cursor: pointer;
+    font-size: 1.13em;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+    list-style: none;
+    user-select: none;
+    letter-spacing: 0.01em;
+  }
+  details.section > summary::-webkit-details-marker { display: none; }
+  details.section > summary::after {
+    content: "▼";
+    font-size: 0.75em;
+    opacity: 0.8;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+  details.section[open] > summary::after { content: "▲"; }
+  details.section > summary:hover { background: linear-gradient(90deg,#0a2e50 0%,#0d3b66 100%); }
+
+  .section-body {
+    padding: 18px 22px 22px;
+  }
+
+  /* ── Inner headings ── */
+  h3 {
+    font-size: 1.08em;
+    color: #0d3b66;
+    margin: 20px 0 8px;
+    border-bottom: 2px solid #c8d8ea;
+    padding-bottom: 3px;
+  }
+  h4 {
+    font-size: 0.98em;
+    color: #155a8a;
+    margin: 14px 0 5px;
+    font-style: italic;
+  }
+  p { margin-bottom: 10px; }
+  ul, ol { margin: 6px 0 12px 22px; }
+  li { margin-bottom: 4px; }
+
+  /* ── Key Terms ── */
+  dl { margin: 10px 0 16px; }
+  dt { font-weight: bold; color: #0d3b66; margin-top: 10px; }
+  dd { margin-left: 22px; margin-bottom: 2px; color: #333; }
+
+  /* ── Tables ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 20px;
+    font-size: 0.91em;
+  }
+  th {
+    background: #0d3b66;
+    color: #fff;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  td {
+    padding: 7px 10px;
+    border: 1px solid #c5d8e8;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f0f6fb; }
+
+  /* ── Callout boxes ── */
+  .callout {
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 14px 0;
+  }
+  .callout.nursing  { background: #fff8e1; border-left: 5px solid #f0a500; }
+  .callout.danger   { background: #fde8e8; border-left: 5px solid #c0392b; }
+  .callout.tip      { background: #e8fde8; border-left: 5px solid #27ae60; }
+  .callout.mnemonic { background: #f5e8fd; border-left: 5px solid #8e44ad; font-family: monospace, sans-serif; }
+  .callout strong { display: block; margin-bottom: 4px; font-size: 0.93em; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ── Objectives box ── */
+  .objectives {
+    background: #e8f4fd;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 10px 0 20px;
+  }
+  .objectives h3 { color: #1a5276; border-bottom: none; margin-top: 0; }
+
+  /* ── Review Q&A ── */
+  .questions ol { list-style: decimal; }
+  .questions li { margin-bottom: 18px; }
+  details.qa summary {
+    cursor: pointer;
+    color: #155a8a;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 6px;
+    list-style: none;
+    padding: 4px 0;
+    user-select: none;
+  }
+  details.qa summary::-webkit-details-marker { display: none; }
+  details.qa summary::before { content: "▶ "; font-size: 0.8em; }
+  details.qa[open] summary::before { content: "▼ "; }
+  details.qa summary:hover { text-decoration: underline; }
+  details.qa > div { margin-top: 8px; padding: 10px 14px; background: #f0f6fb; border-left: 3px solid #0d3b66; border-radius: 3px; }
+
+  /* ── NCLEX section ── */
+  .nclex-card {
+    background: #fff;
+    border: 2px solid #c0392b;
+    border-radius: 8px;
+    margin: 14px 0;
+    overflow: hidden;
+  }
+  .nclex-card .card-head {
+    background: #c0392b;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 14px;
+    font-size: 1em;
+    letter-spacing: 0.03em;
+  }
+  .nclex-card .card-body { padding: 12px 16px; }
+  .nclex-card ul { margin: 4px 0 6px 18px; }
+  .nclex-card li { margin-bottom: 5px; }
+  .nclex-tag {
+    display: inline-block;
+    background: #c0392b;
+    color: #fff;
+    font-size: 0.72em;
+    font-weight: bold;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 5px;
+    vertical-align: middle;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: #fff;
+    border: 1px solid #b8cfe8;
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin: 18px 0 24px;
+    font-size: 0.92em;
+    box-shadow: 0 1px 4px rgba(13,59,102,.08);
+  }
+  .toc h3 { border-bottom: none; margin-top: 0; color: #0d3b66; font-size: 1em; }
+  .toc ol { margin-left: 18px; }
+  .toc li { margin-bottom: 3px; }
+  .toc a { color: #0d3b66; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .lab-value { font-weight: bold; color: #0d3b66; }
+
+  sup, sub { font-size: 0.78em; }
+
+  /* ── Print ── */
+  @media print {
+    body { font-size: 11pt; background: #fff; padding: 0; }
+    details.section { border: 1px solid #aaa; box-shadow: none; }
+    details.section > summary { background: #2c3e50 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    details.section { display: block; }
+    details.section > summary::after { content: none; }
+    .nclex-card .card-head { background: #c0392b !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* ── Need to Know boxes ── */
+  .need-to-know {
+    background: #fffbe6;
+    border: 1px solid #f0c040;
+    border-left: 6px solid #f0a500;
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin: 12px 0;
+  }
+  .need-to-know::before {
+    content: "\2B50 NEED TO KNOW";
+    display: block;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #a06800;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  /* ── Close section button ── */
+  .close-bar {
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #dde4ef;
+  }
+  .close-section-btn {
+    background: #0d3b66;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 20px;
+    font-size: 0.9em;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<h1>Chapter 17 — Fluid, Electrolyte, and Acid-Base Imbalances</h1>
+<p class="subtitle">Lewis's Medical-Surgical Nursing: Assessment and Management of Clinical Problems (Harding, 12th ed.)</p>
+
+<div class="source-info">
+  <strong>Source:</strong> Lewis's Medical-Surgical Nursing, 12th Edition (Harding et al., 2023) &bull;
+  <strong>Chapter 17</strong> &bull;
+  <strong>Book pages 302–334</strong> &bull;
+  <strong>PDF pages 337–369</strong>
+</div>
+
+<div class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li><a href="#s1">Body Fluid Compartments &amp; Electrolytes</a></li>
+    <li><a href="#s2">Fluid Movement &amp; Osmolality</a></li>
+    <li><a href="#s3">Fluid Volume Imbalances (FVD &amp; FVE)</a></li>
+    <li><a href="#s4">Sodium Imbalances</a></li>
+    <li><a href="#s5">Potassium Imbalances</a></li>
+    <li><a href="#s6">Calcium Imbalances</a></li>
+    <li><a href="#s7">Phosphate &amp; Magnesium Imbalances</a></li>
+    <li><a href="#s8">Acid-Base Balance &amp; Regulation</a></li>
+    <li><a href="#s9">ABG Interpretation</a></li>
+    <li><a href="#s10">Acid-Base Disorders</a></li>
+    <li><a href="#s11">Nursing Assessment &amp; IV Fluid Therapy</a></li>
+    <li><a href="#s12">Central Venous Access Devices (CVADs)</a></li>
+    <li><a href="#s13">NCLEX Critical To Knows</a></li>
+    <li><a href="#s14">Review Questions</a></li>
+  </ol>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 1 -->
+<details class="section" id="s1" open>
+<summary>1 &mdash; Body Fluid Compartments &amp; Electrolytes</summary>
+<div class="section-body">
+
+  <div class="objectives">
+    <h3>Learning Outcomes</h3>
+    <ul>
+      <li>Describe the composition of the major body fluid compartments.</li>
+      <li>Define electrolytes and their roles in homeostasis.</li>
+      <li>Identify normal serum electrolyte reference values.</li>
+    </ul>
+  </div>
+
+  <h3>Body Water Content</h3>
+  <p>Water accounts for <strong>50–60%</strong> of adult body weight. Fat tissue has a lower percentage of water, so individuals with more body fat have a lower total water content. Women and older adults tend to have less lean body mass and therefore lower body water percentages. <strong>Older adults average 45–50%</strong> body water — placing them at higher risk for fluid-related problems.</p>
+
+  <div class="need-to-know">
+    1 kg (2.2 lb) weight change = 1 L of fluid gained or lost. Daily weight is the most accurate measure of volume status.
+  </div>
+
+  <h3>Fluid Compartments</h3>
+  <table>
+    <tr><th>Compartment</th><th>Location</th><th>Approximate Volume (70-kg adult)</th></tr>
+    <tr><td><strong>Intracellular Fluid (ICF)</strong></td><td>Inside cells</td><td>28 L (~40% body weight)</td></tr>
+    <tr><td>Intravascular (plasma)</td><td>Blood vessels</td><td>3 L</td></tr>
+    <tr><td>Interstitial fluid</td><td>Between cells</td><td>10 L</td></tr>
+    <tr><td>Transcellular fluids</td><td>CSF, GI, pleural, peritoneal, synovial, intraocular</td><td>~1 L</td></tr>
+    <tr><td colspan="2"><strong>Total ECF</strong></td><td>~14 L (~20% body weight)</td></tr>
+  </table>
+
+  <h3>Electrolytes</h3>
+  <p>Electrolytes are substances that dissociate into ions when in solution. <strong>Cations</strong> (positive): Na<sup>+</sup>, K<sup>+</sup>, Ca<sup>2+</sup>, Mg<sup>2+</sup>. <strong>Anions</strong> (negative): HCO<sub>3</sub><sup>-</sup>, Cl<sup>-</sup>, PO<sub>4</sub><sup>3-</sup>. Concentration is expressed in milliequivalents (mEq) per liter.</p>
+
+  <h4>Electrolyte Distribution</h4>
+  <ul>
+    <li><strong>ECF main cation:</strong> Na<sup>+</sup> (also small amounts of K<sup>+</sup>, Ca<sup>2+</sup>, Mg<sup>2+</sup>). Main anion: Cl<sup>-</sup></li>
+    <li><strong>ICF main cation:</strong> K<sup>+</sup> (also small Mg<sup>2+</sup>, Na<sup>+</sup>). Main anion: PO<sub>4</sub><sup>3-</sup></li>
+  </ul>
+
+  <h3>Normal Serum Electrolyte Values</h3>
+  <table>
+    <tr><th>Electrolyte</th><th>Normal Range</th></tr>
+    <tr><td>Sodium (Na<sup>+</sup>)</td><td class="lab-value">136–145 mEq/L</td></tr>
+    <tr><td>Potassium (K<sup>+</sup>)</td><td class="lab-value">3.5–5.0 mEq/L</td></tr>
+    <tr><td>Calcium (Ca<sup>2+</sup>) — total</td><td class="lab-value">9.0–10.5 mg/dL</td></tr>
+    <tr><td>Calcium (ionized)</td><td class="lab-value">4.5–5.6 mg/dL</td></tr>
+    <tr><td>Magnesium (Mg<sup>2+</sup>)</td><td class="lab-value">1.3–2.1 mEq/L</td></tr>
+    <tr><td>Phosphate (PO<sub>4</sub><sup>3-</sup>)</td><td class="lab-value">3.0–4.5 mg/dL</td></tr>
+    <tr><td>Bicarbonate (HCO<sub>3</sub><sup>-</sup>)</td><td class="lab-value">22–26 mEq/L</td></tr>
+    <tr><td>Chloride (Cl<sup>-</sup>)</td><td class="lab-value">98–106 mEq/L</td></tr>
+  </table>
+
+  <h3>Fluid Balance in Adults</h3>
+  <table>
+    <tr><th>Intake</th><th>Volume</th><th>Output</th><th>Volume</th></tr>
+    <tr><td>Oral fluids</td><td>1200 mL</td><td>Insensible (skin/lungs)</td><td>900 mL</td></tr>
+    <tr><td>Solid food</td><td>1000 mL</td><td>Feces</td><td>100 mL</td></tr>
+    <tr><td>Water from oxidation</td><td>300 mL</td><td>Urine</td><td>1500 mL</td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>2500 mL</strong></td><td><strong>Total</strong></td><td><strong>2500 mL</strong></td></tr>
+  </table>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 2 -->
+<details class="section" id="s2">
+<summary>2 &mdash; Fluid Movement &amp; Osmolality</summary>
+<div class="section-body">
+
+  <h3>Mechanisms of Fluid Movement</h3>
+  <dl>
+    <dt>Diffusion</dt>
+    <dd>Movement from high to low concentration; requires no energy; stops when concentrations equalize.</dd>
+    <dt>Facilitated Diffusion</dt>
+    <dd>Uses a protein carrier to move large molecules (e.g., glucose) across a membrane; passive, no energy required.</dd>
+    <dt>Active Transport</dt>
+    <dd>Moves molecules <em>against</em> concentration gradient; requires ATP. Example: sodium-potassium pump — pumps Na<sup>+</sup> out and K<sup>+</sup> into cells.</dd>
+    <dt>Osmosis</dt>
+    <dd>Water moves from low-solute (high water) to high-solute (low water) area across a semipermeable membrane; requires no energy.</dd>
+  </dl>
+
+  <h3>Osmolality</h3>
+  <p>Osmolality measures concentration of molecules per kilogram of water (mOsm/kg). It is the preferred measure for plasma, urine, and other body fluids.</p>
+  <div class="callout tip">
+    <strong>Plasma Osmolality Formula</strong>
+    Plasma osmolality = (2 × Na<sup>+</sup>) + (BUN ÷ 2.8) + (Glucose ÷ 18)<br>
+    <strong>Normal: 280–295 mOsm/kg</strong><br>
+    &gt;295 = water deficit (concentrated) | &lt;275 = water excess (dilute)
+  </div>
+
+  <h3>Tonicity &amp; Cell Effects</h3>
+  <table>
+    <tr><th>Solution</th><th>Osmolality vs. ECF</th><th>Effect on Cells</th></tr>
+    <tr><td><strong>Isotonic</strong></td><td>Same</td><td>No change in cell volume</td></tr>
+    <tr><td><strong>Hypotonic</strong> (hypoosmolar)</td><td>Lower</td><td>Water moves into cells → cells swell (may burst)</td></tr>
+    <tr><td><strong>Hypertonic</strong> (hyperosmolar)</td><td>Higher</td><td>Water moves out of cells → cells shrink (may die)</td></tr>
+  </table>
+
+  <h3>Capillary Fluid Exchange</h3>
+  <p>Four pressures govern fluid movement between capillaries and interstitial space:</p>
+  <ul>
+    <li><strong>Capillary hydrostatic pressure</strong> — pushes fluid OUT of capillaries (↑ at arterial end ~40 mmHg)</li>
+    <li><strong>Plasma oncotic pressure</strong> — pulls fluid INTO capillaries (~25 mmHg; driven by albumin)</li>
+    <li><strong>Interstitial hydrostatic pressure</strong> — pushes fluid back into capillaries (~1 mmHg)</li>
+    <li><strong>Interstitial oncotic pressure</strong> — draws fluid out (~1 mmHg)</li>
+  </ul>
+  <p><em>At the arterial end</em>: hydrostatic pressure exceeds oncotic → fluid leaves capillary.<br>
+  <em>At the venous end</em>: oncotic pressure dominates → fluid returns to capillary.</p>
+
+  <h3>Edema Formation</h3>
+  <ul>
+    <li>↑ Venous hydrostatic pressure (heart failure, venous thrombosis)</li>
+    <li>↓ Plasma oncotic pressure (hypoalbuminemia from liver disease, malnutrition, nephrotic syndrome)</li>
+    <li>↑ Interstitial oncotic pressure (burns, trauma, inflammation — proteins leak into interstitium)</li>
+    <li>Lymphatic obstruction</li>
+  </ul>
+
+  <h3>Fluid Spacing</h3>
+  <dl>
+    <dt>First spacing</dt><dd>Normal distribution in ICF and ECF.</dd>
+    <dt>Second spacing</dt><dd>Abnormal accumulation of interstitial fluid (edema).</dd>
+    <dt>Third spacing</dt><dd>Fluid trapped in a nonfunctional area (ascites, peritonitis, pancreatitis, burns). This fluid cannot move back — causes effective hypovolemia despite total body fluid excess.</dd>
+  </dl>
+
+  <h3>Hormonal Regulation of Water Balance</h3>
+  <table>
+    <tr><th>System</th><th>Trigger</th><th>Action</th></tr>
+    <tr><td>ADH (posterior pituitary)</td><td>↑ plasma osmolality, ↓ BP, stress, pain, nausea</td><td>↑ water reabsorption in renal tubules</td></tr>
+    <tr><td>Aldosterone (adrenal cortex)</td><td>↓ renal perfusion → RAAS activation; ↑ K<sup>+</sup>, ↓ Na<sup>+</sup></td><td>↑ Na<sup>+</sup> reabsorption + K<sup>+</sup> excretion; water follows Na<sup>+</sup></td></tr>
+    <tr><td>ANP/BNP (heart)</td><td>↑ atrial pressure (volume overload)</td><td>Opposes RAAS; ↑ Na<sup>+</sup> and water excretion; ↓ BP</td></tr>
+  </table>
+
+  <div class="need-to-know">
+    Thirst is the primary protection against hyperosmolality. Patients who are unconscious, cognitively impaired, or unable to swallow cannot respond to thirst — highest risk for hypernatremia.
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 3 -->
+<details class="section" id="s3">
+<summary>3 &mdash; Fluid Volume Imbalances (FVD &amp; FVE)</summary>
+<div class="section-body">
+
+  <div class="need-to-know">
+    Fluid volume deficit (FVD) ≠ dehydration. Dehydration = pure water loss without sodium loss. FVD = loss of both water and sodium-containing fluid.
+  </div>
+
+  <h3>Fluid Volume Deficit vs. Excess</h3>
+  <table>
+    <tr><th></th><th>FVD (Hypovolemia)</th><th>FVE (Hypervolemia)</th></tr>
+    <tr><td><strong>Common Causes</strong></td>
+      <td>GI losses (vomiting, diarrhea, NG suction), hemorrhage, polyuria, burns, inadequate intake, third spacing</td>
+      <td>Heart failure, renal failure, SIADH, Cushing syndrome, excess isotonic IV fluids, primary polydipsia</td>
+    </tr>
+    <tr><td><strong>Manifestations</strong></td>
+      <td>
+        <ul style="margin:4px 0 0 16px">
+          <li>Thirst, dry mucous membranes, furrowed tongue</li>
+          <li>Postural (orthostatic) hypotension, ↑ HR, ↓ CVP</li>
+          <li>Weak/thready pulse; cold clammy skin</li>
+          <li>↓ Urine output, concentrated urine (SG &gt;1.025)</li>
+          <li>Weight loss (1 kg = 1 L)</li>
+          <li>Skin tenting (less reliable in older adults)</li>
+          <li>Confusion, weakness, dizziness</li>
+        </ul>
+      </td>
+      <td>
+        <ul style="margin:4px 0 0 16px">
+          <li>Weight gain (most consistent sign)</li>
+          <li>Bounding pulse, ↑ BP, ↑ CVP</li>
+          <li>JVD (jugular venous distention)</li>
+          <li>S3 heart sound</li>
+          <li>Dyspnea, crackles (rales), pulmonary edema</li>
+          <li>Edema (peripheral)</li>
+          <li>Polyuria (if kidneys functioning)</li>
+          <li>Confusion, headache</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><strong>Lab Findings</strong></td>
+      <td>↑ BUN, ↑ Na<sup>+</sup>, ↑ Hct, ↑ plasma osmolality, ↑ urine SG &gt;1.025</td>
+      <td>↓ BUN, ↓ Na<sup>+</sup>, ↓ Hct, ↓ plasma osmolality, ↓ urine SG &lt;1.010</td>
+    </tr>
+    <tr><td><strong>Treatment</strong></td>
+      <td>Mild: oral rehydration. Moderate–severe: isotonic IV solutions (0.9% NaCl, Lactated Ringer's). Blood if hemorrhagic.</td>
+      <td>Treat underlying cause, diuretics (loop), fluid and sodium restriction, paracentesis/thoracentesis if needed.</td>
+    </tr>
+  </table>
+
+  <h3>Nursing Management: Fluid Imbalances</h3>
+  <ul>
+    <li><strong>Daily weights</strong> — same time, same scale, same clothes; 1 kg ↑ = 1 L fluid retained</li>
+    <li><strong>I&amp;O</strong> — include all sources (oral, IV, tube feeds, wound drainage, urine, emesis, diaphoresis)</li>
+    <li><strong>Urine SG</strong> — &gt;1.025 = concentrated (FVD); &lt;1.010 = dilute (FVE)</li>
+    <li><strong>Orthostatic BP</strong> — check for orthostatic hypotension (FVD indicator)</li>
+    <li><strong>Skin turgor</strong> — assess over sternum, abdomen, anterior forearm (not reliable in older adults)</li>
+    <li><strong>Safety</strong> — fall precautions for orthostatic hypotension and confusion; seizure precautions if severe</li>
+    <li><strong>Lung sounds</strong> — crackles suggest FVE/pulmonary edema</li>
+    <li><strong>Edema grading</strong>: 1+ = 2-mm indentation; 4+ = 8-mm indentation (pitting edema)</li>
+  </ul>
+
+  <div class="callout nursing">
+    <strong>Nursing Priority</strong>
+    For FVD: encourage oral fluids; give IV fluids per order; monitor rate carefully (especially in cardiac/renal/neurologic patients).<br>
+    For FVE: elevate HOB for dyspnea; restrict fluids and sodium; monitor for pulmonary edema; weigh daily.
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 4 -->
+<details class="section" id="s4">
+<summary>4 &mdash; Sodium Imbalances</summary>
+<div class="section-body">
+
+  <p>Na<sup>+</sup> (normal 136–145 mEq/L) is the <em>main ECF cation</em> and the primary determinant of ECF osmolality. It regulates water distribution, nerve impulse generation, muscle contractility, and acid-base balance.</p>
+
+  <div class="need-to-know">
+    Serum sodium reflects the ratio of sodium to water — not just the total amount of sodium. Changes in Na<sup>+</sup> = parallel changes in osmolality.
+  </div>
+
+  <table>
+    <tr><th></th><th>Hypernatremia (Na<sup>+</sup> &gt;145 mEq/L)</th><th>Hyponatremia (Na<sup>+</sup> &lt;136 mEq/L)</th></tr>
+    <tr><td><strong>Causes</strong></td>
+      <td>
+        <em>Inadequate water intake:</em> altered consciousness, impaired thirst<br>
+        <em>Excess water loss:</em> diarrhea, insensible loss, osmotic diuresis, diabetes insipidus (central or nephrogenic), hyperglycemia<br>
+        <em>Sodium excess:</em> hypertonic saline, excess NaCl IV, NaHCO<sub>3</sub> IV, primary aldosteronism, Cushing syndrome
+      </td>
+      <td>
+        <em>Sodium loss:</em> GI losses (vomiting, diarrhea, NG suction), wound drainage, adrenal insufficiency<br>
+        <em>Water excess (dilutional):</em> hypotonic IV fluids, SIADH, heart failure, renal failure, cirrhosis, psychogenic polydipsia
+      </td>
+    </tr>
+    <tr><td><strong>Pathophysiology</strong></td>
+      <td>Hyperosmolality → water shifts OUT of cells → cellular dehydration (brain cells shrink)</td>
+      <td>Hypoosmolality → water shifts INTO cells → cellular edema (brain cells swell)</td>
+    </tr>
+    <tr><td><strong>Manifestations</strong></td>
+      <td>
+        <ul style="margin:4px 0 0 16px">
+          <li>Thirst (intense), sticky mucous membranes, dry swollen tongue</li>
+          <li>Neurologic: drowsiness, restlessness, confusion, lethargy → seizures, coma</li>
+          <li>If ECF deficit: postural hypotension, tachycardia, weight loss</li>
+          <li>If ECF excess: edema, weight gain, ↑ BP</li>
+        </ul>
+      </td>
+      <td>
+        <ul style="margin:4px 0 0 16px">
+          <li>Neurologic (CNS first): headache, irritability, difficulty concentrating</li>
+          <li>Severe: confusion, vomiting, seizures, coma</li>
+          <li>Rapid severe drop → irreversible brain herniation</li>
+          <li>If ECF deficit: hypotension, thready pulse</li>
+          <li>If ECF excess: weight gain, edema, ↑ BP</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><strong>Treatment</strong></td>
+      <td>
+        Water deficit: replace with oral fluid or isotonic IV (0.9% NaCl); do NOT correct faster than 8–15 mEq/L per 8 hours (risk of cerebral edema)<br>
+        Sodium excess: dilute with sodium-free IV (D5W); loop diuretics; restrict dietary Na<sup>+</sup>
+      </td>
+      <td>
+        Fluid loss: isotonic Na<sup>+</sup>-containing solution, withhold diuretics<br>
+        Water excess: fluid restriction; loop diuretics; vasopressin receptor antagonists (conivaptan, tolvaptan) for severe/SIADH<br>
+        Severe: hypertonic saline (3% NaCl) — correct no faster than 10–12 mEq/L per hour in first 24 h, ≤18 mEq/L per 48 h (risk of osmotic demyelination syndrome)
+      </td>
+    </tr>
+  </table>
+
+  <div class="callout danger">
+    <strong>DANGER: Correction Rate for Sodium Imbalances</strong>
+    <strong>Hypernatremia:</strong> Do not drop Na<sup>+</sup> more than 8–15 mEq/L in 8 hours → rapid correction → water shifts INTO brain cells → cerebral edema.<br>
+    <strong>Hyponatremia:</strong> Do not raise Na<sup>+</sup> more than 10–12 mEq/L in first 24 h → too-rapid correction → osmotic demyelination syndrome (permanent nerve damage).
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 5 -->
+<details class="section" id="s5">
+<summary>5 &mdash; Potassium Imbalances</summary>
+<div class="section-body">
+
+  <p>K<sup>+</sup> (normal 3.5–5.0 mEq/L) is the <em>major ICF cation</em> — 98% of body potassium is inside cells (~140 mEq/L intracellular vs. 3.5–5.0 mEq/L ECF). The ECF-to-ICF ratio of K<sup>+</sup> determines resting membrane potential of nerve and muscle cells. <strong>Small changes in serum K<sup>+</sup> have major effects on cardiac conduction.</strong></p>
+
+  <div class="need-to-know">
+    Insulin stimulates the Na<sup>+</sup>-K<sup>+</sup> pump, driving K<sup>+</sup> into cells. Acidosis drives K<sup>+</sup> OUT of cells (H<sup>+</sup> enters cells in exchange → hyperkalemia). Alkalosis drives K<sup>+</sup> INTO cells → hypokalemia.
+  </div>
+
+  <table>
+    <tr><th></th><th>Hyperkalemia (K<sup>+</sup> &gt;5.0 mEq/L)</th><th>Hypokalemia (K<sup>+</sup> &lt;3.5 mEq/L)</th></tr>
+    <tr><td><strong>Causes</strong></td>
+      <td>
+        <em>Most common: renal failure</em><br>
+        Inadequate excretion: adrenal insufficiency (aldosterone deficiency), ACE inhibitors, ARBs, K<sup>+</sup>-sparing diuretics, NSAIDs, heparin<br>
+        Shift out of cells: acidosis, tissue destruction (burns, crush injury, tumor lysis, sepsis), intense exercise<br>
+        Excess intake: IV K<sup>+</sup> given too rapidly, K<sup>+</sup> penicillin, salt substitutes
+      </td>
+      <td>
+        <em>Most common: GI or renal losses</em><br>
+        GI losses: diarrhea, vomiting, laxative abuse, NG suction, ileostomy<br>
+        Renal losses: loop/thiazide diuretics, hyperaldosteronism, low Mg<sup>2+</sup><br>
+        Shift into cells: alkalosis, insulin therapy, β-adrenergic stimulation (epinephrine, albuterol), DKA treatment<br>
+        Inadequate intake: starvation, NPO without K<sup>+</sup> supplementation in IV fluids
+      </td>
+    </tr>
+    <tr><td><strong>Manifestations</strong></td>
+      <td>
+        <strong>Cardiac (most dangerous):</strong> peaked T waves → loss of P waves → prolonged PR → ST depression → widened QRS → ventricular fibrillation/standstill<br>
+        Muscle: fatigue, weakness, cramps, paresthesias, tetany → paralysis (including respiratory muscles)<br>
+        GI: abdominal cramping, diarrhea, vomiting (smooth muscle hyperactivity)
+      </td>
+      <td>
+        <strong>Cardiac (most dangerous):</strong> flattened T waves → ST depression → U wave (hallmark) → prolonged QRS, peaked P wave → ventricular dysrhythmias, heart block<br>
+        Muscle: weakness, soft/flabby muscles, leg cramps, shallow respirations → respiratory arrest<br>
+        GI: constipation, paralytic ileus (smooth muscle hypoactivity)<br>
+        Metabolic: impaired insulin release → hyperglycemia<br>
+        ⚠️ Digoxin toxicity risk when K<sup>+</sup> is low
+      </td>
+    </tr>
+    <tr><td><strong>Treatment</strong></td>
+      <td>
+        1. Stop K<sup>+</sup> intake (oral and IV)<br>
+        2. Increase excretion: loop/thiazide diuretics, Kayexalate (exchange resin), patiromer, ZS-9 (Lokelma), dialysis (renal failure)<br>
+        3. Shift K<sup>+</sup> to ICF: IV regular insulin + dextrose; nebulized albuterol; IV NaHCO<sub>3</sub> (if acidotic)<br>
+        4. Stabilize cardiac membrane: IV calcium chloride or gluconate (does NOT lower K<sup>+</sup>, but protects heart)
+      </td>
+      <td>
+        Mild: oral KCl, dietary K<sup>+</sup> (fruits, vegetables, legumes, milk)<br>
+        Significant: oral or IV KCl<br>
+        <strong>IV rate: ≤10 mEq/hr peripheral; may go faster in critical care with continuous ECG monitoring and central access</strong><br>
+        Treat concurrent hypomagnesemia (low Mg<sup>2+</sup> drives K<sup>+</sup> loss)
+      </td>
+    </tr>
+  </table>
+
+  <div class="callout danger">
+    <strong>SAFETY ALERT: IV KCl</strong>
+    <ul>
+      <li>ALWAYS dilute — NEVER give as a bolus or IV push (can cause cardiac arrest)</li>
+      <li>Invert IV bags containing KCl before hanging to ensure even distribution</li>
+      <li>Do NOT add KCl to a hanging bag (creates bolus at the bottom)</li>
+      <li>Give via infusion pump; assess IV site hourly for phlebitis/infiltration (KCl is vesicant)</li>
+      <li>Ensure urine output ≥0.5 mL/kg/hr before giving KCl</li>
+    </ul>
+  </div>
+
+  <div class="need-to-know">
+    ECG changes in hyperkalemia: Tall peaked T waves → Loss of P wave → Widened QRS → Sine wave pattern → Ventricular fibrillation. Think "TALL, then FLAT, then WIDE."<br>
+    ECG changes in hypokalemia: Flattened T waves + U wave + ST depression = U wave is the hallmark.
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 6 -->
+<details class="section" id="s6">
+<summary>6 &mdash; Calcium Imbalances</summary>
+<div class="section-body">
+
+  <p>Ca<sup>2+</sup> (normal total 9.0–10.5 mg/dL; ionized 4.5–5.6 mg/dL) is the primary cation in bone and teeth. It is essential for blood clotting, nerve impulse transmission, myocardial contraction, and muscle contraction. <strong>99% of calcium is in bone; 1% in plasma and cells.</strong></p>
+
+  <h4>Important Calcium Facts</h4>
+  <ul>
+    <li>Of plasma calcium: ~50% bound to albumin, ~40% ionized (biologically active), ~10% bound to phosphate/citrate/carbonate.</li>
+    <li><strong>pH affects ionized calcium:</strong> Acidosis → ↑ ionized Ca<sup>2+</sup> (less binding to albumin). Alkalosis → ↓ ionized Ca<sup>2+</sup> (more binding to albumin → symptomatic hypocalcemia even with normal total Ca<sup>2+</sup>).</li>
+    <li>Always check albumin when interpreting total calcium. Low albumin → falsely low total calcium despite normal ionized.</li>
+    <li><strong>PTH</strong> → ↑ Ca<sup>2+</sup> (bone resorption, GI absorption, renal reabsorption). <strong>Calcitonin</strong> (thyroid) → ↓ Ca<sup>2+</sup> (opposite of PTH).</li>
+    <li>Reciprocal relationship: ↑ Ca<sup>2+</sup> = ↓ PO<sub>4</sub><sup>3-</sup>, and vice versa.</li>
+  </ul>
+
+  <table>
+    <tr><th></th><th>Hypercalcemia (Ca<sup>2+</sup> &gt;10.5 mg/dL)</th><th>Hypocalcemia (Ca<sup>2+</sup> &lt;9.0 mg/dL)</th></tr>
+    <tr><td><strong>Main Causes</strong></td>
+      <td>
+        Hyperparathyroidism (~2/3 of cases)<br>
+        Cancer (bone metastasis, hematologic malignancies — kidney, breast, prostate, ovarian, lung)<br>
+        Prolonged immobilization<br>
+        Thiazide diuretics, excess vitamin D, calcium-containing antacids
+      </td>
+      <td>
+        PTH deficiency: hypoparathyroidism, thyroidectomy/parathyroidectomy (or neck surgery/radiation)<br>
+        Vitamin D deficiency/malabsorption<br>
+        Acute pancreatitis, renal insufficiency, diarrhea, malnutrition<br>
+        Multiple blood transfusions (citrate anticoagulant binds ionized Ca<sup>2+</sup>)<br>
+        Alkalosis (↑ albumin binding → ↓ ionized Ca<sup>2+</sup>)<br>
+        Low Mg<sup>2+</sup>, high PO<sub>4</sub><sup>3-</sup>, loop diuretics
+      </td>
+    </tr>
+    <tr><td><strong>Pathophysiology</strong></td>
+      <td>Excess Ca<sup>2+</sup> acts like a sedative → reduced excitability of muscles and nerves</td>
+      <td>Low ionized Ca<sup>2+</sup> → ↓ threshold for Na<sup>+</sup> channel activation → ↑ nerve excitability → sustained muscle contraction (tetany)</td>
+    </tr>
+    <tr><td><strong>Manifestations</strong></td>
+      <td>
+        <em>"Bones, Groans, Stones, Psychic Moans"</em><br>
+        Bones: bone pain, fractures<br>
+        Groans: nausea, vomiting, anorexia, constipation<br>
+        Stones: kidney stones, polyuria, dehydration<br>
+        Psychic: fatigue, lethargy, confusion, psychosis, decreased memory → seizures, coma<br>
+        Cardiac: ↑ BP, short QT/ST interval, ventricular dysrhythmias, ↑ digitalis sensitivity
+      </td>
+      <td>
+        <strong>Tetany signs:</strong><br>
+        • <strong>Chvostek sign</strong>: tap facial nerve in front of ear → facial muscle contraction<br>
+        • <strong>Trousseau sign</strong>: inflate BP cuff above systolic for 3 min → carpal spasm<br>
+        Laryngeal stridor, dysphagia<br>
+        Numbness/tingling (circumoral, extremities)<br>
+        Hyperreflexia, muscle cramps<br>
+        Cardiac: ↓ BP, prolonged QT → ventricular tachycardia; ↓ contractility
+      </td>
+    </tr>
+    <tr><td><strong>Treatment</strong></td>
+      <td>
+        Mild: stop Ca<sup>2+</sup>-related meds, low-Ca<sup>2+</sup> diet, weight-bearing activity, 3000–4000 mL/day fluids<br>
+        Severe: IV isotonic saline, bisphosphonates (pamidronate, zoledronic acid — gold standard; take 2–4 days), calcitonin (rapid but short-lived; may cause tachycardia)<br>
+        Cancer-related or bisphosphonate failure: denosumab (Prolia)<br>
+        Life-threatening: dialysis
+      </td>
+      <td>
+        Mild/asymptomatic: high-Ca<sup>2+</sup> diet + calcium and vitamin D supplements<br>
+        Symptomatic/tetany/ECG changes: IV calcium gluconate<br>
+        Manage pain/anxiety (hyperventilation → respiratory alkalosis → worsens hypocalcemia)<br>
+        Post-thyroid/parathyroid surgery: monitor closely for hypocalcemia
+      </td>
+    </tr>
+  </table>
+
+  <div class="callout mnemonic">
+    <strong>Mnemonic: Hypercalcemia</strong>
+    <strong>"Bones, Groans, Stones, Psychic Moans"</strong><br>
+    Bones = bone pain/fractures | Groans = GI symptoms | Stones = kidney stones | Psychic Moans = neuropsychiatric symptoms
+  </div>
+
+  <div class="need-to-know">
+    After thyroidectomy or parathyroidectomy: monitor closely for hypocalcemia signs (Chvostek, Trousseau, circumoral tingling) — parathyroid glands may have been inadvertently removed or traumatized.
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 7 -->
+<details class="section" id="s7">
+<summary>7 &mdash; Phosphate &amp; Magnesium Imbalances</summary>
+<div class="section-body">
+
+  <h3>Phosphate (PO<sub>4</sub><sup>3-</sup>) — Normal: 3.0–4.5 mg/dL</h3>
+  <p>Phosphorus is the primary ICF anion and second most abundant element after calcium. It is essential for muscle, RBC, and nervous system function; involved in ATP synthesis, acid-base buffering, and carbohydrate/protein/fat metabolism. Regulated by PTH and kidneys. <strong>Reciprocal relationship with Ca<sup>2+</sup>: ↑ PO<sub>4</sub><sup>3-</sup> = ↓ Ca<sup>2+</sup>.</strong></p>
+
+  <table>
+    <tr><th></th><th>Hyperphosphatemia (PO<sub>4</sub><sup>3-</sup> &gt;4.5 mg/dL)</th><th>Hypophosphatemia (PO<sub>4</sub><sup>3-</sup> &lt;3.0 mg/dL)</th></tr>
+    <tr><td><strong>Main Causes</strong></td>
+      <td>Renal failure (most common), phosphate-containing laxatives/enemas (Fleet Enema), hypoparathyroidism, vitamin D intoxication, tumor lysis syndrome, rhabdomyolysis</td>
+      <td>Malabsorption, diarrhea, phosphate-binding antacids, refeeding syndrome, DKA treatment, respiratory alkalosis, malnutrition, parenteral nutrition without adequate phosphate</td>
+    </tr>
+    <tr><td><strong>Manifestations</strong></td>
+      <td>Usually asymptomatic unless Ca<sup>2+</sup> binds phosphate → signs of hypocalcemia (tetany, muscle cramps, paresthesias, hypotension, seizures). Long-term: calcified deposits in soft tissues, joints, arteries, corneas, kidneys → organ dysfunction</td>
+      <td>Impaired cellular energy (↓ ATP, ↓ 2,3-DPG) → ↓ O<sub>2</sub> delivery. Mild: asymptomatic. Severe: CNS depression, muscle weakness, respiratory failure, heart failure. Chronic: rickets, osteomalacia.</td>
+    </tr>
+    <tr><td><strong>Treatment</strong></td>
+      <td>Restrict phosphate-rich foods (dairy), phosphate-binding agents (calcium carbonate), hemodialysis for severe cases, correct hypocalcemia</td>
+      <td>Mild: oral phosphate supplements or dairy products. Severe: IV sodium phosphate or potassium phosphate (monitor Ca<sup>2+</sup>, PO<sub>4</sub><sup>3-</sup> every 6–12 h)</td>
+    </tr>
+  </table>
+
+  <h3>Magnesium (Mg<sup>2+</sup>) — Normal: 1.3–2.1 mEq/L</h3>
+  <p>Mg<sup>2+</sup> is the second most abundant ICF cation. It is a cofactor in many enzyme systems (carbohydrate metabolism, DNA/protein synthesis, blood glucose, BP regulation). It powers the Na<sup>+</sup>-K<sup>+</sup> pump (ATP production). <strong>Low Mg<sup>2+</sup> impairs K<sup>+</sup> replacement</strong> — always check and correct Mg<sup>2+</sup> when treating hypokalemia. Stored mainly in muscle and bone (50–60%); only 1% in ECF.</p>
+
+  <table>
+    <tr><th></th><th>Hypermagnesemia (Mg<sup>2+</sup> &gt;2.1 mEq/L)</th><th>Hypomagnesemia (Mg<sup>2+</sup> &lt;1.3 mEq/L)</th></tr>
+    <tr><td><strong>Main Causes</strong></td>
+      <td>Renal failure + magnesium ingestion (Maalox, Milk of Magnesia, Mg-containing laxatives/antacids), eclampsia treatment (IV MgSO<sub>4</sub>)</td>
+      <td>Chronic alcohol use, prolonged fasting/starvation, prolonged PN without Mg<sup>2+</sup>, GI losses (pancreatitis, diarrhea, NG suction), poorly controlled diabetes, diuretics, proton pump inhibitors, aminoglycoside antibiotics</td>
+    </tr>
+    <tr><td><strong>Manifestations</strong></td>
+      <td>
+        Excess Mg<sup>2+</sup> inhibits acetylcholine release and Ca<sup>2+</sup> movement → decreased nerve/muscle function<br>
+        Early: hypotension, facial flushing, lethargy, urinary retention, N/V<br>
+        Increasing: ↓ deep tendon reflexes (lost first!), muscle paralysis, coma<br>
+        Severe: respiratory arrest, cardiac arrest
+      </td>
+      <td>
+        Resembles hypocalcemia:<br>
+        Neuromuscular: muscle cramps, tremors, <strong>hyperactive DTRs</strong>, Chvostek sign, Trousseau sign<br>
+        Neurologic: confusion, vertigo, seizures<br>
+        Cardiac: dysrhythmias (torsades de pointes, ventricular fibrillation, atrial fibrillation)
+      </td>
+    </tr>
+    <tr><td><strong>Treatment</strong></td>
+      <td>Stop Mg<sup>2+</sup>-containing drugs; restrict Mg<sup>2+</sup> foods; if renal function adequate: fluids + diuretics; dialysis if impaired. If symptomatic: IV calcium gluconate (opposes cardiac effects).</td>
+      <td>Mild: oral supplements + dietary Mg<sup>2+</sup> (green vegetables, nuts, bananas, peanut butter, chocolate). Severe: IV magnesium sulfate (always via infusion pump; keep calcium gluconate at bedside).</td>
+    </tr>
+  </table>
+
+  <div class="callout danger">
+    <strong>SAFETY ALERT: IV Magnesium</strong>
+    <ul>
+      <li>Always administer via infusion pump</li>
+      <li>Monitor VS, LOC, and deep tendon reflexes (DTRs) frequently — loss of DTRs is earliest sign of toxicity</li>
+      <li>Rapid administration → hypotension, cardiac arrest, respiratory arrest</li>
+      <li>Keep IV calcium gluconate at bedside as antidote</li>
+    </ul>
+  </div>
+
+  <div class="need-to-know">
+    Hypomagnesemia mimics and worsens hypocalcemia AND hypokalemia. When K<sup>+</sup> fails to correct despite replacement, always check Mg<sup>2+</sup> — low Mg<sup>2+</sup> causes renal K<sup>+</sup> wasting via aldosterone stimulation.
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 8 -->
+<details class="section" id="s8">
+<summary>8 &mdash; Acid-Base Balance &amp; Regulation</summary>
+<div class="section-body">
+
+  <h3>pH Fundamentals</h3>
+  <p>pH is the negative logarithm of H<sup>+</sup> concentration. Lower pH = higher H<sup>+</sup> = more acidic. Normal arterial blood pH = <strong>7.35–7.45</strong>.</p>
+  <ul>
+    <li>pH &lt;7.35 = <strong>acidosis</strong></li>
+    <li>pH &gt;7.45 = <strong>alkalosis</strong></li>
+    <li>pH &lt;6.8 or &gt;7.8 = incompatible with life</li>
+  </ul>
+
+  <div class="need-to-know">
+    The body maintains a 20:1 ratio of HCO<sub>3</sub><sup>-</sup> to carbonic acid (H<sub>2</sub>CO<sub>3</sub>). This 20:1 ratio = pH 7.40. Compensation maintains this ratio even when absolute values change.
+  </div>
+
+  <h3>Three Regulatory Mechanisms</h3>
+  <table>
+    <tr><th>System</th><th>Speed</th><th>Mechanism</th></tr>
+    <tr><td><strong>Buffer System</strong> (chemical)</td><td>Seconds — fastest</td><td>Converts strong acids to weaker ones; maintains pH until lungs/kidneys act. Main buffer: HCO<sub>3</sub><sup>-</sup>/H<sub>2</sub>CO<sub>3</sub>. Others: phosphate, protein, hemoglobin. Cannot eliminate H<sup>+</sup> — only minimizes change.</td></tr>
+    <tr><td><strong>Respiratory System</strong></td><td>Minutes (effective in hours)</td><td>Lungs excrete CO<sub>2</sub> + H<sub>2</sub>O. CO<sub>2</sub> + H<sub>2</sub>O ⇌ H<sub>2</sub>CO<sub>3</sub> ⇌ H<sup>+</sup> + HCO<sub>3</sub><sup>-</sup>. ↑ RR/depth (hyperventilation) → blow off CO<sub>2</sub> → ↓ H<sup>+</sup> → ↑ pH. ↓ RR (hypoventilation) → retain CO<sub>2</sub> → ↑ H<sup>+</sup> → ↓ pH.</td></tr>
+    <tr><td><strong>Renal System</strong></td><td>Hours to days — sustained correction</td><td>Kidneys excrete H<sup>+</sup> and regulate HCO<sub>3</sub><sup>-</sup> reabsorption. In acidosis: retain HCO<sub>3</sub><sup>-</sup>, excrete H<sup>+</sup> (urine pH ↓ to 4). In alkalosis: excrete HCO<sub>3</sub><sup>-</sup> (urine pH ↑ to 8). Normal urine pH = 6. Most powerful but slowest.</td></tr>
+  </table>
+
+  <h3>Potassium-H<sup>+</sup> Relationship</h3>
+  <ul>
+    <li><strong>Acidosis:</strong> H<sup>+</sup> enters cells → K<sup>+</sup> shifts OUT → <strong>hyperkalemia</strong></li>
+    <li><strong>Alkalosis:</strong> H<sup>+</sup> leaves cells → K<sup>+</sup> shifts IN → <strong>hypokalemia</strong></li>
+  </ul>
+
+  <h3>The Carbonic Acid-Bicarbonate Buffer</h3>
+  <p>HCl (strong acid) + NaHCO<sub>3</sub> (strong base) → NaCl (salt) + H<sub>2</sub>CO<sub>3</sub> (weak acid) → CO<sub>2</sub> + H<sub>2</sub>O (excreted by lungs)</p>
+
+  <h3>Compensation vs. Correction</h3>
+  <dl>
+    <dt>Compensation</dt><dd>The secondary system (opposite from the primary disorder) works to return the pH toward normal. The ratio remains 20:1 but may not reach exactly 7.40.</dd>
+    <dt>Partial compensation</dt><dd>Compensating value is abnormal but pH remains outside normal range.</dd>
+    <dt>Full compensation</dt><dd>pH returns to within normal range (7.35–7.45) though PaCO<sub>2</sub> and HCO<sub>3</sub><sup>-</sup> are still abnormal.</dd>
+    <dt>Correction</dt><dd>Both pH and the underlying cause return to normal. The body itself cannot always achieve correction.</dd>
+  </dl>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 9 -->
+<details class="section" id="s9">
+<summary>9 &mdash; ABG Interpretation</summary>
+<div class="section-body">
+
+  <h3>Normal ABG Values</h3>
+  <table>
+    <tr><th>Parameter</th><th>Normal Range</th></tr>
+    <tr><td>pH</td><td class="lab-value">7.35–7.45</td></tr>
+    <tr><td>PaCO<sub>2</sub></td><td class="lab-value">35–45 mm Hg</td></tr>
+    <tr><td>HCO<sub>3</sub><sup>-</sup></td><td class="lab-value">22–26 mEq/L</td></tr>
+    <tr><td>PaO<sub>2</sub></td><td class="lab-value">80–100 mm Hg</td></tr>
+    <tr><td>SaO<sub>2</sub></td><td class="lab-value">&gt;95%</td></tr>
+    <tr><td>Base excess</td><td class="lab-value">±2.0 mEq/L</td></tr>
+  </table>
+
+  <h3>5-Step ABG Interpretation Method</h3>
+  <ol>
+    <li><strong>Step 1 — Look at all values.</strong> If all are within normal range → ABGs are normal. If any are abnormal → continue.</li>
+    <li><strong>Step 2 — Assess the pH.</strong> pH &lt;7.35 = acidosis; pH &gt;7.45 = alkalosis. Normal pH = normal, compensated, or mixed disorder.</li>
+    <li><strong>Step 3 — Use ROME to determine origin.</strong></li>
+    <li><strong>Step 4 — Assess compensation.</strong> Look at the remaining value (CO<sub>2</sub> if metabolic; HCO<sub>3</sub><sup>-</sup> if respiratory). If moving in opposite direction → compensating. If pH still abnormal → partial compensation. If pH normal → full compensation.</li>
+    <li><strong>Step 5 — Assess PaO<sub>2</sub> and SaO<sub>2</sub>.</strong> Values below normal = hypoxemia.</li>
+  </ol>
+
+  <div class="callout mnemonic">
+    <strong>Mnemonic: ROME</strong>
+    <strong>R</strong>espiratory <strong>O</strong>pposite — <strong>M</strong>etabolic <strong>E</strong>qual<br><br>
+    <strong>Respiratory:</strong> pH and PaCO<sub>2</sub> go in OPPOSITE directions<br>
+    • Resp. Acidosis: pH↓, PaCO<sub>2</sub>↑ (opposite)<br>
+    • Resp. Alkalosis: pH↑, PaCO<sub>2</sub>↓ (opposite)<br><br>
+    <strong>Metabolic:</strong> pH and HCO<sub>3</sub><sup>-</sup> go in the SAME direction (equal)<br>
+    • Met. Acidosis: pH↓, HCO<sub>3</sub><sup>-</sup>↓ (equal)<br>
+    • Met. Alkalosis: pH↑, HCO<sub>3</sub><sup>-</sup>↑ (equal)
+  </div>
+
+  <h3>ABG Interpretation Quick Reference</h3>
+  <table>
+    <tr><th>Disorder</th><th>pH</th><th>PaCO<sub>2</sub></th><th>HCO<sub>3</sub><sup>-</sup></th><th>Compensation</th></tr>
+    <tr><td>Respiratory Acidosis</td><td>↓ &lt;7.35</td><td>↑ &gt;45</td><td>Normal → ↑</td><td>Kidneys retain HCO<sub>3</sub><sup>-</sup></td></tr>
+    <tr><td>Respiratory Alkalosis</td><td>↑ &gt;7.45</td><td>↓ &lt;35</td><td>Normal → ↓</td><td>Kidneys excrete HCO<sub>3</sub><sup>-</sup></td></tr>
+    <tr><td>Metabolic Acidosis</td><td>↓ &lt;7.35</td><td>Normal → ↓</td><td>↓ &lt;22</td><td>Lungs hyperventilate (Kussmaul), blow off CO<sub>2</sub></td></tr>
+    <tr><td>Metabolic Alkalosis</td><td>↑ &gt;7.45</td><td>Normal → ↑</td><td>↑ &gt;26</td><td>Lungs hypoventilate, retain CO<sub>2</sub> (limited — hypoxemia becomes limiting factor)</td></tr>
+  </table>
+
+  <h3>Sample ABG Analysis</h3>
+  <div class="callout tip">
+    <strong>Example</strong>
+    pH 7.32 | PaCO<sub>2</sub> 30 | HCO<sub>3</sub><sup>-</sup> 16 | PaO<sub>2</sub> 95<br><br>
+    Step 2: pH 7.32 → acidosis<br>
+    Step 3 (ROME): pH↓ and HCO<sub>3</sub><sup>-</sup>↓ → going in SAME direction → METABOLIC ACIDOSIS<br>
+    Step 4: PaCO<sub>2</sub> 30 (low) → lungs compensating by blowing off CO<sub>2</sub>; pH still abnormal → PARTIAL compensation<br>
+    Step 5: PaO<sub>2</sub> 95 → no hypoxemia<br>
+    <strong>Interpretation: Metabolic acidosis with partial respiratory compensation.</strong>
+  </div>
+
+  <h3>Anion Gap (for Metabolic Acidosis)</h3>
+  <p><strong>Anion gap = Na<sup>+</sup> − (HCO<sub>3</sub><sup>-</sup> + Cl<sup>-</sup>)</strong> | Normal: 8–12 mmol/L</p>
+  <ul>
+    <li><strong>↑ Anion gap</strong> = acid accumulation (DKA, lactic acidosis, uremia, aspirin toxicity) — mnemonic: MUDPILES</li>
+    <li><strong>Normal anion gap</strong> = bicarbonate loss (diarrhea, renal tubular acidosis)</li>
+  </ul>
+
+  <div class="callout mnemonic">
+    <strong>Mnemonic: MUDPILES (High Anion Gap Metabolic Acidosis)</strong>
+    <strong>M</strong>ethanol | <strong>U</strong>remia (renal failure) | <strong>D</strong>KA | <strong>P</strong>ropylene glycol | <strong>I</strong>soniazid/Iron | <strong>L</strong>actic acidosis | <strong>E</strong>thylene glycol | <strong>S</strong>alicylates (aspirin)
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 10 -->
+<details class="section" id="s10">
+<summary>10 &mdash; Acid-Base Disorders</summary>
+<div class="section-body">
+
+  <table>
+    <tr><th>Disorder</th><th>Cause</th><th>Manifestations</th><th>Treatment</th></tr>
+    <tr>
+      <td><strong>Respiratory Acidosis</strong> (CO<sub>2</sub> retention)</td>
+      <td>Hypoventilation: COPD, pneumonia, pulmonary edema, chest wall abnormality, respiratory muscle weakness, sedative overdose, mechanical hypoventilation</td>
+      <td>CNS: lethargy, confusion, dizziness, headache, coma<br>CV: ↓ BP, ventricular fibrillation (from hyperkalemia)<br>Warm flushed skin<br>Hypoventilation with hypoxia</td>
+      <td>Treat underlying cause. Support ventilation (supplemental O<sub>2</sub>, bronchodilators, reversal agents, mechanical ventilation). Kidneys compensate by retaining HCO<sub>3</sub><sup>-</sup>.</td>
+    </tr>
+    <tr>
+      <td><strong>Respiratory Alkalosis</strong> (CO<sub>2</sub> deficit)</td>
+      <td>Hyperventilation: hypoxia (pneumonia, pulmonary embolus), anxiety, fear, pain, fever, exercise, liver failure, septicemia, stroke, meningitis, CNS injury, mechanical hyperventilation</td>
+      <td>CNS: dizziness, light-headedness, confusion, headache<br>CV: tachycardia, dysrhythmias (from hypokalemia)<br>Neuromuscular: tetany, numbness, tingling, hyperreflexia, seizures<br>GI: N/V, diarrhea</td>
+      <td>Treat underlying cause (hypoxemia most important). Breathing into closed system/paper bag (rebreathes CO<sub>2</sub>) for anxiety/panic. Sedation/analgesia for pain. Often limited time for compensation.</td>
+    </tr>
+    <tr>
+      <td><strong>Metabolic Acidosis</strong> (HCO<sub>3</sub><sup>-</sup> deficit or acid excess)</td>
+      <td>DKA, lactic acidosis (shock), severe diarrhea (HCO<sub>3</sub><sup>-</sup> loss), renal failure (impaired H<sup>+</sup> excretion), starvation, GI fistulas, aspirin toxicity</td>
+      <td>CNS: lethargy, confusion, dizziness, headache, coma<br>CV: ↓ BP, dysrhythmias (from hyperkalemia)<br>Cold, clammy skin<br>Respiratory: <strong>Kussmaul respirations</strong> (deep, rapid breathing — compensatory)<br>GI: N/V, diarrhea, abdominal pain<br>Muscle weakness</td>
+      <td>Treat underlying cause. Kidneys attempt to excrete H<sup>+</sup> and retain HCO<sub>3</sub><sup>-</sup>. Lungs compensate with Kussmaul respirations. IV NaHCO<sub>3</sub> only for severe acidosis (pH &lt;7.1).</td>
+    </tr>
+    <tr>
+      <td><strong>Metabolic Alkalosis</strong> (HCO<sub>3</sub><sup>-</sup> excess or acid deficit)</td>
+      <td>Loss of acid: prolonged vomiting, NG suction, diuretic therapy (K<sup>+</sup> and H<sup>+</sup> loss)<br>Gain of base: NaHCO<sub>3</sub> excess (antacids, bicarbonate ingestion), mineralocorticoid use, hypokalemia</td>
+      <td>CNS: irritability, lethargy, confusion, headache<br>CV: tachycardia, dysrhythmias (from hypokalemia)<br>Neuromuscular: tetany, tremors, tingling of fingers/toes, muscle cramps, hypertonic muscles, seizures<br>Respiratory: hypoventilation (compensatory — retains CO<sub>2</sub>; limited by hypoxemia)<br>GI: N/V, anorexia</td>
+      <td>Treat underlying cause. Replace Cl<sup>-</sup> and fluid (often KCl replacement needed). Kidneys excrete HCO<sub>3</sub><sup>-</sup>. Lungs compensate via hypoventilation (limited).</td>
+    </tr>
+  </table>
+
+  <h3>Mixed Acid-Base Disorders</h3>
+  <p>Two or more primary imbalances occur simultaneously. pH depends on type, severity, and compensation.</p>
+  <ul>
+    <li>Resp. acidosis + metabolic alkalosis (e.g., COPD + NG suction) → near-normal pH</li>
+    <li>Resp. acidosis + metabolic acidosis (e.g., severe shock with hypoventilation) → severe acidosis</li>
+    <li>Mixed alkalosis (e.g., postop pain → hyperventilation + NG suction) → high pH</li>
+  </ul>
+
+  <div class="need-to-know">
+    Kussmaul respirations = deep, rapid breathing in response to METABOLIC ACIDOSIS. The patient is trying to blow off CO<sub>2</sub> to compensate. Do NOT suppress this respiratory compensation.
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 11 -->
+<details class="section" id="s11">
+<summary>11 &mdash; Nursing Assessment &amp; IV Fluid Therapy</summary>
+<div class="section-body">
+
+  <h3>Assessment of Fluid/Electrolyte/Acid-Base Imbalances</h3>
+  <h4>Subjective Data</h4>
+  <ul>
+    <li>History of: kidney, heart, GI, or lung disease; diabetes; COPD; liver disease; cancer; endocrine problems</li>
+    <li>Medications: diuretics, corticosteroids, OTC drugs (hidden sodium, potassium sources)</li>
+    <li>Recent surgeries, dialysis, bowel procedures, ileostomy</li>
+    <li>Diet: special diets, eating disorders, alcohol use</li>
+    <li>Symptoms: numbness, tingling, muscle weakness, confusion, thirst, weight changes</li>
+  </ul>
+
+  <h4>Physical Assessment Findings and Their Possible Causes</h4>
+  <table>
+    <tr><th>Finding</th><th>Possible Electrolyte/Fluid Cause</th></tr>
+    <tr><td>Hypotension</td><td>FVD, ↓ Ca<sup>2+</sup>, ↑ Mg<sup>2+</sup></td></tr>
+    <tr><td>Hypertension</td><td>FVE, ↑ Ca<sup>2+</sup>, ↓ Mg<sup>2+</sup></td></tr>
+    <tr><td>Chvostek sign</td><td>↓ Ca<sup>2+</sup>, ↑ PO<sub>4</sub><sup>3-</sup>, ↓ Mg<sup>2+</sup></td></tr>
+    <tr><td>Trousseau sign</td><td>↓ Ca<sup>2+</sup>, ↑ PO<sub>4</sub><sup>3-</sup>, ↓ Mg<sup>2+</sup></td></tr>
+    <tr><td>Muscle weakness</td><td>↑ or ↓ K<sup>+</sup>, ↑ Ca<sup>2+</sup>, ↓ PO<sub>4</sub><sup>3-</sup>, ↑ Mg<sup>2+</sup></td></tr>
+    <tr><td>Crackles, dyspnea</td><td>FVE, pulmonary edema</td></tr>
+    <tr><td>Seizures/tremors</td><td>↑ Na<sup>+</sup>, ↓ K<sup>+</sup>, ↓ Ca<sup>2+</sup>, ↑ PO<sub>4</sub><sup>3-</sup>, ↓ Mg<sup>2+</sup></td></tr>
+    <tr><td>Confusion/↓ LOC</td><td>FVD/FVE, ↑ or ↓ Na<sup>+</sup>, ↓ PO<sub>4</sub><sup>3-</sup></td></tr>
+    <tr><td>Pitting edema</td><td>FVE</td></tr>
+    <tr><td>Poor skin turgor</td><td>FVD</td></tr>
+  </table>
+
+  <h3>IV Crystalloid Solutions</h3>
+  <table>
+    <tr><th>Solution</th><th>Tonicity</th><th>Key Use</th><th>Cautions</th></tr>
+    <tr><td>5% Dextrose in Water (D5W)</td><td>Isotonic (physiologically hypotonic — dextrose metabolized rapidly)</td><td>Free water replacement; treat hypernatremia; prevent ketosis</td><td>No electrolytes; can cause cellular swelling; not for volume replacement</td></tr>
+    <tr><td>0.45% NaCl (½ NS)</td><td>Hypotonic</td><td>Hypernatremia; maintenance fluid</td><td>Can deplete ECF and lower BP; may cause cerebral edema; not for replacement</td></tr>
+    <tr><td><strong>0.9% NaCl (NS)</strong></td><td>Isotonic</td><td>ECF volume expansion; hypovolemia; with blood products</td><td>Only solution given with blood; excessive use → hypernatremia, hyperchloremia; risk of volume overload</td></tr>
+    <tr><td>3% NaCl</td><td>Hypertonic</td><td>Severe symptomatic hyponatremia; head injury</td><td>Risk of volume overload, pulmonary edema; give slowly; monitor Na<sup>+</sup> closely</td></tr>
+    <tr><td><strong>Lactated Ringer's (LR)</strong></td><td>Isotonic</td><td>Surgery, burns, GI fluid losses; closest to ECF composition</td><td>Contains K<sup>+</sup>, Ca<sup>2+</sup>, lactate; avoid in liver failure (cannot convert lactate), severe hyperkalemia</td></tr>
+    <tr><td>5% Dextrose in 0.45% NaCl (D5½NS)</td><td>Hypertonic</td><td>Maintenance solution; hypotonic losses</td><td>Provides free water after dextrose metabolism</td></tr>
+    <tr><td>5% Dextrose in 0.9% NaCl (D5NS)</td><td>Hypertonic</td><td>Metabolic alkalosis with hypovolemia/hyponatremia</td><td>High Na<sup>+</sup> and Cl<sup>-</sup>; monitor for fluid overload</td></tr>
+  </table>
+
+  <h3>Colloid Solutions</h3>
+  <ul>
+    <li>Contain large molecules → ↑ oncotic pressure → pull fluid into vessels (volume expanders)</li>
+    <li>Types: albumin (5% = isotonic; 25% = hypertonic and draws fluid from interstitium), dextran, hydroxyethyl starches (Hespan)</li>
+    <li>All affect blood coagulation (inhibit coagulation factor VII) — monitor coagulation times</li>
+    <li>Risk: circulatory overload, anaphylaxis (dextran/Hespan)</li>
+  </ul>
+
+  <div class="need-to-know">
+    0.9% NaCl is the ONLY IV fluid compatible with blood products. LR contains Ca<sup>2+</sup>, which can cause clotting in blood tubing.
+  </div>
+
+  <div class="callout tip">
+    <strong>Quick IV Fluid Memory Guide</strong>
+    <ul>
+      <li>Volume deficit → <strong>isotonic</strong> (0.9% NS or LR)</li>
+      <li>Hypernatremia → <strong>hypotonic</strong> (0.45% NS or D5W)</li>
+      <li>Hyponatremia (severe) → <strong>hypertonic</strong> (3% NaCl)</li>
+      <li>Surgical/burn/GI losses → <strong>Lactated Ringer's</strong></li>
+      <li>Prevents ketosis, replaces free water → <strong>D5W</strong></li>
+    </ul>
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 12 -->
+<details class="section" id="s12">
+<summary>12 &mdash; Central Venous Access Devices (CVADs)</summary>
+<div class="section-body">
+
+  <p>CVADs are catheters placed in large vessels (subclavian, jugular veins) for frequent or special vascular access.</p>
+
+  <h3>Types of CVADs</h3>
+  <table>
+    <tr><th>Type</th><th>Description</th><th>Best For</th></tr>
+    <tr>
+      <td><strong>Central Venous Catheter (CVC)</strong></td>
+      <td>Tip rests in distal superior vena cava. Nontunneled (subclavian/internal jugular) or surgically tunneled (Hickman, Broviac, Groshong). Available in single-, double-, triple-lumen.</td>
+      <td>Short-term (nontunneled) or long-term (tunneled) acute care</td>
+    </tr>
+    <tr>
+      <td><strong>PICC</strong> (Peripherally Inserted Central Catheter)</td>
+      <td>Inserted via basilic vein in arm; tip in superior vena cava. Single or double lumen. Can be inserted at bedside.</td>
+      <td>1 week to 6 months; lower infection rate than CVC; lower cost; ↑ DVT/phlebitis risk</td>
+    </tr>
+    <tr>
+      <td><strong>Implanted Port</strong></td>
+      <td>CVC + subcutaneous reservoir on upper chest/arm. Accessed with non-coring Huber needle. Lowest infection risk.</td>
+      <td>Long-term therapy; cosmetically preferred; requires special needle for access</td>
+    </tr>
+    <tr>
+      <td><strong>Midline Catheter</strong></td>
+      <td>Technically peripheral (tip below axilla); 3–8 inches; basilic or cephalic vein; up to 4 weeks.</td>
+      <td>Intermediate-term access without central vein entry</td>
+    </tr>
+  </table>
+
+  <h3>Key CVAD Nursing Management</h3>
+  <ul>
+    <li><strong>Do not use</strong> a newly placed CVAD until tip position confirmed by chest x-ray</li>
+    <li><strong>Hand hygiene</strong> before any catheter manipulation</li>
+    <li><strong>Sterile technique</strong> for dressing changes; chlorhexidine prep is gold standard (lasts longer than povidone-iodine)</li>
+    <li>Transparent dressings: change if damp/loose/soiled; otherwise up to 1 week</li>
+    <li><strong>Flushing:</strong> use 10-mL or larger syringe; push-pause technique to create turbulence (removes debris); if resistance — do NOT force (risk of rupture or embolism)</li>
+    <li>PICC: do NOT measure BP or draw blood from PICC arm</li>
+    <li><strong>Valsalva maneuver</strong> during cap change or CVAD removal to prevent air embolism</li>
+  </ul>
+
+  <h3>CVAD Complications</h3>
+  <table>
+    <tr><th>Complication</th><th>Signs</th><th>Action</th></tr>
+    <tr><td>Catheter migration</td><td>Sluggish infusion, neck/chest edema during infusion, gurgling sound in ear, dysrhythmias</td><td>Fluoroscopy to confirm; prepare for replacement</td></tr>
+    <tr><td>Infection (local/systemic)</td><td>Local: redness, tenderness, purulent drainage, warmth. Systemic: fever, chills, malaise</td><td>Local: warm compresses, culture, possible removal. Systemic: blood cultures, antibiotics, antipyretics, consider removal</td></tr>
+    <tr><td>Occlusion</td><td>Sluggish or no flow; unable to aspirate</td><td>Have patient reposition/raise arm/cough; saline flush (10-mL syringe); anticoagulant or thrombolytic if thrombus</td></tr>
+    <tr><td>Air embolism</td><td>Chest pain, dyspnea, tachypnea, cyanosis, ↓ BP, ↑ HR</td><td>Clamp catheter; apply O<sub>2</sub>; left lateral Trendelenburg; notify provider immediately</td></tr>
+    <tr><td>Pneumothorax</td><td>Decreased/absent breath sounds, respiratory distress, chest pain, distended unilateral chest</td><td>O<sub>2</sub>; semi-Fowler's; prepare for chest tube insertion</td></tr>
+  </table>
+
+  <div class="callout danger">
+    <strong>Air Embolism Emergency</strong>
+    Place patient in LEFT lateral decubitus position with head DOWN (Trendelenburg). This traps air in right atrium/ventricle away from pulmonary vasculature. Clamp the catheter immediately. Notify provider.
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 13 -->
+<details class="section" id="s13">
+<summary>13 &mdash; NCLEX Critical To Knows</summary>
+<div class="section-body">
+
+  <div class="nclex-card">
+    <div class="card-head">1 — Fluid Volume Assessment Priorities <span class="nclex-tag">HIGH YIELD</span></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>Daily weight</strong> is the most accurate measure of fluid status (1 kg = 1 L)</li>
+        <li>Orthostatic hypotension (BP drops ≥20 mmHg systolic / ≥10 mmHg diastolic when moving from lying to standing) = significant FVD</li>
+        <li>FVE signs: bounding pulse, JVD, S3, crackles, pitting edema, weight gain</li>
+        <li>Urine SG &gt;1.025 = concentrated (FVD); &lt;1.010 = dilute (FVE)</li>
+        <li>Older adults: most reliable site for skin turgor is the sternum or abdomen (not forearm/back of hand — skin naturally less elastic)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nclex-card">
+    <div class="card-head">2 — Potassium Safety Rules <span class="nclex-tag">HIGH YIELD</span></div>
+    <div class="card-body">
+      <ul>
+        <li>NEVER give IV KCl as a bolus or IV push — fatal cardiac arrest</li>
+        <li>Max peripheral rate: 10 mEq/hr; may go faster in ICU with continuous ECG + central line</li>
+        <li>Give KCl only if urine output ≥ 0.5 mL/kg/hr</li>
+        <li>Low K<sup>+</sup> + digoxin = high toxicity risk; monitor for N/V, vision changes, yellow/halo vision, bradycardia</li>
+        <li>Always correct hypomagnesemia before/alongside hypokalemia — hypomagnesemia causes renal K<sup>+</sup> wasting</li>
+        <li>ECG changes in hyperkalemia (in order): peaked T waves → loss of P waves → widened QRS → ventricular fibrillation</li>
+        <li>IV calcium gluconate for hyperkalemia = stabilizes heart; does NOT lower K<sup>+</sup></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nclex-card">
+    <div class="card-head">3 — Calcium Tetany Signs <span class="nclex-tag">HIGH YIELD</span></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>Chvostek sign:</strong> Tap on facial nerve in front of ear → facial muscle twitching = hypocalcemia</li>
+        <li><strong>Trousseau sign:</strong> Inflate BP cuff above systolic for 3 min → carpal (hand/wrist) spasm = hypocalcemia</li>
+        <li>Both signs are also positive in hypomagnesemia</li>
+        <li>After thyroid/parathyroid/neck surgery: monitor closely for hypocalcemia (circumoral tingling, positive Chvostek/Trousseau)</li>
+        <li>Alkalosis → ↑ albumin binding → ↓ ionized Ca<sup>2+</sup> → tetany even with normal total Ca<sup>2+</sup></li>
+        <li>Hypercalcemia mnemonic: <strong>Bones, Groans, Stones, Psychic Moans</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nclex-card">
+    <div class="card-head">4 — Sodium Correction Rate Rules <span class="nclex-tag">HIGH YIELD</span></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>Hypernatremia:</strong> Correct no faster than 8–15 mEq/L per 8 hours → too-rapid correction → cerebral edema (water rushes back into brain cells)</li>
+        <li><strong>Hyponatremia:</strong> Correct no faster than 10–12 mEq/L in first 24 h and ≤18 mEq/L in 48 h → too-rapid correction → osmotic demyelination syndrome (permanent myelin sheath damage)</li>
+        <li>Always initiate seizure precautions for patients with significant sodium imbalances or altered consciousness</li>
+        <li>SIADH → dilutional hyponatremia → treat with fluid restriction; vasopressin antagonists (conivaptan, tolvaptan) for severe/refractory cases</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nclex-card">
+    <div class="card-head">5 — ABG Interpretation: ROME <span class="nclex-tag">HIGH YIELD</span></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>ROME:</strong> Respiratory = Opposite (pH and PaCO<sub>2</sub> move in opposite directions). Metabolic = Equal (pH and HCO<sub>3</sub><sup>-</sup> move in same direction).</li>
+        <li>Kussmaul respirations (deep, rapid) = body's respiratory compensation for <strong>metabolic acidosis</strong></li>
+        <li>Primary respiratory disorder → kidneys compensate (takes hours to days)</li>
+        <li>Primary metabolic disorder → lungs compensate (takes minutes to hours)</li>
+        <li>Anion gap: Na<sup>+</sup> − (HCO<sub>3</sub><sup>-</sup> + Cl<sup>-</sup>) = normal 8–12. High anion gap = acid gain (DKA, lactic acidosis). Normal anion gap = HCO<sub>3</sub><sup>-</sup> loss (diarrhea).</li>
+        <li>Alkalosis (both types) → watch for hypokalemia and hypocalcemia (tetany, dysrhythmias)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nclex-card">
+    <div class="card-head">6 — IV Fluid Selection Rules <span class="nclex-tag">HIGH YIELD</span></div>
+    <div class="card-body">
+      <ul>
+        <li>0.9% NS (normal saline) = only IV solution compatible with blood/blood products</li>
+        <li>LR = best for surgery, burns, GI losses (closest to ECF); avoid in liver failure, hyperkalemia, lactic acidosis</li>
+        <li>3% NaCl (hypertonic) = symptomatic hyponatremia/head trauma; give SLOWLY; monitor for pulmonary edema</li>
+        <li>0.45% NaCl (hypotonic) = hypernatremia and maintenance; NOT for volume replacement (depletes ECF)</li>
+        <li>D5W = free water/hypernatremia; NOT a replacement fluid (provides no electrolytes, causes cell swelling)</li>
+        <li>Colloids pull fluid into vessels; all affect coagulation → monitor coagulation times</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nclex-card">
+    <div class="card-head">7 — Magnesium Toxicity Monitoring (IV Mg<sup>2+</sup>) <span class="nclex-tag">HIGH YIELD</span></div>
+    <div class="card-body">
+      <ul>
+        <li>Always use infusion pump; monitor VS, LOC, and deep tendon reflexes (DTRs) frequently</li>
+        <li><strong>Loss of DTRs</strong> = earliest sign of magnesium toxicity → STOP infusion</li>
+        <li>Keep IV calcium gluconate at bedside as antidote for severe hypermagnesemia</li>
+        <li>Hypomagnesemia resembles hypocalcemia: hyperactive DTRs, positive Chvostek/Trousseau, muscle cramps, torsades de pointes</li>
+        <li>Low Mg<sup>2+</sup> causes refractory hypokalemia — treat Mg<sup>2+</sup> first</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nclex-card">
+    <div class="card-head">8 — CVAD Priority Safety Points <span class="nclex-tag">HIGH YIELD</span></div>
+    <div class="card-body">
+      <ul>
+        <li>Confirm CVAD tip position with chest x-ray before use</li>
+        <li>Chlorhexidine = preferred cleansing agent (longer lasting than povidone-iodine)</li>
+        <li>Air embolism: clamp catheter → left lateral decubitus + Trendelenburg → O<sub>2</sub> → notify provider</li>
+        <li>Resistance when flushing = do NOT force (risk of rupture or dislodging thrombus)</li>
+        <li>Valsalva maneuver during cap changes or removal prevents air embolism</li>
+        <li>PICC: no BP readings or blood draws from PICC arm (risk of vein damage/thrombosis)</li>
+        <li>Catheter occlusion: have patient change position, raise arm, cough first; then flush with 10-mL syringe; then anticoagulant/thrombolytic</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 14 -->
+<details class="section" id="s14">
+<summary>14 &mdash; Review Questions</summary>
+<div class="section-body">
+<div class="questions">
+<ol>
+
+  <li>
+    A patient has had prolonged NG suction and develops metabolic alkalosis. What is the expected ABG picture?
+    <details class="qa">
+      <summary>Show Answer</summary>
+      <div>pH &gt;7.45, HCO<sub>3</sub><sup>-</sup> &gt;26 mEq/L, PaCO<sub>2</sub> normal or ↑ (if lungs compensating by retaining CO<sub>2</sub>). NG suction removes HCl (hydrochloric acid) → acid deficit → metabolic alkalosis. The lungs compensate by hypoventilating to retain CO<sub>2</sub>, but this is limited by hypoxemia.</div>
+    </details>
+  </li>
+
+  <li>
+    A 74-year-old patient with COPD has the following ABGs: pH 7.31, PaCO<sub>2</sub> 58 mm Hg, HCO<sub>3</sub><sup>-</sup> 30 mEq/L. How do you interpret these values?
+    <details class="qa">
+      <summary>Show Answer</summary>
+      <div>Respiratory acidosis with partial metabolic compensation. Analysis: pH 7.31 = acidosis. Using ROME: pH↓ and PaCO<sub>2</sub>↑ = OPPOSITE = Respiratory origin → Respiratory acidosis. HCO<sub>3</sub><sup>-</sup> is 30 (elevated) → kidneys retaining HCO<sub>3</sub><sup>-</sup> to compensate. pH still abnormal → partial (not full) compensation. In COPD, CO<sub>2</sub> retention from air trapping/hypoventilation.</div>
+    </details>
+  </li>
+
+  <li>
+    A patient in the ICU has a K<sup>+</sup> of 6.8 mEq/L. The provider orders IV calcium gluconate. The patient asks why they are getting "calcium" when the potassium is too high. How do you explain this?
+    <details class="qa">
+      <summary>Show Answer</summary>
+      <div>Calcium gluconate does NOT lower the potassium level. It acts as a membrane stabilizer — it protects the heart from the dangerous effects of high potassium on cardiac conduction (like ventricular fibrillation). Other treatments (insulin/dextrose, albuterol, Kayexalate, dialysis) will actually reduce the potassium level.</div>
+    </details>
+  </li>
+
+  <li>
+    A patient returns from total thyroidectomy. Four hours post-op, she complains of tingling around her mouth and in her fingertips. What is the priority nursing assessment and action?
+    <details class="qa">
+      <summary>Show Answer</summary>
+      <div>Assess for hypocalcemia — circumoral tingling is an early sign. Check for Chvostek sign (facial muscle twitch with facial nerve tap) and Trousseau sign (carpal spasm with BP cuff inflation). Notify the provider immediately. The parathyroid glands may have been removed or traumatized during thyroidectomy → PTH deficit → hypocalcemia. Treatment: IV calcium gluconate for symptomatic hypocalcemia. Keep calcium gluconate at the bedside for thyroidectomy patients.</div>
+    </details>
+  </li>
+
+  <li>
+    Why must potassium always be corrected before or alongside magnesium in a patient with both hypokalemia and hypomagnesemia?
+    <details class="qa">
+      <summary>Show Answer</summary>
+      <div>This is backwards — it is Mg<sup>2+</sup> that must be corrected FIRST (or alongside). Low Mg<sup>2+</sup> stimulates renin and aldosterone release → promotes renal K<sup>+</sup> excretion → persistent hypokalemia despite K<sup>+</sup> replacement. If Mg<sup>2+</sup> is not corrected, the K<sup>+</sup> level will not stay corrected ("refractory hypokalemia").</div>
+    </details>
+  </li>
+
+  <li>
+    A patient develops an air embolism through a central line. Describe the appropriate immediate nursing actions and positioning.
+    <details class="qa">
+      <summary>Show Answer</summary>
+      <div>1. Clamp the catheter immediately. 2. Place patient in left lateral decubitus (left side-lying) position with the head DOWN (Trendelenburg). This traps air in the right atrium and right ventricle, preventing it from entering the pulmonary vasculature. 3. Apply high-flow oxygen. 4. Notify the provider immediately. Monitor VS continuously.</div>
+    </details>
+  </li>
+
+  <li>
+    What is the difference between partial and full compensation in acid-base balance?
+    <details class="qa">
+      <summary>Show Answer</summary>
+      <div>Partial compensation: the compensating system (lung or kidney) has kicked in and the compensatory value (PaCO<sub>2</sub> or HCO<sub>3</sub><sup>-</sup>) is moving in the correct direction, BUT the pH is still outside normal range (still acidotic or alkalotic). Full compensation: the compensating system has brought the pH back within normal range (7.35–7.45), though the PaCO<sub>2</sub> and HCO<sub>3</sub><sup>-</sup> remain abnormal. Full compensation ≠ correction; the underlying disorder still exists.</div>
+    </details>
+  </li>
+
+  <li>
+    A patient with renal failure and hypermagnesemia is receiving IV calcium gluconate. During the infusion the nurse notices a sudden drop in BP. What happened and what should the nurse do?
+    <details class="qa">
+      <summary>Show Answer</summary>
+      <div>Rapid IV calcium administration can cause hypotension. The nurse should slow the infusion rate and notify the provider. Monitor BP closely throughout calcium infusion. The provider may order a slower infusion rate or an alternative formulation. Continue to monitor LOC and cardiac rhythm.</div>
+    </details>
+  </li>
+
+  <li>
+    Compare the ECG changes seen in hyperkalemia versus hypokalemia.
+    <details class="qa">
+      <summary>Show Answer</summary>
+      <div><strong>Hyperkalemia (in order):</strong> Tall peaked T waves → Loss of P waves → Prolonged PR interval → ST segment depression → Widened QRS complex → Ventricular fibrillation/standstill. <strong>Hypokalemia:</strong> Flattened T waves → ST depression → Prominent U wave (hallmark of hypokalemia) → Peaked P waves → Prolonged QRS → First/second degree heart block → Ventricular dysrhythmias. U wave is the distinguishing feature of hypokalemia.</div>
+    </details>
+  </li>
+
+  <li>
+    A patient is receiving isotonic saline for a fluid volume deficit. Explain why 0.9% NaCl is preferred over 0.45% NaCl for this situation.
+    <details class="qa">
+      <summary>Show Answer</summary>
+      <div>0.9% NaCl (isotonic/normal saline) expands only the ECF compartment — it does not move into cells. This makes it ideal for restoring ECF volume in dehydrated patients. 0.45% NaCl (hypotonic) is a lower osmolality solution than plasma. When infused, it dilutes ECF, causing water to move into cells by osmosis (cells swell). This depletes the ECF compartment and can lower BP further — the opposite of what is needed in FVD. Hypotonic solutions are used for hypernatremia or maintenance, not volume replacement.</div>
+    </details>
+  </li>
+
+</ol>
+</div>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+</body>
+</html>

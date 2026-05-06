@@ -23,7 +23,15 @@
       "pdf": "LEWIS'S MEDICAL-SURGICAL NURSING _ assessment and management -- Mariann M_ Harding PhD  RN  CNE  FAADN; Jeffrey Kwong DNP -- 12th edition, St_ Louis, -- isbn13 9780323789615 -- 163e0972edb5bc28fc610b65b876dc7b -- A.pdf",
       "page_offset": 35,
       "notes": "PDF page 36 = book page 1 (confirmed: Chapter 1 body starts at PDF p.36, printed page number is 1); offset = 35",
-      "completed_chapters": []
+      "completed_chapters": [
+        {
+          "chapter": 17,
+          "title": "Fluid, Electrolyte, and Acid-Base Imbalances",
+          "book_pages": "302-334",
+          "pdf_pages": "337-369",
+          "output": "books/lewis-medsurg/chapter17_study_guide.html"
+        }
+      ]
     }
   ]
 }

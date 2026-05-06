@@ -260,8 +260,52 @@
 
   /* ── Figure image boxes ── */
   .fig-box { text-align: center; margin: 16px 0; }
-  .fig-box img { max-width: 65%; border-radius: 6px; border: 1px solid #c8d8ea; box-shadow: 0 2px 8px rgba(13,59,102,.12); }
+  .fig-box img {
+    max-width: 78%;
+    border-radius: 6px;
+    border: 1px solid #c8d8ea;
+    box-shadow: 0 2px 8px rgba(13,59,102,.12);
+    cursor: zoom-in;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .fig-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 4px 18px rgba(13,59,102,.22);
+  }
   .fig-caption { font-size: 0.84em; color: #555; margin-top: 6px; font-style: italic; }
+
+  /* ── Lightbox ── */
+  #img-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  #img-modal.open { display: flex; }
+  #img-modal img {
+    max-width: 93vw;
+    max-height: 91vh;
+    border-radius: 6px;
+    box-shadow: 0 10px 50px rgba(0,0,0,.7);
+    cursor: default;
+    object-fit: contain;
+  }
+  #img-modal-close {
+    position: fixed;
+    top: 14px; right: 22px;
+    color: #fff;
+    font-size: 2.2em;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    text-shadow: 0 2px 8px rgba(0,0,0,.6);
+    font-family: sans-serif;
+  }
+  #img-modal-close:hover { color: #f0a500; }
 
   /* ── Mnemonic cards ── */
   .mnemonic-card {
@@ -1765,6 +1809,25 @@
   <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
 </div>
 </details>
+
+
+<div id="img-modal" onclick="if(event.target===this)this.classList.remove('open')">
+  <span id="img-modal-close" onclick="document.getElementById('img-modal').classList.remove('open')">&times;</span>
+  <img id="img-modal-img" src="" alt="">
+</div>
+
+<script>
+  document.querySelectorAll('.fig-box img').forEach(function(img) {
+    img.addEventListener('click', function() {
+      document.getElementById('img-modal-img').src = this.src;
+      document.getElementById('img-modal-img').alt = this.alt;
+      document.getElementById('img-modal').classList.add('open');
+    });
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.getElementById('img-modal').classList.remove('open');
+  });
+</script>
 
 </body>
 </html>

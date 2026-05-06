@@ -259,9 +259,9 @@
   }
 
   /* ── Figure image boxes ── */
-  .fig-box { text-align: center; margin: 20px 0; }
-  .fig-box img { max-width: 100%; border-radius: 6px; border: 1px solid #c8d8ea; box-shadow: 0 2px 8px rgba(13,59,102,.12); }
-  .fig-caption { font-size: 0.84em; color: #555; margin-top: 8px; font-style: italic; }
+  .fig-box { text-align: center; margin: 16px 0; }
+  .fig-box img { max-width: 65%; border-radius: 6px; border: 1px solid #c8d8ea; box-shadow: 0 2px 8px rgba(13,59,102,.12); }
+  .fig-caption { font-size: 0.84em; color: #555; margin-top: 6px; font-style: italic; }
 
   /* ── Mnemonic cards ── */
   .mnemonic-card {
@@ -318,10 +318,21 @@
     font-size: 0.8em;
     letter-spacing: 0.04em;
   }
-  /* ── Disease dropdowns ── */
+  /* ── Disease dropdowns — sans-serif for readability ── */
+  #s13 details.qa > div {
+    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    font-size: 0.97em;
+    line-height: 1.75;
+    color: #222;
+  }
+  #s13 details.qa > div p { margin-bottom: 8px; }
+  #s13 details.qa > div ul { margin: 4px 0 10px 20px; }
+  #s13 details.qa > div li { margin-bottom: 5px; }
   details.qa div h4 {
-    font-size: 0.95em; color: #0d3b66; margin: 12px 0 5px;
-    border-bottom: 1px solid #c8d8ea; padding-bottom: 2px;
+    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    font-size: 0.88em; font-weight: 700; color: #0d3b66;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin: 14px 0 6px; border-bottom: 1px solid #c8d8ea; padding-bottom: 3px;
   }
 </style>
 </head>

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch 17 NCLEX Quiz — Fluid, Electrolyte &amp; Acid-Base Imbalances</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #f4f6fb;
+    padding: 0 20px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.9em;
+    color: #0d3b66;
+    border-bottom: 4px solid #0d3b66;
+    padding: 28px 0 12px;
+    margin-bottom: 6px;
+  }
+  .subtitle { color: #555; font-style: italic; margin-bottom: 6px; font-size: 0.93em; }
+  .source-info {
+    background: #e8f4fd;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    padding: 12px 18px;
+    margin: 14px 0 24px;
+    font-size: 0.9em;
+    color: #1a3a5c;
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+  }
+
+  /* ── Quiz questions ── */
+  .quiz-question {
+    background: #fff;
+    border: 1px solid #c8d8ea;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 14px 0;
+    box-shadow: 0 1px 4px rgba(13,59,102,.06);
+  }
+  .q-num {
+    font-size: 0.76em; color: #888; font-weight: bold;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    margin-bottom: 5px;
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+  }
+  .q-text {
+    font-weight: bold; color: #1a1a2e; margin-bottom: 14px;
+    line-height: 1.55; font-size: 0.98em;
+  }
+  .q-options {
+    display: flex; flex-direction: column; gap: 7px; margin-bottom: 13px;
+  }
+  .q-opt {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 12px; border-radius: 5px; border: 1.5px solid #c8d8ea;
+    cursor: pointer; font-size: 0.94em; line-height: 1.45;
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+    transition: background 0.12s;
+  }
+  .q-opt:hover:not(.correct-opt):not(.wrong-opt) { background: #f0f6fb; border-color: #3498db; }
+  .q-opt input[type=radio] { flex-shrink: 0; margin-top: 3px; accent-color: #0d3b66; }
+  .q-opt.correct-opt { background: #e6f9ee; border-color: #27ae60; font-weight: bold; color: #1a5e30; }
+  .q-opt.wrong-opt   { background: #fde8e8; border-color: #c0392b; color: #7b1a1a; }
+
+  .check-btn {
+    background: #0d3b66; color: #fff; border: none; border-radius: 4px;
+    padding: 7px 22px; cursor: pointer; font-size: 0.9em; font-family: Georgia, serif;
+  }
+  .check-btn:hover:not(:disabled) { background: #155a8a; }
+  .check-btn:disabled { opacity: 0.5; cursor: default; }
+
+  .q-rationale {
+    display: none; margin-top: 13px; padding: 10px 14px;
+    background: #f0f6fb; border-left: 4px solid #0d3b66;
+    border-radius: 4px; font-size: 0.92em; line-height: 1.65;
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif; color: #222;
+  }
+  .q-rationale .correct-ans {
+    color: #1e8449; font-weight: bold; display: block; margin-bottom: 4px;
+  }
+
+  /* ── Score bar ── */
+  .quiz-score-bar {
+    background: linear-gradient(90deg, #0d3b66, #155a8a);
+    color: #fff; border-radius: 8px; padding: 22px 28px;
+    text-align: center; margin: 22px 0 10px;
+    display: none;
+  }
+  .quiz-score-bar .score-num { font-size: 2.8em; font-weight: bold; line-height: 1; }
+  .quiz-score-bar .score-sub { font-size: 0.95em; opacity: 0.85; margin-top: 4px; }
+  .quiz-score-bar .grade { font-size: 1.1em; font-weight: bold; margin-top: 8px; }
+
+  /* ── Control buttons ── */
+  .quiz-controls { text-align: center; margin: 20px 0 6px; }
+  .score-btn, .reset-btn {
+    border: none; border-radius: 5px; padding: 10px 30px;
+    font-size: 0.97em; cursor: pointer; font-family: Georgia, serif;
+    font-weight: bold; margin: 4px;
+  }
+  .score-btn { background: #f0a500; color: #fff; }
+  .score-btn:hover { background: #d4890a; }
+  .reset-btn { background: #7f8c8d; color: #fff; }
+  .reset-btn:hover { background: #636e72; }
+
+  /* ── Progress tracker ── */
+  .progress-bar-wrap {
+    background: #dce8f5; border-radius: 20px; height: 10px;
+    margin: 0 0 18px; overflow: hidden;
+  }
+  .progress-bar-fill {
+    background: linear-gradient(90deg, #0d3b66, #3498db);
+    height: 100%; width: 0%; border-radius: 20px;
+    transition: width 0.3s ease;
+  }
+  .progress-label {
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+    font-size: 0.82em; color: #555; text-align: right;
+    margin-bottom: 4px;
+  }
+
+  a.back-link {
+    display: inline-block; margin-bottom: 18px; color: #0d3b66;
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+    font-size: 0.92em; text-decoration: none;
+  }
+  a.back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<h1>Ch 17 — NCLEX Practice Quiz</h1>
+<p class="subtitle">Fluid, Electrolyte, and Acid-Base Imbalances</p>
+
+<div class="source-info">
+  <strong>25 questions</strong> covering all major topics from Chapter 17 of <em>Lewis's Medical-Surgical Nursing</em> (Harding, 12th ed.), book pp. 302–334.<br>
+  Select the best answer, click <strong>Check Answer</strong> to see feedback, then click <strong>Calculate Score</strong> when finished.
+</div>
+
+<a class="back-link" href="chapter17_study_guide.html">&#8592; Back to Study Guide</a>
+
+<div class="progress-label" id="prog-label">0 / 25 answered</div>
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-fill"></div></div>
+
+<!-- ══════════════════════════════ Q1 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq1">
+  <div class="q-num">Question 1 of 25</div>
+  <div class="q-text">A patient's serum sodium is 160 mEq/L. Which fluid compartment will initially lose the MOST water as the body attempts to equalize osmolality?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q1" value="A"> <span>A. Intravascular</span></label>
+    <label class="q-opt"><input type="radio" name="q1" value="B"> <span>B. Interstitial</span></label>
+    <label class="q-opt"><input type="radio" name="q1" value="C"> <span>C. Intracellular</span></label>
+    <label class="q-opt"><input type="radio" name="q1" value="D"> <span>D. Transcellular</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — Intracellular</span>
+    Hypernatremia (Na &gt;145 mEq/L) creates a hyperosmolar ECF. Water shifts <em>out</em> of cells into the ECF by osmosis to equalize osmolality, causing cells — including brain cells — to shrink. This is why severe hypernatremia causes CNS symptoms (agitation, seizures, coma).
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q2 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq2">
+  <div class="q-num">Question 2 of 25</div>
+  <div class="q-text">A nurse assesses a patient with severe vomiting and diarrhea for 3 days. Which finding is MOST indicative of fluid volume deficit?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q2" value="A"> <span>A. Bounding pulse and hypertension</span></label>
+    <label class="q-opt"><input type="radio" name="q2" value="B"> <span>B. Weight gain of 2 kg over 24 hours</span></label>
+    <label class="q-opt"><input type="radio" name="q2" value="C"> <span>C. Urine specific gravity of 1.030</span></label>
+    <label class="q-opt"><input type="radio" name="q2" value="D"> <span>D. Pitting edema in lower extremities</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — Urine specific gravity of 1.030</span>
+    In FVD, the kidneys compensate by concentrating urine, raising specific gravity above 1.025 (normal 1.010–1.030). Bounding pulse, hypertension, weight gain, and pitting edema are signs of fluid volume <em>excess</em> (FVE), not deficit.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q3 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq3">
+  <div class="q-num">Question 3 of 25</div>
+  <div class="q-text">A patient with chronic heart failure has 3+ pitting edema, dyspnea, and a 5 kg weight gain over 3 days. The nurse anticipates which PRIORITY intervention?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q3" value="A"> <span>A. Administer 0.9% NaCl IV bolus</span></label>
+    <label class="q-opt"><input type="radio" name="q3" value="B"> <span>B. Restrict fluids and administer diuretics as ordered</span></label>
+    <label class="q-opt"><input type="radio" name="q3" value="C"> <span>C. Encourage increased sodium intake</span></label>
+    <label class="q-opt"><input type="radio" name="q3" value="D"> <span>D. Position the patient flat in bed</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Restrict fluids and administer diuretics</span>
+    FVE (fluid overload) requires reducing excess fluid via restriction and diuretics. A saline bolus would worsen overload. Sodium restriction is indicated (not encouragement). HOB should be elevated 30–45° to ease respiratory effort, not flat.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q4 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq4">
+  <div class="q-num">Question 4 of 25</div>
+  <div class="q-text">A patient's serum sodium drops to 115 mEq/L. The nurse observes twitching, confusion, and new-onset seizure activity. Which action is the PRIORITY?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q4" value="A"> <span>A. Administer free water via NG tube</span></label>
+    <label class="q-opt"><input type="radio" name="q4" value="B"> <span>B. Institute seizure precautions and notify the provider</span></label>
+    <label class="q-opt"><input type="radio" name="q4" value="C"> <span>C. Encourage increased oral fluid intake</span></label>
+    <label class="q-opt"><input type="radio" name="q4" value="D"> <span>D. Administer oral sodium supplements</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Institute seizure precautions and notify the provider</span>
+    Severe hyponatremia (Na &lt;120 mEq/L) with neurological symptoms is a medical emergency. Patient safety (seizure precautions) comes first, followed by immediate provider notification. Definitive treatment is hypertonic (3%) saline, but that requires a medical order. Free water and oral fluids would worsen dilutional hyponatremia.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q5 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq5">
+  <div class="q-num">Question 5 of 25</div>
+  <div class="q-text">A patient has a serum sodium of 158 mEq/L. Which clinical manifestation should the nurse expect?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q5" value="A"> <span>A. Muscle cramps and tetany</span></label>
+    <label class="q-opt"><input type="radio" name="q5" value="B"> <span>B. Pitting edema and weight gain</span></label>
+    <label class="q-opt"><input type="radio" name="q5" value="C"> <span>C. Intense thirst and dry, sticky mucous membranes</span></label>
+    <label class="q-opt"><input type="radio" name="q5" value="D"> <span>D. Hypoactive bowel sounds and paralytic ileus</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — Intense thirst and dry, sticky mucous membranes</span>
+    Hypernatremia draws water out of cells, causing intense thirst (the primary defense mechanism), dry/sticky mucous membranes, restlessness, and — in severe cases — CNS agitation and seizures. Muscle cramps/tetany = hypocalcemia. Pitting edema = FVE. Paralytic ileus = hypokalemia.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q6 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq6">
+  <div class="q-num">Question 6 of 25</div>
+  <div class="q-text">A nurse reviews the ECG of a patient with a serum K<sup>+</sup> of 2.8 mEq/L. Which ECG finding is CHARACTERISTIC of this electrolyte imbalance?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q6" value="A"> <span>A. Tall, peaked T waves</span></label>
+    <label class="q-opt"><input type="radio" name="q6" value="B"> <span>B. Widened QRS complex</span></label>
+    <label class="q-opt"><input type="radio" name="q6" value="C"> <span>C. Prominent U wave</span></label>
+    <label class="q-opt"><input type="radio" name="q6" value="D"> <span>D. Loss of P waves</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — Prominent U wave</span>
+    Hypokalemia is uniquely identified by a prominent U wave (a positive deflection after the T wave), along with flattened T waves and ST depression. Tall peaked T waves are the <em>earliest</em> sign of <em>hyper</em>kalemia. Widened QRS and loss of P waves indicate severe hyperkalemia.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q7 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq7">
+  <div class="q-num">Question 7 of 25</div>
+  <div class="q-text">A patient's K<sup>+</sup> is 6.8 mEq/L with a widened QRS on ECG. The provider orders several treatments. Which medication acts FASTEST to protect the myocardium?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q7" value="A"> <span>A. Sodium polystyrene sulfonate (Kayexalate)</span></label>
+    <label class="q-opt"><input type="radio" name="q7" value="B"> <span>B. IV regular insulin + dextrose 50%</span></label>
+    <label class="q-opt"><input type="radio" name="q7" value="C"> <span>C. IV calcium gluconate</span></label>
+    <label class="q-opt"><input type="radio" name="q7" value="D"> <span>D. IV sodium bicarbonate</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — IV calcium gluconate</span>
+    Calcium gluconate stabilizes myocardial cell membranes within 1–3 minutes and is given <em>first</em> to prevent lethal dysrhythmias. It does not lower K<sup>+</sup> — it buys time. Insulin + dextrose shifts K<sup>+</sup> into cells (onset ~30 min). Kayexalate removes K<sup>+</sup> via GI tract (hours). Sodium bicarbonate shifts K<sup>+</sup> into cells (30–60 min).
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q8 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq8">
+  <div class="q-num">Question 8 of 25</div>
+  <div class="q-text">A nurse taps on the facial nerve anterior to the ear of a patient with hypoparathyroidism. The patient's face twitches on that side. The nurse documents this as a positive:</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q8" value="A"> <span>A. Trousseau's sign</span></label>
+    <label class="q-opt"><input type="radio" name="q8" value="B"> <span>B. Chvostek's sign</span></label>
+    <label class="q-opt"><input type="radio" name="q8" value="C"> <span>C. Homans' sign</span></label>
+    <label class="q-opt"><input type="radio" name="q8" value="D"> <span>D. Battle's sign</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Chvostek's sign</span>
+    Chvostek's sign = unilateral facial muscle twitching elicited by tapping the facial nerve just anterior to the ear. It indicates neuromuscular hyperexcitability from hypocalcemia (or hypomagnesemia). Trousseau's sign = carpal spasm after inflating a BP cuff above systolic for 3 minutes. Homans' = DVT (calf pain on dorsiflexion). Battle's = ecchymosis behind ear from basilar skull fracture.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q9 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq9">
+  <div class="q-num">Question 9 of 25</div>
+  <div class="q-text">A patient with acute hypocalcemia develops carpopedal spasm. Which intervention is the PRIORITY?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q9" value="A"> <span>A. Oral calcium carbonate supplements</span></label>
+    <label class="q-opt"><input type="radio" name="q9" value="B"> <span>B. IV calcium gluconate as ordered</span></label>
+    <label class="q-opt"><input type="radio" name="q9" value="C"> <span>C. Vitamin D injection IM</span></label>
+    <label class="q-opt"><input type="radio" name="q9" value="D"> <span>D. Magnesium sulfate infusion</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — IV calcium gluconate</span>
+    Acute symptomatic hypocalcemia (carpopedal spasm, laryngospasm, seizures) requires IV calcium gluconate — the fastest route to raise ionized calcium levels. Oral calcium is used for chronic/maintenance management. Vitamin D enhances intestinal absorption but takes days to act. Magnesium may be supplemented concurrently if hypomagnesemia coexists, but IV calcium is the immediate priority.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q10 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq10">
+  <div class="q-num">Question 10 of 25</div>
+  <div class="q-text">A patient with metastatic bone cancer has a serum calcium of 13.2 mg/dL. Which symptom pattern should the nurse assess for?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q10" value="A"> <span>A. Positive Chvostek's sign and tetany</span></label>
+    <label class="q-opt"><input type="radio" name="q10" value="B"> <span>B. Muscle hyperreflexia and laryngospasm</span></label>
+    <label class="q-opt"><input type="radio" name="q10" value="C"> <span>C. Constipation, polyuria, and bone pain</span></label>
+    <label class="q-opt"><input type="radio" name="q10" value="D"> <span>D. QT prolongation and peaked T waves</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — Constipation, polyuria, and bone pain</span>
+    Hypercalcemia is remembered by <em>"Bones, Groans, Stones, Psychic Moans"</em> — bone pain, constipation (GI groans), kidney stones with polyuria/polydipsia, and neuropsychiatric symptoms (depression, confusion). Chvostek's, tetany, hyperreflexia, and laryngospasm are signs of <em>hypo</em>calcemia. Hypercalcemia shortens (not prolongs) the QT interval.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q11 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq11">
+  <div class="q-num">Question 11 of 25</div>
+  <div class="q-text">A post-cardiac bypass patient has a magnesium level of 1.2 mEq/L. The nurse anticipates which dangerous dysrhythmia associated with hypomagnesemia?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q11" value="A"> <span>A. Sinus bradycardia</span></label>
+    <label class="q-opt"><input type="radio" name="q11" value="B"> <span>B. Torsades de pointes (polymorphic ventricular tachycardia)</span></label>
+    <label class="q-opt"><input type="radio" name="q11" value="C"> <span>C. Third-degree heart block</span></label>
+    <label class="q-opt"><input type="radio" name="q11" value="D"> <span>D. Atrial fibrillation with slow ventricular rate</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Torsades de pointes</span>
+    Hypomagnesemia is strongly associated with torsades de pointes — a polymorphic VT that can degenerate into VF. Magnesium is a physiologic calcium antagonist; when depleted, increased neuromuscular and cardiac excitability occurs. IV magnesium sulfate is the treatment of choice for torsades, even when Mg levels are normal.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q12 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq12">
+  <div class="q-num">Question 12 of 25</div>
+  <div class="q-text">A patient receiving IV magnesium sulfate for eclampsia has a magnesium level of 9 mEq/L. Which is the EARLIEST sign of magnesium toxicity that the nurse should monitor for?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q12" value="A"> <span>A. Cardiac arrest</span></label>
+    <label class="q-opt"><input type="radio" name="q12" value="B"> <span>B. Respiratory depression</span></label>
+    <label class="q-opt"><input type="radio" name="q12" value="C"> <span>C. Loss of deep tendon reflexes (DTRs)</span></label>
+    <label class="q-opt"><input type="radio" name="q12" value="D"> <span>D. Seizure activity</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — Loss of deep tendon reflexes (DTRs)</span>
+    Loss of DTRs is the <em>earliest</em> and most important sign of hypermagnesemia toxicity (occurs ~7–10 mEq/L). Respiratory depression follows (~10–13 mEq/L). Cardiac arrest occurs at extremely high levels (&ge;15 mEq/L). Checking patellar DTR before each dose is a critical nursing action. The antidote is IV calcium gluconate.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q13 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq13">
+  <div class="q-num">Question 13 of 25</div>
+  <div class="q-text">A patient with DKA has the following ABGs: pH 7.28, PaCO<sub>2</sub> 28 mmHg, HCO<sub>3</sub><sup>-</sup> 12 mEq/L. How would the nurse interpret this result?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q13" value="A"> <span>A. Metabolic alkalosis with respiratory compensation</span></label>
+    <label class="q-opt"><input type="radio" name="q13" value="B"> <span>B. Respiratory acidosis with metabolic compensation</span></label>
+    <label class="q-opt"><input type="radio" name="q13" value="C"> <span>C. Metabolic acidosis with respiratory compensation</span></label>
+    <label class="q-opt"><input type="radio" name="q13" value="D"> <span>D. Combined respiratory and metabolic alkalosis</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — Metabolic acidosis with respiratory compensation</span>
+    Step-by-step: pH 7.28 = acidosis. HCO<sub>3</sub><sup>-</sup> 12 &lt;22 = metabolic origin (primary). PaCO<sub>2</sub> 28 &lt;35 = lungs blowing off CO<sub>2</sub> (compensation). Using ROME: Metabolic = EQUAL (pH↓ and HCO<sub>3</sub><sup>-</sup>↓ both low). The low PaCO<sub>2</sub> confirms Kussmaul respirations compensating. pH is still below 7.35 = partially compensated.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q14 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq14">
+  <div class="q-num">Question 14 of 25</div>
+  <div class="q-text">A patient with persistent vomiting of gastric contents has: pH 7.52, PaCO<sub>2</sub> 48 mmHg, HCO<sub>3</sub><sup>-</sup> 36 mEq/L. Which acid-base disorder is occurring?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q14" value="A"> <span>A. Respiratory alkalosis</span></label>
+    <label class="q-opt"><input type="radio" name="q14" value="B"> <span>B. Metabolic acidosis with compensation</span></label>
+    <label class="q-opt"><input type="radio" name="q14" value="C"> <span>C. Metabolic alkalosis with respiratory compensation</span></label>
+    <label class="q-opt"><input type="radio" name="q14" value="D"> <span>D. Respiratory acidosis</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — Metabolic alkalosis with respiratory compensation</span>
+    pH 7.52 = alkalosis. HCO<sub>3</sub><sup>-</sup> 36 &gt;26 = metabolic origin (loss of HCl from vomiting raises bicarbonate). PaCO<sub>2</sub> 48 &gt;45 = lungs retaining CO<sub>2</sub> to compensate. ROME: Metabolic = EQUAL (pH↑ and HCO<sub>3</sub><sup>-</sup>↑ both elevated). pH still above 7.45 = partially compensated metabolic alkalosis.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q15 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq15">
+  <div class="q-num">Question 15 of 25</div>
+  <div class="q-text">A COPD patient in acute exacerbation has: pH 7.30, PaCO<sub>2</sub> 62 mmHg, HCO<sub>3</sub><sup>-</sup> 32 mEq/L. Which interpretation is CORRECT?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q15" value="A"> <span>A. Metabolic acidosis with respiratory compensation</span></label>
+    <label class="q-opt"><input type="radio" name="q15" value="B"> <span>B. Partially compensated respiratory acidosis</span></label>
+    <label class="q-opt"><input type="radio" name="q15" value="C"> <span>C. Fully compensated respiratory acidosis</span></label>
+    <label class="q-opt"><input type="radio" name="q15" value="D"> <span>D. Combined respiratory and metabolic acidosis</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Partially compensated respiratory acidosis</span>
+    pH 7.30 = acidosis. PaCO<sub>2</sub> 62 &gt;45 = respiratory origin (CO<sub>2</sub> retention from hypoventilation). HCO<sub>3</sub><sup>-</sup> 32 &gt;26 = kidneys retaining bicarbonate to compensate. ROME: Respiratory = OPPOSITE (pH↓, PaCO<sub>2</sub>↑). Since pH is STILL below 7.35, compensation is present but incomplete = <em>partially</em> compensated. Fully compensated would show pH within 7.35–7.45.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q16 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq16">
+  <div class="q-num">Question 16 of 25</div>
+  <div class="q-text">A patient having a panic attack is hyperventilating. ABGs: pH 7.52, PaCO<sub>2</sub> 28 mmHg, HCO<sub>3</sub><sup>-</sup> 24 mEq/L. Which intervention addresses the PRIMARY cause?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q16" value="A"> <span>A. Administer sodium bicarbonate IV</span></label>
+    <label class="q-opt"><input type="radio" name="q16" value="B"> <span>B. Coach slow, deep breathing to retain CO<sub>2</sub></span></label>
+    <label class="q-opt"><input type="radio" name="q16" value="C"> <span>C. Administer supplemental oxygen at high flow</span></label>
+    <label class="q-opt"><input type="radio" name="q16" value="D"> <span>D. Prepare for emergent intubation</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Coach slow, deep breathing</span>
+    Hyperventilation blows off CO<sub>2</sub> → respiratory alkalosis. The primary treatment is to slow the respiratory rate so CO<sub>2</sub> accumulates, lowering pH back to normal. HCO<sub>3</sub><sup>-</sup> 24 is normal (no metabolic component). Sodium bicarbonate would worsen alkalosis. High-flow O<sub>2</sub> does not correct the problem. Intubation is not indicated for anxiety-induced hyperventilation.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q17 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="D" data-checked="false" id="qq17">
+  <div class="q-num">Question 17 of 25</div>
+  <div class="q-text">A patient is admitted with severe dehydration and hypotension after running a marathon in heat. The nurse anticipates which IV fluid to expand intravascular volume?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q17" value="A"> <span>A. D5W (5% dextrose in water)</span></label>
+    <label class="q-opt"><input type="radio" name="q17" value="B"> <span>B. 0.45% NaCl (half normal saline)</span></label>
+    <label class="q-opt"><input type="radio" name="q17" value="C"> <span>C. 3% NaCl (hypertonic saline)</span></label>
+    <label class="q-opt"><input type="radio" name="q17" value="D"> <span>D. 0.9% NaCl (normal saline)</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: D — 0.9% NaCl (normal saline)</span>
+    Isotonic 0.9% NaCl stays in the ECF and expands intravascular volume — ideal for volume resuscitation. D5W is effectively hypotonic after dextrose is metabolized; it distributes throughout all compartments and minimally expands intravascular volume. 0.45% NaCl is hypotonic and shifts water into cells, worsening intravascular depletion. 3% NaCl is reserved for severe symptomatic hyponatremia.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q18 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq18">
+  <div class="q-num">Question 18 of 25</div>
+  <div class="q-text">A patient receives 3% NaCl for severe symptomatic hyponatremia. The nurse knows that correcting sodium too rapidly can cause:</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q18" value="A"> <span>A. Hyperkalemia</span></label>
+    <label class="q-opt"><input type="radio" name="q18" value="B"> <span>B. Osmotic demyelination syndrome (central pontine myelinolysis)</span></label>
+    <label class="q-opt"><input type="radio" name="q18" value="C"> <span>C. Metabolic alkalosis</span></label>
+    <label class="q-opt"><input type="radio" name="q18" value="D"> <span>D. Acute tubular necrosis</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Osmotic demyelination syndrome</span>
+    Brain cells chronically adapt to low osmolality by expelling solutes. Rapid correction raises ECF osmolality quickly, drawing water out of brain cells and causing irreversible demyelination of pontine neurons. Sodium should be corrected no faster than 10–12 mEq/L per 24 hours. Symptoms of ODS include dysarthria, dysphagia, seizures, and locked-in syndrome.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q19 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq19">
+  <div class="q-num">Question 19 of 25</div>
+  <div class="q-text">A patient with SIADH has a urine osmolality of 800 mOsm/kg and serum osmolality of 260 mOsm/kg. The nurse expects which intervention to be ordered FIRST?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q19" value="A"> <span>A. IV 0.9% NaCl at 125 mL/hr</span></label>
+    <label class="q-opt"><input type="radio" name="q19" value="B"> <span>B. Fluid restriction to 800–1,000 mL/day</span></label>
+    <label class="q-opt"><input type="radio" name="q19" value="C"> <span>C. Desmopressin (DDAVP) intranasal</span></label>
+    <label class="q-opt"><input type="radio" name="q19" value="D"> <span>D. High-dose furosemide IV bolus</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Fluid restriction to 800–1,000 mL/day</span>
+    SIADH causes excess ADH → water retention → dilutional hyponatremia. Highly concentrated urine with dilute serum is the hallmark. The primary treatment is fluid restriction to allow the body to gradually excrete retained water and correct hyponatremia. DDAVP <em>is</em> ADH — it would worsen SIADH. IV saline adds volume. Furosemide may be used adjunctively in severe cases but is not the first-line treatment.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q20 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq20">
+  <div class="q-num">Question 20 of 25</div>
+  <div class="q-text">A patient undergoing aggressive refeeding after prolonged starvation develops muscle weakness, confusion, and paresthesias. Which electrolyte imbalance is the MOST likely cause?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q20" value="A"> <span>A. Hyperphosphatemia</span></label>
+    <label class="q-opt"><input type="radio" name="q20" value="B"> <span>B. Hypophosphatemia</span></label>
+    <label class="q-opt"><input type="radio" name="q20" value="C"> <span>C. Hypercalcemia</span></label>
+    <label class="q-opt"><input type="radio" name="q20" value="D"> <span>D. Hypermagnesemia</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Hypophosphatemia</span>
+    Refeeding syndrome causes hypophosphatemia — glucose infusion triggers insulin release, which drives phosphate into cells. Phosphate depletion impairs ATP and 2,3-DPG production in RBCs (reducing oxygen delivery). Clinical effects include muscle weakness (including the diaphragm → respiratory failure risk), confusion, and paresthesias. Severe hypophosphatemia can also cause hemolytic anemia.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q21 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq21">
+  <div class="q-num">Question 21 of 25</div>
+  <div class="q-text">A patient with end-stage renal disease has pH 7.25, HCO<sub>3</sub><sup>-</sup> 10 mEq/L, and is breathing rapidly and deeply. The nurse recognizes this breathing pattern as:</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q21" value="A"> <span>A. Cheyne-Stokes respirations</span></label>
+    <label class="q-opt"><input type="radio" name="q21" value="B"> <span>B. Biot's respirations</span></label>
+    <label class="q-opt"><input type="radio" name="q21" value="C"> <span>C. Kussmaul respirations</span></label>
+    <label class="q-opt"><input type="radio" name="q21" value="D"> <span>D. Apneustic breathing</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — Kussmaul respirations</span>
+    Kussmaul respirations — deep, labored, rapid breathing without periods of apnea — are the body's respiratory compensation for metabolic acidosis. The lungs blow off CO<sub>2</sub> to raise pH. This pattern is unique to metabolic acidosis and is commonly seen in DKA and renal failure. Cheyne-Stokes = crescendo-decrescendo with apneic episodes (CNS dysfunction). Biot's = irregular breathing with apnea (brainstem damage).
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q22 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq22">
+  <div class="q-num">Question 22 of 25</div>
+  <div class="q-text">A patient with cirrhosis has serum albumin of 1.8 g/dL and massive ascites. The nurse understands edema develops because of:</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q22" value="A"> <span>A. Increased capillary hydrostatic pressure from sodium retention</span></label>
+    <label class="q-opt"><input type="radio" name="q22" value="B"> <span>B. Decreased plasma oncotic pressure from low albumin</span></label>
+    <label class="q-opt"><input type="radio" name="q22" value="C"> <span>C. Increased lymphatic drainage pulling fluid into interstitium</span></label>
+    <label class="q-opt"><input type="radio" name="q22" value="D"> <span>D. Decreased interstitial hydrostatic pressure</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Decreased plasma oncotic pressure</span>
+    Albumin is the major protein that creates plasma oncotic (colloid osmotic) pressure, which holds water inside blood vessels. When albumin is critically low (as in liver failure), plasma oncotic pressure falls → fluid leaks out of capillaries into interstitium and body cavities → edema and ascites. This is a Starling forces imbalance. Increased capillary hydrostatic pressure (heart failure, venous obstruction) is a separate mechanism.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q23 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq23">
+  <div class="q-num">Question 23 of 25</div>
+  <div class="q-text">The nurse is preparing to administer IV potassium chloride to a patient with K<sup>+</sup> of 2.9 mEq/L. Which action is CORRECT?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q23" value="A"> <span>A. Administer as a rapid IV push to quickly restore levels</span></label>
+    <label class="q-opt"><input type="radio" name="q23" value="B"> <span>B. Dilute in IV solution and infuse via pump at &le;10 mEq/hr peripheral</span></label>
+    <label class="q-opt"><input type="radio" name="q23" value="C"> <span>C. Give undiluted through a central line at 40 mEq/hr</span></label>
+    <label class="q-opt"><input type="radio" name="q23" value="D"> <span>D. Administer IM if IV access is unavailable</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Dilute and infuse via pump at &le;10 mEq/hr peripheral</span>
+    IV potassium is NEVER given as an IV push (risk of fatal cardiac arrest). It must always be diluted and administered via infusion pump. Maximum safe rate: 10 mEq/hr peripheral (20 mEq/hr central with continuous cardiac monitoring). Potassium is never given IM (causes severe tissue necrosis and pain). Monitor the IV site for phlebitis during infusion.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q24 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq24">
+  <div class="q-num">Question 24 of 25</div>
+  <div class="q-text">A patient with a PICC line develops redness, warmth, and swelling at the insertion site along with a fever of 38.9°C. Which action is the PRIORITY?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q24" value="A"> <span>A. Flush the PICC with normal saline and continue the infusion</span></label>
+    <label class="q-opt"><input type="radio" name="q24" value="B"> <span>B. Apply warm compresses to the site and continue monitoring</span></label>
+    <label class="q-opt"><input type="radio" name="q24" value="C"> <span>C. Stop the infusion and notify the provider immediately</span></label>
+    <label class="q-opt"><input type="radio" name="q24" value="D"> <span>D. Administer acetaminophen for fever and reassess in 2 hours</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C — Stop the infusion and notify the provider</span>
+    Signs of CVAD-related infection (local inflammation + systemic fever) indicate a potential catheter-associated bloodstream infection (CLABSI). The priority is to stop the infusion and notify the provider immediately. The provider will order blood cultures (from both the catheter and a peripheral site) and likely removal of the catheter. Continuing to infuse through a potentially infected catheter risks sepsis and bacteremia.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q25 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq25">
+  <div class="q-num">Question 25 of 25</div>
+  <div class="q-text">A patient receiving multiple blood transfusions and experiencing persistent vomiting has: pH 7.50, PaCO<sub>2</sub> 50 mmHg, HCO<sub>3</sub><sup>-</sup> 38 mEq/L. Which acid-base disorder is present?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q25" value="A"> <span>A. Respiratory alkalosis with metabolic compensation</span></label>
+    <label class="q-opt"><input type="radio" name="q25" value="B"> <span>B. Metabolic alkalosis with respiratory compensation</span></label>
+    <label class="q-opt"><input type="radio" name="q25" value="C"> <span>C. Combined respiratory and metabolic alkalosis</span></label>
+    <label class="q-opt"><input type="radio" name="q25" value="D"> <span>D. Uncompensated metabolic alkalosis</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B — Metabolic alkalosis with respiratory compensation</span>
+    pH 7.50 = alkalosis. HCO<sub>3</sub><sup>-</sup> 38 &gt;26 = metabolic origin (vomiting removes HCl; blood transfusion citrate is metabolized to HCO<sub>3</sub><sup>-</sup>). PaCO<sub>2</sub> 50 &gt;45 = lungs retaining CO<sub>2</sub> to compensate. ROME: Metabolic = EQUAL (pH↑ and HCO<sub>3</sub><sup>-</sup>↑ both elevated). pH still above 7.45 = partially compensated. If PaCO<sub>2</sub> were normal (35–45), it would be uncompensated.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ SCORE ══════════════════════════════ -->
+<div class="quiz-controls">
+  <button class="score-btn" onclick="calculateScore()">Calculate Score</button>
+  <button class="reset-btn" onclick="resetQuiz()">Reset Quiz</button>
+</div>
+<div class="quiz-score-bar" id="quiz-score-display"></div>
+
+<script>
+function updateProgress() {
+  var total = 25;
+  var answered = document.querySelectorAll('.quiz-question[data-checked="true"]').length;
+  document.getElementById('prog-label').textContent = answered + ' / ' + total + ' answered';
+  document.getElementById('prog-fill').style.width = (answered / total * 100) + '%';
+}
+
+function checkAnswer(btn) {
+  var qDiv = btn.closest('.quiz-question');
+  if (qDiv.dataset.checked === 'true') return;
+  var selected = qDiv.querySelector('input[type=radio]:checked');
+  if (!selected) { alert('Please select an answer first.'); return; }
+  var correct = qDiv.dataset.correct;
+  qDiv.querySelectorAll('.q-opt').forEach(function(opt) {
+    var val = opt.querySelector('input').value;
+    if (val === correct) opt.classList.add('correct-opt');
+    else if (val === selected.value) opt.classList.add('wrong-opt');
+    opt.querySelector('input').disabled = true;
+  });
+  qDiv.querySelector('.q-rationale').style.display = 'block';
+  btn.disabled = true;
+  qDiv.dataset.checked = 'true';
+  updateProgress();
+}
+
+function calculateScore() {
+  var questions = document.querySelectorAll('.quiz-question');
+  var answered = 0, correct = 0;
+  questions.forEach(function(q) {
+    if (q.dataset.checked === 'true') {
+      answered++;
+      var sel = q.querySelector('input[type=radio]:checked');
+      if (sel && sel.value === q.dataset.correct) correct++;
+    }
+  });
+  if (answered === 0) { alert('Answer at least one question first.'); return; }
+  if (answered < questions.length) {
+    if (!confirm('You have only answered ' + answered + ' of ' + questions.length + ' questions. Show score anyway?')) return;
+  }
+  var pct = Math.round((correct / questions.length) * 100);
+  var grade = pct >= 90 ? '&#127942; Excellent — NCLEX Ready!' :
+              pct >= 80 ? '&#128077; Good — Review Missed Topics' :
+              pct >= 70 ? '&#128218; Passing — More Study Needed' :
+                          '&#128203; Below Passing — Review Chapter 17';
+  var bar = document.getElementById('quiz-score-display');
+  bar.innerHTML =
+    '<div class="score-num">' + correct + '/' + questions.length + '</div>' +
+    '<div class="score-sub">' + pct + '% &nbsp;|&nbsp; ' + answered + ' of ' + questions.length + ' answered</div>' +
+    '<div class="grade">' + grade + '</div>';
+  bar.style.display = 'block';
+  bar.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.quiz-question').forEach(function(q) {
+    q.dataset.checked = 'false';
+    q.querySelectorAll('.q-opt').forEach(function(opt) {
+      opt.classList.remove('correct-opt', 'wrong-opt');
+      opt.querySelector('input').checked = false;
+      opt.querySelector('input').disabled = false;
+    });
+    q.querySelector('.q-rationale').style.display = 'none';
+    q.querySelector('.check-btn').disabled = false;
+  });
+  var bar = document.getElementById('quiz-score-display');
+  bar.style.display = 'none';
+  bar.innerHTML = '';
+  updateProgress();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+updateProgress();
+</script>
+
+</body>
+</html>

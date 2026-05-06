@@ -257,6 +257,72 @@
     font-family: Georgia, serif;
     letter-spacing: 0.02em;
   }
+
+  /* ── Figure image boxes ── */
+  .fig-box { text-align: center; margin: 20px 0; }
+  .fig-box img { max-width: 100%; border-radius: 6px; border: 1px solid #c8d8ea; box-shadow: 0 2px 8px rgba(13,59,102,.12); }
+  .fig-caption { font-size: 0.84em; color: #555; margin-top: 8px; font-style: italic; }
+
+  /* ── Mnemonic cards ── */
+  .mnemonic-card {
+    background: linear-gradient(135deg, #f9f0ff 0%, #ede0ff 100%);
+    border: 2px solid #8e44ad;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  .mnem-header { font-size: 0.74em; font-weight: bold; color: #6c3483; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .mnem-title { font-size: 1.12em; font-weight: bold; color: #4a235a; margin-bottom: 12px; }
+  .mnem-row { display: flex; align-items: flex-start; margin: 7px 0; gap: 10px; }
+  .mnem-letter {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #8e44ad; color: #fff; font-weight: bold; font-size: 1em;
+    width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;
+  }
+  .mnem-def { color: #333; line-height: 1.5; }
+  .mnem-def strong { color: #4a235a; }
+  .mnem-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
+  .mnem-col { background: rgba(142,68,173,.09); border-radius: 8px; padding: 12px 14px; }
+  .mnem-col h5 { font-size: 0.88em; color: #6c3483; margin-bottom: 8px; font-weight: bold; font-style: normal; }
+  .mnem-col ul { margin: 0 0 0 16px; }
+  .mnem-col li { margin-bottom: 4px; font-size: 0.95em; }
+  .mnem-word-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+  .mnem-word-card { background: #fff; border: 2px solid #8e44ad; border-radius: 10px; padding: 10px 14px; min-width: 110px; text-align: center; flex: 1; }
+  .mnem-word-card .word { font-weight: bold; color: #4a235a; font-size: 1em; }
+  .mnem-word-card .meaning { font-size: 0.8em; color: #555; margin-top: 5px; }
+
+  /* ── Unique / Pathognomonic sign highlight ── */
+  .unique-sign {
+    display: block; background: #fff8f0;
+    border: 1.5px solid #e67e22; border-left: 5px solid #e67e22;
+    border-radius: 4px; padding: 6px 12px; margin: 6px 0;
+  }
+  .unique-sign::before {
+    content: "\2605  UNIQUE TO THIS CONDITION \2014  ";
+    font-weight: bold; font-size: 0.78em; color: #c0392b; letter-spacing: 0.04em;
+  }
+
+  /* ── Disease section: unique symptom list item ── */
+  li.u-item {
+    background: #fff8f0;
+    border-left: 4px solid #e67e22;
+    padding: 5px 6px 5px 10px;
+    margin: 6px 0;
+    list-style: none;
+    border-radius: 3px;
+  }
+  li.u-item::before {
+    content: "\2605 UNIQUE \2014 ";
+    color: #c0392b;
+    font-weight: bold;
+    font-size: 0.8em;
+    letter-spacing: 0.04em;
+  }
+  /* ── Disease dropdowns ── */
+  details.qa div h4 {
+    font-size: 0.95em; color: #0d3b66; margin: 12px 0 5px;
+    border-bottom: 1px solid #c8d8ea; padding-bottom: 2px;
+  }
 </style>
 </head>
 <body>
@@ -286,8 +352,9 @@
     <li><a href="#s10">Acid-Base Disorders</a></li>
     <li><a href="#s11">Nursing Assessment &amp; IV Fluid Therapy</a></li>
     <li><a href="#s12">Central Venous Access Devices (CVADs)</a></li>
-    <li><a href="#s13">NCLEX Critical To Knows</a></li>
-    <li><a href="#s14">Review Questions</a></li>
+    <li><a href="#s13">Common Related Diseases &amp; Pharmacology</a></li>
+    <li><a href="#s14">NCLEX Critical To Knows</a></li>
+    <li><a href="#s15">Review Questions</a></li>
   </ol>
 </div>
 
@@ -353,6 +420,11 @@
     <tr><td><strong>Total</strong></td><td><strong>2500 mL</strong></td><td><strong>Total</strong></td><td><strong>2500 mL</strong></td></tr>
   </table>
 
+  <div class="fig-box">
+    <img src="images/ch17/page_339.png" alt="Fig 17.1 – Electrolyte concentrations in ICF vs ECF compartments and Table 17.1 Normal Serum Electrolyte Values">
+    <div class="fig-caption">Fig. 17.1 &amp; Table 17.1 — Electrolyte concentrations: ICF vs. ECF; normal serum values (Lewis p. 304)</div>
+  </div>
+
   <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
 </div>
 </details>
@@ -391,6 +463,16 @@
     <tr><td><strong>Hypertonic</strong> (hyperosmolar)</td><td>Higher</td><td>Water moves out of cells → cells shrink (may die)</td></tr>
   </table>
 
+  <div class="fig-box">
+    <img src="images/ch17/fig_17_07_p341.png" alt="Fig 17.7 – Effect of hypotonic, isotonic, and hypertonic solutions on red blood cells">
+    <div class="fig-caption">Fig. 17.7 — RBC effects in hypotonic / isotonic / hypertonic solutions (Lewis p. 306)</div>
+  </div>
+
+  <div class="fig-box">
+    <img src="images/ch17/page_340.png" alt="Fig 17.5 – Sodium-potassium pump and Fig 17.6 – Osmosis">
+    <div class="fig-caption">Fig. 17.5 — Na<sup>+</sup>-K<sup>+</sup> pump &nbsp;|&nbsp; Fig. 17.6 — Osmosis (Lewis p. 305)</div>
+  </div>
+
   <h3>Capillary Fluid Exchange</h3>
   <p>Four pressures govern fluid movement between capillaries and interstitial space:</p>
   <ul>
@@ -401,6 +483,11 @@
   </ul>
   <p><em>At the arterial end</em>: hydrostatic pressure exceeds oncotic → fluid leaves capillary.<br>
   <em>At the venous end</em>: oncotic pressure dominates → fluid returns to capillary.</p>
+
+  <div class="fig-box">
+    <img src="images/ch17/page_341.png" alt="Fig 17.8 – Dynamics of fluid exchange between a capillary and tissue (Starling forces)">
+    <div class="fig-caption">Fig. 17.8 — Starling forces: capillary fluid exchange (Lewis p. 306)</div>
+  </div>
 
   <h3>Edema Formation</h3>
   <ul>
@@ -484,6 +571,11 @@
     </tr>
   </table>
 
+  <div class="fig-box">
+    <img src="images/ch17/fig_17_13_p346.png" alt="Fig 17.12/17.13 – ECF volume assessment: deficit vs. normal vs. excess">
+    <div class="fig-caption">Fig. 17.12 &amp; 17.13 — ECF volume: deficit vs. normal vs. excess (Lewis p. 311)</div>
+  </div>
+
   <h3>Nursing Management: Fluid Imbalances</h3>
   <ul>
     <li><strong>Daily weights</strong> — same time, same scale, same clothes; 1 kg ↑ = 1 L fluid retained</li>
@@ -491,6 +583,14 @@
     <li><strong>Urine SG</strong> — &gt;1.025 = concentrated (FVD); &lt;1.010 = dilute (FVE)</li>
     <li><strong>Orthostatic BP</strong> — check for orthostatic hypotension (FVD indicator)</li>
     <li><strong>Skin turgor</strong> — assess over sternum, abdomen, anterior forearm (not reliable in older adults)</li>
+  </ul>
+
+  <div class="fig-box">
+    <img src="images/ch17/fig_17_11_p345.png" alt="Fig 17.11 – Skin turgor assessment: normal vs. poor">
+    <div class="fig-caption">Fig. 17.11 — Skin turgor: normal rebound (A) vs. poor turgor/tenting in FVD (B, C) (Lewis p. 310)</div>
+  </div>
+
+  <ul>
     <li><strong>Safety</strong> — fall precautions for orthostatic hypotension and confusion; seizure precautions if severe</li>
     <li><strong>Lung sounds</strong> — crackles suggest FVE/pulmonary edema</li>
     <li><strong>Edema grading</strong>: 1+ = 2-mm indentation; 4+ = 8-mm indentation (pitting edema)</li>
@@ -607,11 +707,13 @@
     <tr><td><strong>Manifestations</strong></td>
       <td>
         <strong>Cardiac (most dangerous):</strong> peaked T waves → loss of P waves → prolonged PR → ST depression → widened QRS → ventricular fibrillation/standstill<br>
+        <div class="unique-sign">Tall, narrow peaked T wave — earliest ECG sign; specific to hyperkalemia in this context</div>
         Muscle: fatigue, weakness, cramps, paresthesias, tetany → paralysis (including respiratory muscles)<br>
         GI: abdominal cramping, diarrhea, vomiting (smooth muscle hyperactivity)
       </td>
       <td>
         <strong>Cardiac (most dangerous):</strong> flattened T waves → ST depression → U wave (hallmark) → prolonged QRS, peaked P wave → ventricular dysrhythmias, heart block<br>
+        <div class="unique-sign">U wave on ECG — hallmark/pathognomonic for hypokalemia; not seen with other electrolyte imbalances</div>
         Muscle: weakness, soft/flabby muscles, leg cramps, shallow respirations → respiratory arrest<br>
         GI: constipation, paralytic ileus (smooth muscle hypoactivity)<br>
         Metabolic: impaired insulin release → hyperglycemia<br>
@@ -649,6 +751,21 @@
     ECG changes in hyperkalemia: Tall peaked T waves → Loss of P wave → Widened QRS → Sine wave pattern → Ventricular fibrillation. Think "TALL, then FLAT, then WIDE."<br>
     ECG changes in hypokalemia: Flattened T waves + U wave + ST depression = U wave is the hallmark.
   </div>
+
+  <div class="fig-box">
+    <img src="images/ch17/page_349.png" alt="Fig 17.14 – ECG changes in hypokalemia and hyperkalemia">
+    <div class="fig-caption">Fig. 17.14 &amp; Table 17.8 — ECG changes: hypokalemia vs. hyperkalemia (Lewis p. 314)</div>
+  </div>
+
+  <h3>High-Potassium Foods (for Hypokalemia Diet)</h3>
+  <table>
+    <tr><th>Fruits</th><th>Vegetables</th><th>Other</th></tr>
+    <tr>
+      <td>Oranges, bananas, cantaloupe, grapefruit, honeydew, prunes</td>
+      <td>Potatoes, sweet potatoes, tomatoes, broccoli, spinach, mushrooms, leafy greens</td>
+      <td>Legumes (beans), nuts, peanut butter, milk, chocolate, salt substitutes</td>
+    </tr>
+  </table>
 
   <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
 </div>
@@ -703,8 +820,10 @@
       </td>
       <td>
         <strong>Tetany signs:</strong><br>
-        • <strong>Chvostek sign</strong>: tap facial nerve in front of ear → facial muscle contraction<br>
-        • <strong>Trousseau sign</strong>: inflate BP cuff above systolic for 3 min → carpal spasm<br>
+        • <strong>Chvostek sign</strong>: tap facial nerve in front of ear → facial muscle contraction
+        <div class="unique-sign">Chvostek sign — specific to hypocalcemia and hypomagnesemia; no other electrolyte imbalance causes this</div>
+        • <strong>Trousseau sign</strong>: inflate BP cuff above systolic for 3 min → carpal spasm
+        <div class="unique-sign">Trousseau sign (carpal spasm) — specific to hypocalcemia and hypomagnesemia; considered more specific than Chvostek</div>
         Laryngeal stridor, dysphagia<br>
         Numbness/tingling (circumoral, extremities)<br>
         Hyperreflexia, muscle cramps<br>
@@ -727,10 +846,32 @@
     </tr>
   </table>
 
-  <div class="callout mnemonic">
-    <strong>Mnemonic: Hypercalcemia</strong>
-    <strong>"Bones, Groans, Stones, Psychic Moans"</strong><br>
-    Bones = bone pain/fractures | Groans = GI symptoms | Stones = kidney stones | Psychic Moans = neuropsychiatric symptoms
+  <div class="fig-box">
+    <img src="images/ch17/page_352.png" alt="Fig 17.15 – Chvostek and Trousseau signs; Table 17.9 Calcium Imbalances">
+    <div class="fig-caption">Fig. 17.15 &amp; Table 17.9 — Chvostek sign (A), Trousseau sign (B); calcium imbalances (Lewis p. 317)</div>
+  </div>
+
+  <div class="mnemonic-card">
+    <div class="mnem-header">&#x1F511; Mnemonic &mdash; Hypercalcemia Signs &amp; Symptoms</div>
+    <div class="mnem-title">"Bones, Groans, Stones, Psychic Moans"</div>
+    <div class="mnem-word-grid">
+      <div class="mnem-word-card">
+        <div class="word">Bones</div>
+        <div class="meaning">Bone pain, fractures, back pain</div>
+      </div>
+      <div class="mnem-word-card">
+        <div class="word">Groans</div>
+        <div class="meaning">N/V, anorexia, constipation, abdominal pain</div>
+      </div>
+      <div class="mnem-word-card">
+        <div class="word">Stones</div>
+        <div class="meaning">Kidney stones, polyuria, polydipsia</div>
+      </div>
+      <div class="mnem-word-card">
+        <div class="word">Psychic Moans</div>
+        <div class="meaning">Fatigue, confusion, depression, psychosis, coma</div>
+      </div>
+    </div>
   </div>
 
   <div class="need-to-know">
@@ -779,6 +920,7 @@
         Excess Mg<sup>2+</sup> inhibits acetylcholine release and Ca<sup>2+</sup> movement → decreased nerve/muscle function<br>
         Early: hypotension, facial flushing, lethargy, urinary retention, N/V<br>
         Increasing: ↓ deep tendon reflexes (lost first!), muscle paralysis, coma<br>
+        <div class="unique-sign">Loss of deep tendon reflexes (DTRs) — earliest sign of hypermagnesemia toxicity; specific indicator to stop Mg<sup>2+</sup> infusion</div>
         Severe: respiratory arrest, cardiac arrest
       </td>
       <td>
@@ -824,6 +966,11 @@
     <li>pH &gt;7.45 = <strong>alkalosis</strong></li>
     <li>pH &lt;6.8 or &gt;7.8 = incompatible with life</li>
   </ul>
+
+  <div class="fig-box">
+    <img src="images/ch17/page_356.png" alt="Fig 17.16 – Normal pH range and acid-base spectrum">
+    <div class="fig-caption">Fig. 17.16 — pH scale: acidosis / normal 7.35–7.45 / alkalosis / lethal limits (Lewis p. 321)</div>
+  </div>
 
   <div class="need-to-know">
     The body maintains a 20:1 ratio of HCO<sub>3</sub><sup>-</sup> to carbonic acid (H<sub>2</sub>CO<sub>3</sub>). This 20:1 ratio = pH 7.40. Compensation maintains this ratio even when absolute values change.
@@ -883,15 +1030,25 @@
     <li><strong>Step 5 — Assess PaO<sub>2</sub> and SaO<sub>2</sub>.</strong> Values below normal = hypoxemia.</li>
   </ol>
 
-  <div class="callout mnemonic">
-    <strong>Mnemonic: ROME</strong>
-    <strong>R</strong>espiratory <strong>O</strong>pposite — <strong>M</strong>etabolic <strong>E</strong>qual<br><br>
-    <strong>Respiratory:</strong> pH and PaCO<sub>2</sub> go in OPPOSITE directions<br>
-    • Resp. Acidosis: pH↓, PaCO<sub>2</sub>↑ (opposite)<br>
-    • Resp. Alkalosis: pH↑, PaCO<sub>2</sub>↓ (opposite)<br><br>
-    <strong>Metabolic:</strong> pH and HCO<sub>3</sub><sup>-</sup> go in the SAME direction (equal)<br>
-    • Met. Acidosis: pH↓, HCO<sub>3</sub><sup>-</sup>↓ (equal)<br>
-    • Met. Alkalosis: pH↑, HCO<sub>3</sub><sup>-</sup>↑ (equal)
+  <div class="mnemonic-card">
+    <div class="mnem-header">&#x1F511; Mnemonic &mdash; ABG Interpretation Step 3</div>
+    <div class="mnem-title">ROME: <strong>R</strong>espiratory <strong>O</strong>pposite, <strong>M</strong>etabolic <strong>E</strong>qual</div>
+    <div class="mnem-two-col">
+      <div class="mnem-col">
+        <h5>Respiratory &mdash; OPPOSITE directions</h5>
+        <ul>
+          <li>Resp. Acidosis: pH&darr; &amp; PaCO<sub>2</sub>&uarr; <em>(pH down, CO<sub>2</sub> up)</em></li>
+          <li>Resp. Alkalosis: pH&uarr; &amp; PaCO<sub>2</sub>&darr; <em>(pH up, CO<sub>2</sub> down)</em></li>
+        </ul>
+      </div>
+      <div class="mnem-col">
+        <h5>Metabolic &mdash; EQUAL (same) direction</h5>
+        <ul>
+          <li>Met. Acidosis: pH&darr; &amp; HCO<sub>3</sub><sup>&minus;</sup>&darr; <em>(both down)</em></li>
+          <li>Met. Alkalosis: pH&uarr; &amp; HCO<sub>3</sub><sup>&minus;</sup>&uarr; <em>(both up)</em></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <h3>ABG Interpretation Quick Reference</h3>
@@ -921,9 +1078,17 @@
     <li><strong>Normal anion gap</strong> = bicarbonate loss (diarrhea, renal tubular acidosis)</li>
   </ul>
 
-  <div class="callout mnemonic">
-    <strong>Mnemonic: MUDPILES (High Anion Gap Metabolic Acidosis)</strong>
-    <strong>M</strong>ethanol | <strong>U</strong>remia (renal failure) | <strong>D</strong>KA | <strong>P</strong>ropylene glycol | <strong>I</strong>soniazid/Iron | <strong>L</strong>actic acidosis | <strong>E</strong>thylene glycol | <strong>S</strong>alicylates (aspirin)
+  <div class="mnemonic-card">
+    <div class="mnem-header">&#x1F511; Mnemonic &mdash; High Anion Gap Metabolic Acidosis Causes</div>
+    <div class="mnem-title">MUDPILES</div>
+    <div class="mnem-row"><span class="mnem-letter">M</span><span class="mnem-def"><strong>M</strong>ethanol poisoning</span></div>
+    <div class="mnem-row"><span class="mnem-letter">U</span><span class="mnem-def"><strong>U</strong>remia (renal failure)</span></div>
+    <div class="mnem-row"><span class="mnem-letter">D</span><span class="mnem-def"><strong>D</strong>KA — diabetic ketoacidosis</span></div>
+    <div class="mnem-row"><span class="mnem-letter">P</span><span class="mnem-def"><strong>P</strong>ropylene glycol</span></div>
+    <div class="mnem-row"><span class="mnem-letter">I</span><span class="mnem-def"><strong>I</strong>soniazid / <strong>I</strong>ron overdose</span></div>
+    <div class="mnem-row"><span class="mnem-letter">L</span><span class="mnem-def"><strong>L</strong>actic acidosis (shock, sepsis, hypoxia)</span></div>
+    <div class="mnem-row"><span class="mnem-letter">E</span><span class="mnem-def"><strong>E</strong>thylene glycol (antifreeze)</span></div>
+    <div class="mnem-row"><span class="mnem-letter">S</span><span class="mnem-def"><strong>S</strong>alicylates — aspirin overdose</span></div>
   </div>
 
   <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
@@ -952,7 +1117,7 @@
     <tr>
       <td><strong>Metabolic Acidosis</strong> (HCO<sub>3</sub><sup>-</sup> deficit or acid excess)</td>
       <td>DKA, lactic acidosis (shock), severe diarrhea (HCO<sub>3</sub><sup>-</sup> loss), renal failure (impaired H<sup>+</sup> excretion), starvation, GI fistulas, aspirin toxicity</td>
-      <td>CNS: lethargy, confusion, dizziness, headache, coma<br>CV: ↓ BP, dysrhythmias (from hyperkalemia)<br>Cold, clammy skin<br>Respiratory: <strong>Kussmaul respirations</strong> (deep, rapid breathing — compensatory)<br>GI: N/V, diarrhea, abdominal pain<br>Muscle weakness</td>
+      <td>CNS: lethargy, confusion, dizziness, headache, coma<br>CV: ↓ BP, dysrhythmias (from hyperkalemia)<br>Cold, clammy skin<br>Respiratory: <strong>Kussmaul respirations</strong> (deep, rapid breathing — compensatory)<br><div class="unique-sign">Kussmaul respirations — deep, labored, rapid breathing; compensatory response specific to metabolic acidosis (body blows off CO<sub>2</sub> to raise pH)</div>GI: N/V, diarrhea, abdominal pain<br>Muscle weakness</td>
       <td>Treat underlying cause. Kidneys attempt to excrete H<sup>+</sup> and retain HCO<sub>3</sub><sup>-</sup>. Lungs compensate with Kussmaul respirations. IV NaHCO<sub>3</sub> only for severe acidosis (pH &lt;7.1).</td>
     </tr>
     <tr>
@@ -1055,6 +1220,11 @@
 
   <p>CVADs are catheters placed in large vessels (subclavian, jugular veins) for frequent or special vascular access.</p>
 
+  <div class="fig-box">
+    <img src="images/ch17/page_363.png" alt="Table 17.21 IV Therapy Nursing Management and Table 17.22 CVAD Common Indications">
+    <div class="fig-caption">Table 17.21 — IV therapy nursing management &nbsp;|&nbsp; Table 17.22 — CVAD indications (Lewis p. 328)</div>
+  </div>
+
   <h3>Types of CVADs</h3>
   <table>
     <tr><th>Type</th><th>Description</th><th>Best For</th></tr>
@@ -1079,6 +1249,11 @@
       <td>Intermediate-term access without central vein entry</td>
     </tr>
   </table>
+
+  <div class="fig-box">
+    <img src="images/ch17/page_364.png" alt="Fig 17.18 – Tunneled central venous catheter and Fig 17.19 – PICC line anatomy">
+    <div class="fig-caption">Fig. 17.18 — Tunneled CVC &nbsp;|&nbsp; Fig. 17.19 — PICC line (Lewis p. 329)</div>
+  </div>
 
   <h3>Key CVAD Nursing Management</h3>
   <ul>
@@ -1112,7 +1287,264 @@
 
 <!-- ═══════════════════════════════════════════════════════ SECTION 13 -->
 <details class="section" id="s13">
-<summary>13 &mdash; NCLEX Critical To Knows</summary>
+<summary>13 &mdash; Common Related Diseases &amp; Pharmacology</summary>
+<div class="section-body">
+
+  <p>Each condition below directly involves fluid, electrolyte, or acid-base imbalances. Click a disease to expand its pathophysiology, signs &amp; symptoms, and medications. <strong style="color:#c0392b;">★ Orange-highlighted items are signs or symptoms unique to that specific condition.</strong></p>
+
+  <details class="qa">
+    <summary>SIADH — Syndrome of Inappropriate ADH Secretion</summary>
+    <div>
+      <h4>Pathophysiology</h4>
+      <p>Excess ADH → excess free water retention → dilutional hyponatremia. Causes: CNS disorders (stroke, meningitis, head injury), pulmonary disease (pneumonia, TB), drugs (SSRIs, carbamazepine, cyclophosphamide, NSAIDs), major surgery.</p>
+      <h4>Key Signs &amp; Symptoms</h4>
+      <ul>
+        <li>Hyponatremia (Na<sup>+</sup> &lt;136 mEq/L), low serum osmolality (&lt;275 mOsm/kg)</li>
+        <li class="u-item">High urine sodium (&gt;20 mEq/L) + concentrated urine despite low serum osmolality — the diagnostic paradox of SIADH</li>
+        <li>Neurologic: headache, confusion, irritability, seizures, coma (cerebral edema from water shift into brain)</li>
+        <li class="u-item">Weight gain without edema — water retained intracellularly; Na<sup>+</sup> is normal or low, not high</li>
+      </ul>
+      <h4>Pharmacology</h4>
+      <ul>
+        <li><strong>Fluid restriction</strong> — 800–1000 mL/day; primary treatment</li>
+        <li><strong>Tolvaptan (Samsca)</strong> — oral vasopressin V2 antagonist ("vaptan"); promotes free water excretion; for moderate/severe SIADH</li>
+        <li><strong>Conivaptan (Vaprisol)</strong> — IV vasopressin V1a/V2 antagonist; inpatient use</li>
+        <li><strong>3% NaCl (hypertonic saline)</strong> — only for severe symptomatic hyponatremia (seizures, coma); correct ≤10–12 mEq/L in first 24 h (osmotic demyelination risk)</li>
+        <li><strong>Loop diuretics (furosemide)</strong> — promote free water excretion; often used with saline</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="qa">
+    <summary>Diabetes Insipidus (DI) — Central</summary>
+    <div>
+      <h4>Pathophysiology</h4>
+      <p>ADH deficiency (central DI) or ADH resistance (nephrogenic DI). Central causes: head trauma, neurosurgery, brain tumors, CNS infections. Result: inability to concentrate urine → massive dilute urine output → hypernatremia.</p>
+      <h4>Key Signs &amp; Symptoms</h4>
+      <ul>
+        <li class="u-item">Massive polyuria — 3–20 L/day of very dilute urine (urine SG &lt;1.005, urine osmolality &lt;200 mOsm/kg)</li>
+        <li>Intense polydipsia (compensatory drinking)</li>
+        <li>Hypernatremia (&gt;145 mEq/L), ↑ serum osmolality</li>
+        <li>Dehydration, hypotension, tachycardia if unable to replace losses</li>
+      </ul>
+      <h4>Pharmacology</h4>
+      <ul>
+        <li><strong>Desmopressin (DDAVP)</strong> — synthetic ADH; first-line for central DI; intranasal, oral, or IV/SQ</li>
+        <li><strong>Vasopressin (Pitressin)</strong> — natural ADH; short-acting; used acutely/postoperatively</li>
+        <li><strong>Hypotonic fluids (0.45% NaCl or D5W)</strong> — replace free water deficit</li>
+        <li><em>Nephrogenic DI:</em> thiazide diuretics + low-Na<sup>+</sup> diet (paradoxically ↓ urine output); NSAIDs</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="qa">
+    <summary>DKA — Diabetic Ketoacidosis</summary>
+    <div>
+      <h4>Pathophysiology</h4>
+      <p>Insulin deficiency → cells cannot use glucose → fat breakdown → ketone bodies → high anion gap metabolic acidosis. Hyperglycemia → osmotic diuresis → fluid and electrolyte (K<sup>+</sup>, Na<sup>+</sup>, PO<sub>4</sub><sup>3-</sup>) losses. Triggers: new-onset T1DM, missed insulin, infection, physiologic stress.</p>
+      <h4>Key Signs &amp; Symptoms</h4>
+      <ul>
+        <li>Hyperglycemia (&gt;250 mg/dL), pH &lt;7.35, HCO<sub>3</sub><sup>-</sup> &lt;15, high anion gap (&gt;12)</li>
+        <li class="u-item">Kussmaul respirations — deep, labored, rapid breathing; compensatory for metabolic acidosis (blowing off CO<sub>2</sub>)</li>
+        <li class="u-item">Fruity/acetone breath — ketone exhalation; specific to DKA/starvation ketosis</li>
+        <li>Polydipsia, polyuria, weight loss, dehydration, nausea, vomiting, abdominal pain</li>
+        <li>Hyperkalemia on labs (K<sup>+</sup> shifts out of cells) — but total body K<sup>+</sup> is depleted</li>
+        <li>Confusion, lethargy, coma if severe</li>
+      </ul>
+      <h4>Pharmacology</h4>
+      <ul>
+        <li><strong>IV Regular Insulin</strong> — continuous infusion; lowers glucose and reverses ketosis; never use rapid-acting analogs IV</li>
+        <li><strong>IV 0.9% NaCl</strong> — first fluid bolus (1–2 L); switch to 0.45% NaCl when Na<sup>+</sup> normalizes</li>
+        <li><strong>Potassium replacement (KCl)</strong> — critical; check K<sup>+</sup> before starting insulin; replace if K<sup>+</sup> &lt;5.5 before insulin (insulin drives K<sup>+</sup> into cells → hypokalemia)</li>
+        <li><strong>Dextrose (D5 or D10)</strong> — add to IV when glucose reaches 200–250 mg/dL to prevent hypoglycemia while continuing insulin drip</li>
+        <li><strong>NaHCO<sub>3</sub></strong> — only for severe acidosis (pH &lt;7.0); rarely needed</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="qa">
+    <summary>Heart Failure — Fluid Volume Excess (FVE)</summary>
+    <div>
+      <h4>Pathophysiology</h4>
+      <p>Reduced cardiac output → RAAS + ADH activation → Na<sup>+</sup> and water retention → systemic and pulmonary congestion. Left-sided HF: pulmonary edema, dyspnea. Right-sided HF: peripheral edema, JVD, hepatomegaly.</p>
+      <h4>Key Signs &amp; Symptoms</h4>
+      <ul>
+        <li>Dyspnea, orthopnea, paroxysmal nocturnal dyspnea</li>
+        <li>Crackles (rales), pulmonary edema, frothy pink sputum (severe)</li>
+        <li>Pitting edema (ankles/sacrum), weight gain, bounding pulse, ↑ CVP/JVD</li>
+        <li class="u-item">S3 heart sound (ventricular gallop) — pathognomonic for volume overload/heart failure; indicates the ventricle is overfilled</li>
+        <li>Dilutional hyponatremia, hypokalemia (from diuretics)</li>
+      </ul>
+      <h4>Pharmacology</h4>
+      <ul>
+        <li><strong>Furosemide (Lasix)</strong> — loop diuretic; first-line for fluid removal; monitor K<sup>+</sup>, Na<sup>+</sup>, BUN/Cr; ototoxicity with rapid IV push</li>
+        <li><strong>ACE inhibitors (lisinopril, enalapril)</strong> — reduce preload/afterload; block RAAS; mainstay of chronic HF</li>
+        <li><strong>Beta-blockers (carvedilol, metoprolol succinate)</strong> — reduce workload; improve survival; start low and titrate slowly</li>
+        <li><strong>Spironolactone (Aldactone)</strong> — K<sup>+</sup>-sparing diuretic / aldosterone antagonist; improves mortality; monitor K<sup>+</sup></li>
+        <li><strong>Digoxin</strong> — positive inotrope; narrow therapeutic window; toxic at low K<sup>+</sup> → always monitor K<sup>+</sup></li>
+        <li><strong>Sodium &amp; fluid restriction</strong> — &lt;2 g Na/day; fluid restriction for hyponatremia</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="qa">
+    <summary>Hypoparathyroidism — Hypocalcemia</summary>
+    <div>
+      <h4>Pathophysiology</h4>
+      <p>Low or absent PTH → ↓ bone Ca<sup>2+</sup> resorption, ↓ renal Ca<sup>2+</sup> reabsorption, ↓ GI absorption → hypocalcemia → ↑ neuromuscular excitability. Most common cause: inadvertent removal or trauma to parathyroid glands during thyroid/neck surgery.</p>
+      <h4>Key Signs &amp; Symptoms</h4>
+      <ul>
+        <li>Muscle cramps, tetany, laryngeal stridor, seizures</li>
+        <li>Numbness/tingling: circumoral, fingertips, toes</li>
+        <li class="u-item">Chvostek sign — facial muscle twitch when tapping facial nerve; specific to hypocalcemia and hypomagnesemia</li>
+        <li class="u-item">Trousseau sign — carpal spasm when BP cuff inflated above systolic × 3 min; more specific than Chvostek</li>
+        <li>Prolonged QT interval → risk of torsades de pointes</li>
+        <li>Anxiety, depression, irritability</li>
+      </ul>
+      <h4>Pharmacology</h4>
+      <ul>
+        <li><strong>IV Calcium gluconate</strong> — acute/symptomatic; give slowly (rapid → hypotension, bradycardia); keep at bedside post-thyroid/parathyroid surgery</li>
+        <li><strong>Oral calcium carbonate or citrate</strong> — chronic replacement; carbonate with meals; citrate between meals (better absorbed)</li>
+        <li><strong>Calcitriol (active Vitamin D)</strong> — needed when PTH absent to enhance GI Ca<sup>2+</sup> absorption</li>
+        <li><strong>Magnesium replacement</strong> — if hypomagnesemia contributing; low Mg<sup>2+</sup> impairs PTH secretion and release</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="qa">
+    <summary>Primary Hyperparathyroidism — Hypercalcemia</summary>
+    <div>
+      <h4>Pathophysiology</h4>
+      <p>Excess PTH (usually from parathyroid adenoma) → ↑ bone resorption, ↑ renal Ca<sup>2+</sup> reabsorption, ↑ GI absorption → hypercalcemia. Second most common cause of hypercalcemia (malignancy is #1).</p>
+      <h4>Key Signs &amp; Symptoms</h4>
+      <ul>
+        <li class="u-item">"Bones, Groans, Stones, Psychic Moans" — the mnemonic that encompasses the classic presentation of hypercalcemia</li>
+        <li>Bone pain, fractures (osteoclastic resorption)</li>
+        <li>Kidney stones, polyuria, polydipsia</li>
+        <li>N/V, constipation, anorexia (GI "groans")</li>
+        <li>Fatigue, confusion, depression, psychosis</li>
+        <li>Short QT interval; ↑ sensitivity to digoxin toxicity</li>
+      </ul>
+      <h4>Pharmacology</h4>
+      <ul>
+        <li><strong>IV 0.9% NaCl (volume expansion)</strong> — first step; dilutes Ca<sup>2+</sup> and promotes renal excretion</li>
+        <li><strong>Furosemide (loop diuretic)</strong> — after hydration; promotes calciuresis (Ca<sup>2+</sup> excretion)</li>
+        <li><strong>Zoledronic acid (Zometa) / Pamidronate</strong> — bisphosphonates; gold standard; onset 2–4 days; inhibit osteoclasts</li>
+        <li><strong>Calcitonin (Miacalcin)</strong> — rapid onset (hours) but tachyphylaxis within 48 h; short-term bridge</li>
+        <li><strong>Denosumab (Xgeva)</strong> — RANK-L inhibitor; for bisphosphonate-refractory cases</li>
+        <li><strong>Dialysis</strong> — life-threatening or renal failure cases</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="qa">
+    <summary>Addison's Disease — Primary Adrenal Insufficiency</summary>
+    <div>
+      <h4>Pathophysiology</h4>
+      <p>Destruction of adrenal cortex (autoimmune most common; also TB, fungal, hemorrhage) → deficiency of both cortisol and aldosterone. Without aldosterone: Na<sup>+</sup> wasting → hyponatremia; K<sup>+</sup> retention → hyperkalemia; volume depletion → hypotension.</p>
+      <h4>Key Signs &amp; Symptoms</h4>
+      <ul>
+        <li class="u-item">Hyperpigmentation — bronzing/darkening of skin, especially sun-exposed areas, knuckles, buccal mucosa; caused by excess ACTH stimulating melanocytes; unique to primary adrenal insufficiency (not secondary)</li>
+        <li>Hyponatremia, hyperkalemia, hypoglycemia</li>
+        <li>Hypotension, orthostatic hypotension, weakness, profound fatigue</li>
+        <li>N/V, weight loss, anorexia, salt craving</li>
+        <li>Addisonian crisis: severe hypotension, vomiting, shock — life-threatening (triggered by stress, infection, surgery)</li>
+      </ul>
+      <h4>Pharmacology</h4>
+      <ul>
+        <li><strong>Hydrocortisone (Solu-Cortef)</strong> — glucocorticoid replacement; chronic: oral hydrocortisone or prednisone; crisis: IV hydrocortisone 100 mg bolus, then continuous infusion</li>
+        <li><strong>Fludrocortisone (Florinef)</strong> — mineralocorticoid replacement; oral daily; restores Na<sup>+</sup>/K<sup>+</sup> balance and blood pressure</li>
+        <li><strong>IV 0.9% NaCl + Dextrose</strong> — adrenal crisis: rapid volume expansion + glucose correction</li>
+        <li><strong>Stress dosing rule</strong> — patients must double/triple steroid dose during illness, surgery, or physical stress to prevent crisis</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="qa">
+    <summary>Cushing's Syndrome — Glucocorticoid Excess</summary>
+    <div>
+      <h4>Pathophysiology</h4>
+      <p>Excess cortisol — endogenous (pituitary adenoma = Cushing's disease; adrenal tumor; ectopic ACTH) or exogenous (long-term steroid therapy, most common). Cortisol promotes Na<sup>+</sup> retention, K<sup>+</sup> excretion, gluconeogenesis → hyperglycemia.</p>
+      <h4>Key Signs &amp; Symptoms</h4>
+      <ul>
+        <li class="u-item">Buffalo hump (dorsocervical fat pad) + moon face + central obesity + purple/violaceous striae — characteristic cluster unique to Cushing's syndrome</li>
+        <li>Hypokalemia, mild hypernatremia, metabolic alkalosis</li>
+        <li>Hypertension, hyperglycemia, osteoporosis</li>
+        <li>Proximal muscle weakness, thin/fragile skin, easy bruising</li>
+        <li>Immunosuppression → frequent infections</li>
+      </ul>
+      <h4>Pharmacology</h4>
+      <ul>
+        <li><strong>Treat underlying cause</strong> — surgical resection for pituitary or adrenal tumor (transsphenoidal surgery for Cushing's disease)</li>
+        <li><strong>Taper steroids</strong> — for iatrogenic (medication-induced) Cushing's; never stop abruptly (risk of adrenal crisis)</li>
+        <li><strong>Ketoconazole / Metyrapone / Mitotane</strong> — adrenal steroidogenesis inhibitors; used when surgery not feasible</li>
+        <li><strong>Mifepristone (Korlym)</strong> — glucocorticoid receptor antagonist; for Cushing's with hyperglycemia</li>
+        <li><strong>KCl replacement</strong> — correct hypokalemia; <strong>antihypertensives</strong> for cortisol-induced HTN</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="qa">
+    <summary>Chronic Kidney Disease (CKD) / Acute Kidney Injury (AKI)</summary>
+    <div>
+      <h4>Pathophysiology</h4>
+      <p>Reduced GFR → impaired excretion of K<sup>+</sup>, phosphate, and H<sup>+</sup> → hyperkalemia, hyperphosphatemia, metabolic acidosis. Fluid retention → FVE. Reduced erythropoietin → anemia. Reduced vitamin D activation → hypocalcemia → secondary hyperparathyroidism.</p>
+      <h4>Key Signs &amp; Symptoms</h4>
+      <ul>
+        <li class="u-item">Oliguria/anuria — hallmark of AKI; urine output &lt;0.5 mL/kg/hr signals acute loss of renal function</li>
+        <li>Hyperkalemia (peaked T waves, VF risk), hyperphosphatemia, hypocalcemia</li>
+        <li>Metabolic acidosis → Kussmaul respirations if severe</li>
+        <li>FVE: hypertension, edema, pulmonary edema</li>
+        <li class="u-item">Uremic frost — white crystalline urea deposits on skin; a late/severe sign seen only in uremia</li>
+        <li>Asterixis (flapping tremor), confusion, uremic encephalopathy</li>
+      </ul>
+      <h4>Pharmacology</h4>
+      <ul>
+        <li><strong>Furosemide (loop diuretic)</strong> — fluid management when kidneys still producing urine</li>
+        <li><strong>Patiromer (Veltassa) / Sodium zirconium cyclosilicate (Lokelma)</strong> — oral K<sup>+</sup> binders; preferred over Kayexalate</li>
+        <li><strong>Kayexalate (sodium polystyrene sulfonate)</strong> — older K<sup>+</sup> binder; risk of intestinal necrosis; less used</li>
+        <li><strong>Calcium carbonate / Sevelamer</strong> — phosphate binders; take with meals</li>
+        <li><strong>Sodium bicarbonate</strong> — for metabolic acidosis; goal HCO<sub>3</sub><sup>-</sup> &gt;22 mEq/L</li>
+        <li><strong>Erythropoietin (EPO) / Darbepoetin</strong> — renal anemia; always give with iron supplementation</li>
+        <li><strong>Calcitriol (active Vitamin D)</strong> — secondary hyperparathyroidism prevention/treatment</li>
+        <li><strong>Dialysis</strong> — ESRD or refractory AKI; immediate indication: fluid overload, uremia, hyperkalemia, acidosis (AEIOU mnemonic)</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="qa">
+    <summary>COPD — Chronic Respiratory Acidosis</summary>
+    <div>
+      <h4>Pathophysiology</h4>
+      <p>Airflow obstruction (emphysema + chronic bronchitis) → air trapping → CO<sub>2</sub> retention → chronic respiratory acidosis. Kidneys compensate by retaining HCO<sub>3</sub><sup>-</sup> → compensated respiratory acidosis. COPD patients depend on hypoxic drive — high O<sub>2</sub> can suppress breathing and worsen CO<sub>2</sub> retention.</p>
+      <h4>Key Signs &amp; Symptoms</h4>
+      <ul>
+        <li>Chronic productive cough, wheezing, dyspnea on exertion</li>
+        <li class="u-item">Barrel chest (increased A-P diameter) — from chronic air trapping and hyperinflation; specific to emphysema/severe COPD</li>
+        <li class="u-item">Pursed-lip breathing — self-taught PEEP technique to slow exhalation; seen specifically in emphysema</li>
+        <li>ABG: pH low-normal (7.35–7.38 compensated), PaCO<sub>2</sub> &gt;45, HCO<sub>3</sub><sup>-</sup> elevated (renal compensation)</li>
+        <li>Polycythemia (↑ RBCs from chronic hypoxia), cyanosis, clubbing (late)</li>
+      </ul>
+      <h4>Pharmacology</h4>
+      <ul>
+        <li><strong>Albuterol (SABA)</strong> — rescue bronchodilator; short-acting β2 agonist; rapid bronchodilation</li>
+        <li><strong>Tiotropium (Spiriva)</strong> — LAMA; long-acting anticholinergic; maintenance; reduces exacerbations</li>
+        <li><strong>Inhaled corticosteroids (fluticasone)</strong> — for frequent exacerbators; reduce airway inflammation</li>
+        <li><strong>Supplemental O<sub>2</sub></strong> — titrate to SpO<sub>2</sub> 88–92%; <strong>1–2 L/min only</strong> to avoid suppressing hypoxic drive → CO<sub>2</sub> narcosis</li>
+        <li><strong>Systemic corticosteroids (prednisone)</strong> — short course (5 days) for acute exacerbations</li>
+        <li><strong>Antibiotics</strong> — for bacterial exacerbations (azithromycin, doxycycline)</li>
+        <li><strong>BiPAP / mechanical ventilation</strong> — for respiratory failure; BiPAP preferred non-invasively</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section ▲</button></div>
+</div>
+</details>
+
+<!-- ═══════════════════════════════════════════════════════ SECTION 14 -->
+<details class="section" id="s14">
+<summary>14 &mdash; NCLEX Critical To Knows</summary>
 <div class="section-body">
 
   <div class="nclex-card">
@@ -1229,9 +1661,9 @@
 </div>
 </details>
 
-<!-- ═══════════════════════════════════════════════════════ SECTION 14 -->
-<details class="section" id="s14">
-<summary>14 &mdash; Review Questions</summary>
+<!-- ═══════════════════════════════════════════════════════ SECTION 15 -->
+<details class="section" id="s15">
+<summary>15 &mdash; Review Questions</summary>
 <div class="section-body">
 <div class="questions">
 <ol>

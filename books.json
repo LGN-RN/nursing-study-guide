@@ -30,6 +30,13 @@
           "book_pages": "302-334",
           "pdf_pages": "337-369",
           "output": "books/lewis-medsurg/chapter17_study_guide.html"
+        },
+        {
+          "chapter": 46,
+          "title": "Upper Gastrointestinal Problems",
+          "book_pages": "1050-1087",
+          "pdf_pages": "1085-1122",
+          "output": "books/lewis-medsurg/chapter46_study_guide.html"
         }
       ]
     }

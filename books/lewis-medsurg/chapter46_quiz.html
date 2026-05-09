@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch 46 NCLEX Quiz — Upper Gastrointestinal Problems</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #f4f6fb;
+    padding: 0 20px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.9em;
+    color: #0d3b66;
+    border-bottom: 4px solid #0d3b66;
+    padding: 28px 0 12px;
+    margin-bottom: 6px;
+  }
+  .subtitle { color: #555; font-style: italic; margin-bottom: 6px; font-size: 0.93em; }
+  .source-info {
+    background: #e8f4fd;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    padding: 12px 18px;
+    margin: 14px 0 24px;
+    font-size: 0.9em;
+    color: #1a3a5c;
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+  }
+
+  /* ── Quiz questions ── */
+  .quiz-question {
+    background: #fff;
+    border: 1px solid #c8d8ea;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 14px 0;
+    box-shadow: 0 1px 4px rgba(13,59,102,.06);
+  }
+  .q-num {
+    font-size: 0.76em; color: #888; font-weight: bold;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    margin-bottom: 5px;
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+  }
+  .q-text {
+    font-weight: bold; color: #1a1a2e; margin-bottom: 14px;
+    line-height: 1.55; font-size: 0.98em;
+  }
+  .q-options {
+    display: flex; flex-direction: column; gap: 7px; margin-bottom: 13px;
+  }
+  .q-opt {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 12px; border-radius: 5px; border: 1.5px solid #c8d8ea;
+    cursor: pointer; font-size: 0.94em; line-height: 1.45;
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+    transition: background 0.12s;
+  }
+  .q-opt:hover:not(.correct-opt):not(.wrong-opt) { background: #f0f6fb; border-color: #3498db; }
+  .q-opt input[type=radio] { flex-shrink: 0; margin-top: 3px; accent-color: #0d3b66; }
+  .q-opt.correct-opt { background: #e6f9ee; border-color: #27ae60; font-weight: bold; color: #1a5e30; }
+  .q-opt.wrong-opt   { background: #fde8e8; border-color: #c0392b; color: #7b1a1a; }
+
+  .check-btn {
+    background: #0d3b66; color: #fff; border: none; border-radius: 4px;
+    padding: 7px 22px; cursor: pointer; font-size: 0.9em; font-family: Georgia, serif;
+  }
+  .check-btn:hover:not(:disabled) { background: #155a8a; }
+  .check-btn:disabled { opacity: 0.5; cursor: default; }
+
+  .q-rationale {
+    display: none; margin-top: 13px; padding: 10px 14px;
+    background: #f0f6fb; border-left: 4px solid #0d3b66;
+    border-radius: 4px; font-size: 0.92em; line-height: 1.65;
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif; color: #222;
+  }
+  .q-rationale .correct-ans {
+    color: #1e8449; font-weight: bold; display: block; margin-bottom: 4px;
+  }
+
+  /* ── Score bar ── */
+  .quiz-score-bar {
+    background: linear-gradient(90deg, #0d3b66, #155a8a);
+    color: #fff; border-radius: 8px; padding: 22px 28px;
+    text-align: center; margin: 22px 0 10px;
+    display: none;
+  }
+  .quiz-score-bar .score-num { font-size: 2.8em; font-weight: bold; line-height: 1; }
+  .quiz-score-bar .score-sub { font-size: 0.95em; opacity: 0.85; margin-top: 4px; }
+  .quiz-score-bar .grade { font-size: 1.1em; font-weight: bold; margin-top: 8px; }
+
+  /* ── Control buttons ── */
+  .quiz-controls { text-align: center; margin: 20px 0 6px; }
+  .score-btn, .reset-btn {
+    border: none; border-radius: 5px; padding: 10px 30px;
+    font-size: 0.97em; cursor: pointer; font-family: Georgia, serif;
+    font-weight: bold; margin: 4px;
+  }
+  .score-btn { background: #f0a500; color: #fff; }
+  .score-btn:hover { background: #d4890a; }
+  .reset-btn { background: #7f8c8d; color: #fff; }
+  .reset-btn:hover { background: #636e72; }
+
+  /* ── Progress tracker ── */
+  .progress-bar-wrap {
+    background: #dce8f5; border-radius: 20px; height: 10px;
+    margin: 0 0 18px; overflow: hidden;
+  }
+  .progress-bar-fill {
+    background: linear-gradient(90deg, #0d3b66, #3498db);
+    height: 100%; width: 0%; border-radius: 20px;
+    transition: width 0.3s ease;
+  }
+  .progress-label {
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+    font-size: 0.82em; color: #555; text-align: right;
+    margin-bottom: 4px;
+  }
+
+  a.back-link {
+    display: inline-block; margin-bottom: 18px; color: #0d3b66;
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+    font-size: 0.92em; text-decoration: none;
+  }
+  a.back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<h1>Ch 46 &mdash; NCLEX Practice Quiz</h1>
+<p class="subtitle">Upper Gastrointestinal Problems</p>
+
+<div class="source-info">
+  <strong>25 questions</strong> covering all major topics from Chapter 46 of <em>Lewis's Medical-Surgical Nursing</em> (Harding, 12th ed.), book pp. 1050&ndash;1087.<br>
+  Select the best answer, click <strong>Check Answer</strong> to see feedback, then click <strong>Calculate Score</strong> when finished.
+</div>
+
+<a class="back-link" href="chapter46_study_guide.html">&#8592; Back to Study Guide</a>
+
+<div class="progress-label" id="prog-label">0 / 25 answered</div>
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-fill"></div></div>
+
+<!-- ══════════════════════════════ Q1 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq1">
+  <div class="q-num">Question 1 of 25</div>
+  <div class="q-text">Which structure is stimulated by blood-borne toxins, chemotherapy drugs, and metabolic abnormalities (such as uremia) to initiate the vomiting reflex?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q1" value="A"> <span>A. Cerebral cortex</span></label>
+    <label class="q-opt"><input type="radio" name="q1" value="B"> <span>B. Vestibular apparatus</span></label>
+    <label class="q-opt"><input type="radio" name="q1" value="C"> <span>C. Chemoreceptor trigger zone (CTZ)</span></label>
+    <label class="q-opt"><input type="radio" name="q1" value="D"> <span>D. Vagal afferent nerves in the gastric wall</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C &mdash; Chemoreceptor trigger zone (CTZ)</span>
+    The CTZ, located in the area postrema of the medulla, lies outside the blood-brain barrier and is directly stimulated by blood-borne substances (drugs, toxins, metabolic waste). The cerebral cortex responds to pain, fear, and sights/smells. The vestibular apparatus triggers motion sickness. Vagal afferents in the gut respond to local distension and mucosal irritation.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q2 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq2">
+  <div class="q-num">Question 2 of 25</div>
+  <div class="q-text">A patient has been vomiting persistently for 3 days. Which acid-base imbalance and electrolyte disturbance should the nurse anticipate?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q2" value="A"> <span>A. Metabolic acidosis and hyperkalemia</span></label>
+    <label class="q-opt"><input type="radio" name="q2" value="B"> <span>B. Metabolic alkalosis and hypokalemia</span></label>
+    <label class="q-opt"><input type="radio" name="q2" value="C"> <span>C. Respiratory acidosis and hypocalcemia</span></label>
+    <label class="q-opt"><input type="radio" name="q2" value="D"> <span>D. Respiratory alkalosis and hyponatremia</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Metabolic alkalosis and hypokalemia</span>
+    Vomiting causes loss of hydrochloric acid (HCl) from the stomach, resulting in a deficit of hydrogen ions &rarr; metabolic alkalosis (pH &gt;7.45, HCO<sub>3</sub><sup>-</sup> elevated). Potassium is also lost in vomitus and through renal compensation (kidneys excrete K<sup>+</sup> to retain H<sup>+</sup> in alkalotic states) &rarr; hypokalemia.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q3 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq3">
+  <div class="q-num">Question 3 of 25</div>
+  <div class="q-text">The nurse is providing health teaching to a 45-year-old patient. Which behavior places this patient at the GREATEST risk for developing oral cancer?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q3" value="A"> <span>A. Drinking two cups of coffee daily</span></label>
+    <label class="q-opt"><input type="radio" name="q3" value="B"> <span>B. Wearing ill-fitting dentures</span></label>
+    <label class="q-opt"><input type="radio" name="q3" value="C"> <span>C. Using smokeless tobacco (chewing tobacco)</span></label>
+    <label class="q-opt"><input type="radio" name="q3" value="D"> <span>D. Eating spicy foods regularly</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C &mdash; Using smokeless tobacco</span>
+    Tobacco and alcohol use account for 75&ndash;90% of oral cancers. Smokeless tobacco (snuff, chewing tobacco) directly and continuously contacts the oral mucosa, making it a major risk factor. HPV-16 infection is also a significant emerging risk factor. Ill-fitting dentures cause chronic irritation, which is a minor contributing factor but not the greatest risk. Coffee and spicy foods are not established oral cancer risk factors.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q4 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq4">
+  <div class="q-num">Question 4 of 25</div>
+  <div class="q-text">A patient with GERD asks the nurse what causes the burning sensation in the chest. What is the MOST accurate explanation?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q4" value="A"> <span>A. "H. pylori bacteria are producing excess acid in your stomach"</span></label>
+    <label class="q-opt"><input type="radio" name="q4" value="B"> <span>B. "The valve between your esophagus and stomach doesn&rsquo;t close properly, allowing acidic contents to flow back up and irritate the esophagus"</span></label>
+    <label class="q-opt"><input type="radio" name="q4" value="C"> <span>C. "Your stomach lining is inflamed, causing pain that radiates up to the chest"</span></label>
+    <label class="q-opt"><input type="radio" name="q4" value="D"> <span>D. "Abnormal cells have developed in the lower esophagus"</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Incompetent LES allows reflux</span>
+    GERD results primarily from an incompetent lower esophageal sphincter (LES), which allows gastric acid and contents to reflux into the esophagus, causing mucosal irritation and the burning sensation known as heartburn. H. pylori is the primary cause of peptic ulcers, not GERD. Gastric inflammation describes gastritis. Abnormal cells in the lower esophagus describes Barrett&rsquo;s esophagus, a complication of chronic GERD.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q5 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="D" data-checked="false" id="qq5">
+  <div class="q-num">Question 5 of 25</div>
+  <div class="q-text">The nurse is teaching a patient with GERD about dietary modifications. Which food or beverage should the patient be instructed to AVOID?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q5" value="A"> <span>A. Lean baked chicken</span></label>
+    <label class="q-opt"><input type="radio" name="q5" value="B"> <span>B. Low-fat yogurt</span></label>
+    <label class="q-opt"><input type="radio" name="q5" value="C"> <span>C. Oatmeal with water</span></label>
+    <label class="q-opt"><input type="radio" name="q5" value="D"> <span>D. Peppermint tea</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: D &mdash; Peppermint tea</span>
+    Peppermint relaxes the lower esophageal sphincter (LES), worsening reflux and should be avoided in GERD. Other foods/substances that relax the LES include chocolate, alcohol, caffeine, high-fat foods, and spearmint. Lean chicken, low-fat yogurt, and oatmeal are low-fat, low-acid foods that are generally well tolerated with GERD.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q6 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq6">
+  <div class="q-num">Question 6 of 25</div>
+  <div class="q-text">A patient is diagnosed with Barrett&rsquo;s esophagus after endoscopy for long-standing GERD. The nurse explains the primary clinical significance of this diagnosis is:</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q6" value="A"> <span>A. It requires immediate esophagectomy</span></label>
+    <label class="q-opt"><input type="radio" name="q6" value="B"> <span>B. The metaplastic columnar epithelium is a precursor to esophageal adenocarcinoma</span></label>
+    <label class="q-opt"><input type="radio" name="q6" value="C"> <span>C. It indicates that GERD has resolved and acid suppression can be stopped</span></label>
+    <label class="q-opt"><input type="radio" name="q6" value="D"> <span>D. It causes severe esophageal hemorrhage requiring transfusion</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Precursor to esophageal adenocarcinoma</span>
+    Barrett&rsquo;s esophagus is a metaplastic change in which the normal squamous epithelium of the lower esophagus is replaced by columnar (glandular) epithelium. This is caused by chronic acid exposure from GERD. The columnar epithelium is a premalignant lesion with a significantly elevated risk for esophageal adenocarcinoma. Surveillance endoscopy every 3&ndash;5 years (or more frequently with dysplasia) is required. GERD treatment must continue; it does not indicate resolution.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q7 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq7">
+  <div class="q-num">Question 7 of 25</div>
+  <div class="q-text">A patient with a known hiatal hernia develops severe substernal chest pain, dyspnea, and dysphagia that have worsened over 48 hours. Which type of hiatal hernia is MOST likely responsible and why?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q7" value="A"> <span>A. Sliding hernia, because it traps gastric acid above the diaphragm</span></label>
+    <label class="q-opt"><input type="radio" name="q7" value="B"> <span>B. Rolling (paraesophageal) hernia, because the herniated fundus can become incarcerated or strangulated</span></label>
+    <label class="q-opt"><input type="radio" name="q7" value="C"> <span>C. Sliding hernia, because it causes complete LES obstruction</span></label>
+    <label class="q-opt"><input type="radio" name="q7" value="D"> <span>D. Rolling hernia, because it always causes severe GERD</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Rolling (paraesophageal) hernia with incarceration risk</span>
+    In a rolling (paraesophageal) hernia, the gastric fundus herniates through the hiatus alongside the esophagus while the LES remains below the diaphragm. Because the herniated segment can become trapped (incarcerated) or its blood supply cut off (strangulated), this is considered a surgical emergency. Sliding hernias (the most common type) generally cause GERD symptoms but not obstruction. Rolling hernias may actually cause less GERD but carry a higher risk of serious mechanical complications.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q8 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq8">
+  <div class="q-num">Question 8 of 25</div>
+  <div class="q-text">A patient is admitted with acute necrotizing ulcerative gingivitis (Vincent&rsquo;s infection). Which intervention is MOST appropriate for the nurse to anticipate in this patient&rsquo;s care?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q8" value="A"> <span>A. Amphotericin B oral rinse for antifungal treatment</span></label>
+    <label class="q-opt"><input type="radio" name="q8" value="B"> <span>B. Viscous lidocaine application every 2 hours for pain</span></label>
+    <label class="q-opt"><input type="radio" name="q8" value="C"> <span>C. Mouth irrigations with chlorhexidine and saline, topical antibiotics, physical and mental rest</span></label>
+    <label class="q-opt"><input type="radio" name="q8" value="D"> <span>D. IV tetracycline and a full liquid diet for one week</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C &mdash; Mouth irrigations, topical antibiotics, and rest</span>
+    Vincent&rsquo;s infection (acute necrotizing ulcerative gingivitis, or "trench mouth") is a bacterial infection of the gingival tissue. Treatment includes: (1) oral irrigations with chlorhexidine and/or saline, (2) topical antibiotics, (3) physical and mental rest, (4) avoidance of smoking and alcohol, and (5) a soft, nutritious diet. Amphotericin B treats fungal infections (oral candidiasis). Viscous lidocaine is used for herpetic stomatitis. IV tetracycline is not indicated; oral antibiotics or topical therapy suffice.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q9 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq9">
+  <div class="q-num">Question 9 of 25</div>
+  <div class="q-text">A patient reports a 2-year history of progressively worsening difficulty swallowing. He notes equal difficulty with both liquids AND solid foods from the very beginning. Which esophageal condition is MOST consistent with these findings?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q9" value="A"> <span>A. Esophageal adenocarcinoma</span></label>
+    <label class="q-opt"><input type="radio" name="q9" value="B"> <span>B. Esophageal stricture from chronic GERD</span></label>
+    <label class="q-opt"><input type="radio" name="q9" value="C"> <span>C. Achalasia</span></label>
+    <label class="q-opt"><input type="radio" name="q9" value="D"> <span>D. Zenker&rsquo;s diverticulum</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C &mdash; Achalasia</span>
+    The hallmark distinguishing feature of achalasia is dysphagia for BOTH liquids and solids from the onset, caused by failure of the LES to relax and absent peristalsis in the esophageal body. Esophageal cancer and GERD strictures cause dysphagia that begins with solid foods and progresses to liquids as obstruction worsens. Zenker&rsquo;s diverticulum causes regurgitation of undigested food (often hours after eating) and gurgling sounds in the neck, not primarily equal solid/liquid dysphagia.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q10 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq10">
+  <div class="q-num">Question 10 of 25</div>
+  <div class="q-text">A patient newly diagnosed with esophageal cancer asks the nurse what symptoms typically appear first. Which response is MOST accurate?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q10" value="A"> <span>A. "Heartburn and regurgitation are the most common first symptoms"</span></label>
+    <label class="q-opt"><input type="radio" name="q10" value="B"> <span>B. "Progressive difficulty swallowing, starting with solid foods and eventually involving liquids"</span></label>
+    <label class="q-opt"><input type="radio" name="q10" value="C"> <span>C. "Sudden severe chest pain radiating to the jaw is typically the first sign"</span></label>
+    <label class="q-opt"><input type="radio" name="q10" value="D"> <span>D. "Vomiting blood is usually the presenting symptom"</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Progressive dysphagia, solids first then liquids</span>
+    The classic presenting symptom of esophageal cancer is progressive dysphagia &mdash; initially for solid foods, then for soft foods, and eventually for liquids. By the time dysphagia is noticeable, the tumor typically occupies &ge;60% of the esophageal lumen, which explains why most esophageal cancer is diagnosed at a late stage. Weight loss is also a hallmark. Heartburn may precede Barrett&rsquo;s &rarr; adenocarcinoma but is not the presenting symptom of cancer itself.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q11 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq11">
+  <div class="q-num">Question 11 of 25</div>
+  <div class="q-text">A patient with peptic ulcer disease reports burning epigastric pain that occurs 2 to 3 hours after meals and is relieved when he eats a snack. Where is the ulcer MOST likely located?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q11" value="A"> <span>A. Greater curvature of the stomach</span></label>
+    <label class="q-opt"><input type="radio" name="q11" value="B"> <span>B. Fundus of the stomach</span></label>
+    <label class="q-opt"><input type="radio" name="q11" value="C"> <span>C. Duodenum (duodenal ulcer)</span></label>
+    <label class="q-opt"><input type="radio" name="q11" value="D"> <span>D. Lesser curvature of the stomach (gastric ulcer)</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C &mdash; Duodenal ulcer</span>
+    Duodenal ulcers classically cause pain 2&ndash;3 hours after meals (when the stomach has emptied and acid contacts the ulcerated duodenal wall) that is relieved by eating (food buffers the acid). Duodenal ulcers may also cause pain that wakes patients at night. Gastric ulcers produce pain 30&ndash;60 minutes after eating (food stimulates more acid release against the ulcerated gastric wall), and eating does NOT relieve the pain.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q12 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="A" data-checked="false" id="qq12">
+  <div class="q-num">Question 12 of 25</div>
+  <div class="q-text">The nurse reviews the medication record of a patient being treated for H. pylori-associated peptic ulcer disease. Which combination is CONSISTENT with standard first-line triple therapy?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q12" value="A"> <span>A. Omeprazole + clarithromycin + amoxicillin</span></label>
+    <label class="q-opt"><input type="radio" name="q12" value="B"> <span>B. Ranitidine + tetracycline + bismuth subsalicylate</span></label>
+    <label class="q-opt"><input type="radio" name="q12" value="C"> <span>C. Lansoprazole + metronidazole + ciprofloxacin</span></label>
+    <label class="q-opt"><input type="radio" name="q12" value="D"> <span>D. Sucralfate + clarithromycin + tetracycline</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: A &mdash; PPI + clarithromycin + amoxicillin</span>
+    Standard first-line triple therapy for H. pylori consists of a proton pump inhibitor (PPI) + clarithromycin + amoxicillin (or metronidazole if penicillin-allergic), taken for 10&ndash;14 days. Quadruple therapy (PPI + bismuth + metronidazole + tetracycline) is used when triple therapy fails. Ranitidine is an H<sub>2</sub> blocker (less potent than PPIs); ciprofloxacin is not part of standard H. pylori regimens; sucralfate is a mucosal coating agent, not an antibiotic.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q13 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq13">
+  <div class="q-num">Question 13 of 25</div>
+  <div class="q-text">A patient with a history of peptic ulcer disease suddenly develops severe, sharp pain that rapidly becomes diffuse throughout the abdomen. On assessment the nurse finds a rigid, board-like abdomen. What complication should the nurse suspect, and what is the PRIORITY action?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q13" value="A"> <span>A. Gastric outlet obstruction; administer an antiemetic and prepare for NG decompression</span></label>
+    <label class="q-opt"><input type="radio" name="q13" value="B"> <span>B. GI hemorrhage; prepare for blood transfusion and administer IV PPI</span></label>
+    <label class="q-opt"><input type="radio" name="q13" value="C"> <span>C. Perforation; maintain NPO, notify provider immediately, prepare for emergency surgery</span></label>
+    <label class="q-opt"><input type="radio" name="q13" value="D"> <span>D. Acute pancreatitis; administer opioid analgesic and IV fluids</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C &mdash; Perforation; maintain NPO, notify provider, prepare for surgery</span>
+    Sudden, severe abdominal pain with a rigid, board-like abdomen is the classic presentation of a perforated ulcer (peritonitis). Gastric contents spill into the peritoneal cavity, causing chemical peritonitis that rapidly becomes bacterial peritonitis. This is a surgical emergency. Immediate actions: keep NPO, establish IV access, insert NG tube, notify surgeon, administer IV antibiotics, and prepare the patient for emergency laparotomy or laparoscopic repair.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q14 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq14">
+  <div class="q-num">Question 14 of 25</div>
+  <div class="q-text">A patient with a gastric ulcer develops sudden tachycardia, hypotension, and vomiting of bright red blood. Which nursing action is the HIGHEST priority?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q14" value="A"> <span>A. Administer IV proton pump inhibitor bolus</span></label>
+    <label class="q-opt"><input type="radio" name="q14" value="B"> <span>B. Establish two large-bore IV lines, maintain NPO, and call the provider immediately</span></label>
+    <label class="q-opt"><input type="radio" name="q14" value="C"> <span>C. Place the patient in Trendelenburg position to increase cerebral perfusion</span></label>
+    <label class="q-opt"><input type="radio" name="q14" value="D"> <span>D. Insert a nasogastric tube and begin saline lavage</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Large-bore IV access, NPO, call provider</span>
+    The priority follows the ABCs: the patient is hemodynamically unstable (tachycardia, hypotension). Two large-bore IV lines allow rapid volume replacement. NPO status prevents further injury and prepares for possible endoscopy or surgery. Calling the provider ensures prompt intervention. A PPI bolus is indicated but is a secondary action. Trendelenburg is contraindicated in active GI bleeding (risk of aspiration with vomiting). NG lavage is a subsequent nursing action ordered by the provider.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q15 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq15">
+  <div class="q-num">Question 15 of 25</div>
+  <div class="q-text">A patient with longstanding PUD develops projectile vomiting of undigested food eaten 10 hours earlier. Pyloric obstruction is suspected. Which metabolic imbalance should the nurse monitor for?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q15" value="A"> <span>A. Metabolic acidosis and hyperkalemia</span></label>
+    <label class="q-opt"><input type="radio" name="q15" value="B"> <span>B. Metabolic alkalosis and hypokalemia</span></label>
+    <label class="q-opt"><input type="radio" name="q15" value="C"> <span>C. Respiratory acidosis and hypocalcemia</span></label>
+    <label class="q-opt"><input type="radio" name="q15" value="D"> <span>D. Metabolic acidosis and hypernatremia</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Metabolic alkalosis and hypokalemia</span>
+    Prolonged vomiting from any cause (including pyloric obstruction) results in loss of hydrochloric acid (HCl) &rarr; metabolic alkalosis. Potassium is also lost in vomitus and excreted by the kidneys in exchange for H<sup>+</sup> during compensation &rarr; hypokalemia. This is the same imbalance seen in any prolonged vomiting state. Metabolic acidosis would occur with diarrhea (bicarbonate loss).
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q16 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq16">
+  <div class="q-num">Question 16 of 25</div>
+  <div class="q-text">A patient with chronic atrophic gastritis is at risk for pernicious anemia. The nurse explains this risk is caused by:</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q16" value="A"> <span>A. Chronic occult blood loss from the gastric mucosa depleting iron stores</span></label>
+    <label class="q-opt"><input type="radio" name="q16" value="B"> <span>B. Impaired absorption of folic acid due to decreased gastric pH</span></label>
+    <label class="q-opt"><input type="radio" name="q16" value="C"> <span>C. Loss of intrinsic factor from destroyed parietal cells, preventing vitamin B12 absorption</span></label>
+    <label class="q-opt"><input type="radio" name="q16" value="D"> <span>D. Malabsorption of dietary iron from achlorhydria</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C &mdash; Loss of intrinsic factor from parietal cell destruction</span>
+    Chronic atrophic gastritis (particularly Type A, autoimmune) causes destruction of the gastric parietal cells. Parietal cells produce both hydrochloric acid AND intrinsic factor. Intrinsic factor is essential for binding vitamin B12 (cobalamin) in the stomach so it can be absorbed in the terminal ileum. Without intrinsic factor, B12 cannot be absorbed &rarr; megaloblastic (pernicious) anemia. Treatment is lifelong vitamin B12 injections or high-dose oral B12 (if some absorption remains).
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q17 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq17">
+  <div class="q-num">Question 17 of 25</div>
+  <div class="q-text">A patient who had a Billroth II procedure 3 weeks ago reports profuse sweating, weakness, palpitations, and severe abdominal cramping within 20 minutes of finishing lunch. Which complication should the nurse suspect, and what is the priority dietary instruction?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q17" value="A"> <span>A. Late dumping syndrome; offer a high-carbohydrate snack immediately</span></label>
+    <label class="q-opt"><input type="radio" name="q17" value="B"> <span>B. Early dumping syndrome; advise the patient to lie down after eating and eliminate fluids with meals</span></label>
+    <label class="q-opt"><input type="radio" name="q17" value="C"> <span>C. Anastomotic leak; notify the provider and maintain NPO status</span></label>
+    <label class="q-opt"><input type="radio" name="q17" value="D"> <span>D. Reactive hypoglycemia; check blood glucose and give orange juice</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Early dumping syndrome; lie down after meals, no fluids with meals</span>
+    Early dumping syndrome occurs within 15&ndash;30 minutes after eating due to rapid emptying of hyperosmolar gastric contents into the jejunum. The osmotic gradient draws fluid into the bowel, causing decreased circulating volume and autonomic symptoms (sweating, palpitations, weakness) and GI symptoms (cramping, diarrhea). Key teaching: eat 6 small dry meals per day, eliminate fluids with meals (drink 30&ndash;45 min after), avoid concentrated sweets, and lie down for 30 minutes after eating to slow transit. Late dumping occurs 1&ndash;3 hours after eating and is caused by reactive hypoglycemia.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q18 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq18">
+  <div class="q-num">Question 18 of 25</div>
+  <div class="q-text">Two hours after lunch, a patient who had a total gastrectomy 6 weeks ago develops diaphoresis, trembling, and confusion. What should the nurse do FIRST?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q18" value="A"> <span>A. Administer IV dextrose 50% immediately</span></label>
+    <label class="q-opt"><input type="radio" name="q18" value="B"> <span>B. Check the blood glucose level</span></label>
+    <label class="q-opt"><input type="radio" name="q18" value="C"> <span>C. Offer 4 oz of orange juice by mouth</span></label>
+    <label class="q-opt"><input type="radio" name="q18" value="D"> <span>D. Call the provider and request an insulin drip adjustment</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Check blood glucose level first</span>
+    The symptoms occurring 1&ndash;3 hours after a meal in a postgastrectomy patient are classic for late dumping syndrome, which causes postprandial reactive hypoglycemia (rapid glucose absorption &rarr; excess insulin release &rarr; hypoglycemia). However, the nurse must ASSESS before treating: verify the blood glucose level before administering sugar. If BG is confirmed low, then offer a carbohydrate snack (if the patient can swallow safely) or IV dextrose if the patient is confused/unable to swallow. Giving D50W without checking could cause hyperglycemia if the diagnosis is wrong.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q19 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq19">
+  <div class="q-num">Question 19 of 25</div>
+  <div class="q-text">The nurse is assessing a patient with suspected stomach (gastric) cancer. Which statement BEST describes why this cancer is often diagnosed at an advanced stage?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q19" value="A"> <span>A. The pain is very severe and drives patients to seek care quickly</span></label>
+    <label class="q-opt"><input type="radio" name="q19" value="B"> <span>B. Hematemesis causes alarm and prompts early medical evaluation</span></label>
+    <label class="q-opt"><input type="radio" name="q19" value="C"> <span>C. Early symptoms are vague (mild indigestion, epigastric discomfort) and are often attributed to benign causes</span></label>
+    <label class="q-opt"><input type="radio" name="q19" value="D"> <span>D. Stomach cancer grows very rapidly, advancing before symptoms appear</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C &mdash; Early symptoms are vague and attributed to benign conditions</span>
+    Stomach cancer has an insidious onset. Early disease causes only vague symptoms such as mild indigestion, epigastric discomfort, bloating, and early satiety &mdash; symptoms easily dismissed as GERD or peptic ulcer disease. By the time more specific symptoms appear (anorexia, weight loss, palpable mass, ascites), the disease is often unresectable. This late presentation contributes to the poor 5-year survival rate for gastric cancer in Western countries.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q20 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="C" data-checked="false" id="qq20">
+  <div class="q-num">Question 20 of 25</div>
+  <div class="q-text">A patient with known cirrhosis and esophageal varices suddenly vomits 400 mL of bright red blood. What is the PRIORITY nursing action?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q20" value="A"> <span>A. Prepare the patient for emergent endoscopy</span></label>
+    <label class="q-opt"><input type="radio" name="q20" value="B"> <span>B. Administer octreotide IV as ordered to reduce portal pressure</span></label>
+    <label class="q-opt"><input type="radio" name="q20" value="C"> <span>C. Maintain a patent airway and establish large-bore IV access</span></label>
+    <label class="q-opt"><input type="radio" name="q20" value="D"> <span>D. Insert a nasogastric tube for gastric decompression and lavage</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: C &mdash; Maintain airway and establish IV access</span>
+    The priority in any acute GI hemorrhage follows the ABCs. Massive hematemesis creates an immediate risk of airway obstruction and aspiration. The first action is airway protection (position, suction available, possible intubation). Simultaneously, large-bore IV access is needed for rapid volume replacement. Octreotide, endoscopy, and NG tube insertion are all appropriate subsequent interventions, but none supersede airway management.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q21 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="D" data-checked="false" id="qq21">
+  <div class="q-num">Question 21 of 25</div>
+  <div class="q-text">A patient with PUD is prescribed omeprazole. Which statement BEST describes the mechanism of action of this drug?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q21" value="A"> <span>A. It neutralizes acid already secreted in the stomach</span></label>
+    <label class="q-opt"><input type="radio" name="q21" value="B"> <span>B. It coats the gastric mucosa, forming a protective barrier against acid</span></label>
+    <label class="q-opt"><input type="radio" name="q21" value="C"> <span>C. It blocks histamine H2 receptors on gastric parietal cells</span></label>
+    <label class="q-opt"><input type="radio" name="q21" value="D"> <span>D. It irreversibly binds and inhibits the H<sup>+</sup>/K<sup>+</sup> ATPase proton pump in gastric parietal cells</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: D &mdash; Irreversible inhibition of H<sup>+</sup>/K<sup>+</sup> ATPase (proton pump)</span>
+    Proton pump inhibitors (PPIs) such as omeprazole, lansoprazole, and pantoprazole work by irreversibly binding to and inhibiting the H<sup>+</sup>/K<sup>+</sup> ATPase enzyme (the proton pump) in the parietal cell canaliculus. This is the final common step in acid secretion regardless of the stimulus (histamine, acetylcholine, gastrin). PPIs provide more complete and sustained acid suppression than H2 blockers. Neutralization describes antacids; protective coating describes sucralfate; H2 receptor blockade describes ranitidine/famotidine.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q22 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq22">
+  <div class="q-num">Question 22 of 25</div>
+  <div class="q-text">A patient asks the nurse when to take antacids for MAXIMUM therapeutic benefit for peptic ulcer symptoms. What is the BEST response?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q22" value="A"> <span>A. "Take antacids with each meal so food slows their absorption"</span></label>
+    <label class="q-opt"><input type="radio" name="q22" value="B"> <span>B. "Take antacids 1 to 3 hours after meals and at bedtime for maximum effect"</span></label>
+    <label class="q-opt"><input type="radio" name="q22" value="C"> <span>C. "Take antacids first thing in the morning on an empty stomach"</span></label>
+    <label class="q-opt"><input type="radio" name="q22" value="D"> <span>D. "Take antacids only when you feel heartburn; they work best for acute symptoms"</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; 1&ndash;3 hours after meals and at bedtime</span>
+    Antacids taken 1&ndash;3 hours after meals provide the longest duration of acid neutralization (up to 3&ndash;4 hours) because food buffers the antacid and prolongs its gastric emptying time. Taken at bedtime, they neutralize the nocturnal acid surge. If taken with meals, antacids have a shorter effect as they empty with food. Taking on an empty stomach produces only a brief effect (&sim;30 minutes) before rapid gastric emptying occurs.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q23 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq23">
+  <div class="q-num">Question 23 of 25</div>
+  <div class="q-text">Several members of a family develop nausea, vomiting, and diarrhea approximately 2 to 3 hours after a summer picnic. There is no fever. Which food source and causative agent are MOST consistent with this presentation?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q23" value="A"> <span>A. Home-canned green beans &mdash; Clostridium botulinum (onset 12&ndash;36 hours, neurologic symptoms)</span></label>
+    <label class="q-opt"><input type="radio" name="q23" value="B"> <span>B. Potato salad with mayonnaise left in the sun &mdash; Staphylococcus aureus toxin (onset 30 min&ndash;7 hrs, no fever)</span></label>
+    <label class="q-opt"><input type="radio" name="q23" value="C"> <span>C. Undercooked hamburgers &mdash; Escherichia coli O157:H7 (onset 3&ndash;4 days, bloody diarrhea)</span></label>
+    <label class="q-opt"><input type="radio" name="q23" value="D"> <span>D. Raw poultry salad &mdash; Salmonella (onset 8 hours to several days, fever common)</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Staphylococcal toxin from mayonnaise/potato salad</span>
+    The rapid onset (30 minutes&ndash;7 hours) and absence of fever point to a pre-formed toxin rather than an active infection. Staphylococcus aureus produces a heat-stable enterotoxin in protein-rich foods (mayonnaise, cream fillings, potato salad, meat) left at warm temperatures. The toxin &mdash; not the bacteria itself &mdash; causes the GI illness, hence no fever. Botulism has a longer onset and causes neurologic symptoms. E. coli O157:H7 has a longer incubation and causes bloody diarrhea. Salmonella causes fever and has a longer onset.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q24 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq24">
+  <div class="q-num">Question 24 of 25</div>
+  <div class="q-text">A patient taking daily ibuprofen for chronic arthritis is prescribed misoprostol. The nurse explains the purpose of misoprostol is to:</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q24" value="A"> <span>A. Enhance the anti-inflammatory effect of ibuprofen</span></label>
+    <label class="q-opt"><input type="radio" name="q24" value="B"> <span>B. Protect the gastric mucosa by stimulating prostaglandin-mediated mucus and bicarbonate secretion</span></label>
+    <label class="q-opt"><input type="radio" name="q24" value="C"> <span>C. Prevent systemic absorption of ibuprofen</span></label>
+    <label class="q-opt"><input type="radio" name="q24" value="D"> <span>D. Eradicate H. pylori colonization caused by NSAID use</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Cytoprotection via prostaglandin replacement</span>
+    NSAIDs (like ibuprofen) inhibit cyclooxygenase (COX) enzymes, reducing prostaglandin synthesis. In the gastric mucosa, prostaglandins normally stimulate mucus and bicarbonate secretion (the mucosal protective barrier) and maintain mucosal blood flow. Loss of these prostaglandins leads to mucosal erosion and ulceration. Misoprostol is a synthetic prostaglandin E1 analog that replaces this protective prostaglandin activity, reducing NSAID-induced mucosal damage. PPIs are an alternative for gastroprotection with NSAIDs. Misoprostol does NOT enhance ibuprofen&rsquo;s anti-inflammatory effect and is contraindicated in pregnancy (causes uterine contractions).
+  </div>
+</div>
+
+<!-- ══════════════════════════════ Q25 ══════════════════════════════ -->
+<div class="quiz-question" data-correct="B" data-checked="false" id="qq25">
+  <div class="q-num">Question 25 of 25</div>
+  <div class="q-text">A patient with a Zenker&rsquo;s (pharyngeal) diverticulum asks the nurse why food seems to &ldquo;come back up&rdquo; hours after eating and why there is a gurgling sensation in the throat. What is the MOST accurate explanation?</div>
+  <div class="q-options">
+    <label class="q-opt"><input type="radio" name="q25" value="A"> <span>A. "Your stomach empties too slowly, allowing food to build up and back up into the esophagus"</span></label>
+    <label class="q-opt"><input type="radio" name="q25" value="B"> <span>B. "A pouch has formed in the wall of your upper esophagus that collects food and releases it hours later, causing regurgitation and the gurgling you feel"</span></label>
+    <label class="q-opt"><input type="radio" name="q25" value="C"> <span>C. "Scar tissue has narrowed your esophagus, trapping food above the narrowed area"</span></label>
+    <label class="q-opt"><input type="radio" name="q25" value="D"> <span>D. "The valve at the top of your stomach is too weak and allows food to escape back into the esophagus"</span></label>
+  </div>
+  <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+  <div class="q-rationale">
+    <span class="correct-ans">Correct Answer: B &mdash; Esophageal diverticulum trapping food</span>
+    A Zenker&rsquo;s (pharyngeal) diverticulum is an outpouching that forms at the junction of the pharynx and esophagus. Food accumulates in the pouch during eating and is then regurgitated hours later (halitosis from fermenting food is common). The gurgling or &ldquo;bubbling&rdquo; sensation (borborygmi) in the neck is caused by air and food moving in and out of the pouch. Serious complications include aspiration, malnutrition, and perforation. Treatment is surgical repair of the diverticulum.
+  </div>
+</div>
+
+<!-- ══════════════════════════════ SCORE ══════════════════════════════ -->
+<div class="quiz-controls">
+  <button class="score-btn" onclick="calculateScore()">Calculate Score</button>
+  <button class="reset-btn" onclick="resetQuiz()">Reset Quiz</button>
+</div>
+<div class="quiz-score-bar" id="quiz-score-display"></div>
+
+<script>
+function updateProgress() {
+  var total = 25;
+  var answered = document.querySelectorAll('.quiz-question[data-checked="true"]').length;
+  document.getElementById('prog-label').textContent = answered + ' / ' + total + ' answered';
+  document.getElementById('prog-fill').style.width = (answered / total * 100) + '%';
+}
+
+function checkAnswer(btn) {
+  var qDiv = btn.closest('.quiz-question');
+  if (qDiv.dataset.checked === 'true') return;
+  var selected = qDiv.querySelector('input[type=radio]:checked');
+  if (!selected) { alert('Please select an answer first.'); return; }
+  var correct = qDiv.dataset.correct;
+  qDiv.querySelectorAll('.q-opt').forEach(function(opt) {
+    var val = opt.querySelector('input').value;
+    if (val === correct) opt.classList.add('correct-opt');
+    else if (val === selected.value) opt.classList.add('wrong-opt');
+    opt.querySelector('input').disabled = true;
+  });
+  qDiv.querySelector('.q-rationale').style.display = 'block';
+  btn.disabled = true;
+  qDiv.dataset.checked = 'true';
+  updateProgress();
+}
+
+function calculateScore() {
+  var questions = document.querySelectorAll('.quiz-question');
+  var answered = 0, correct = 0;
+  questions.forEach(function(q) {
+    if (q.dataset.checked === 'true') {
+      answered++;
+      var sel = q.querySelector('input[type=radio]:checked');
+      if (sel && sel.value === q.dataset.correct) correct++;
+    }
+  });
+  if (answered === 0) { alert('Answer at least one question first.'); return; }
+  if (answered < questions.length) {
+    if (!confirm('You have only answered ' + answered + ' of ' + questions.length + ' questions. Show score anyway?')) return;
+  }
+  var pct = Math.round((correct / questions.length) * 100);
+  var grade = pct >= 90 ? '&#127942; Excellent &mdash; NCLEX Ready!' :
+              pct >= 80 ? '&#128077; Good &mdash; Review Missed Topics' :
+              pct >= 70 ? '&#128218; Passing &mdash; More Study Needed' :
+                          '&#128203; Below Passing &mdash; Review Chapter 46';
+  var bar = document.getElementById('quiz-score-display');
+  bar.innerHTML =
+    '<div class="score-num">' + correct + '/' + questions.length + '</div>' +
+    '<div class="score-sub">' + pct + '% &nbsp;|&nbsp; ' + answered + ' of ' + questions.length + ' answered</div>' +
+    '<div class="grade">' + grade + '</div>';
+  bar.style.display = 'block';
+  bar.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.quiz-question').forEach(function(q) {
+    q.dataset.checked = 'false';
+    q.querySelectorAll('.q-opt').forEach(function(opt) {
+      opt.classList.remove('correct-opt', 'wrong-opt');
+      opt.querySelector('input').checked = false;
+      opt.querySelector('input').disabled = false;
+    });
+    q.querySelector('.q-rationale').style.display = 'none';
+    q.querySelector('.check-btn').disabled = false;
+  });
+  var bar = document.getElementById('quiz-score-display');
+  bar.style.display = 'none';
+  bar.innerHTML = '';
+  updateProgress();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+updateProgress();
+</script>
+
+</body>
+</html>

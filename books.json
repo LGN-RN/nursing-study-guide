@@ -37,6 +37,13 @@
           "book_pages": "1050-1087",
           "pdf_pages": "1085-1122",
           "output": "books/lewis-medsurg/chapter46_study_guide.html"
+        },
+        {
+          "chapter": 47,
+          "title": "Lower Gastrointestinal Problems",
+          "book_pages": "1088-1134",
+          "pdf_pages": "1123-1169",
+          "output": "books/lewis-medsurg/chapter47_study_guide.html"
         }
       ]
     }

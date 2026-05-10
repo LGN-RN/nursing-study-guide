@@ -9,7 +9,10 @@ Generate HTML study guides from nursing/medical textbook PDFs, one guide per cha
 
 - **Python 3.12** installed
 - **PyMuPDF** (`fitz`) installed via pip
-- **Extraction script**: `extract_pages.py` at the project root (works with any PDF)
+- **Pipeline CLI**: `guide.py` — orchestrates the full chapter workflow (prepare → embed → finalize)
+- **Figure extractor**: `extract_figures.py` — smart, column-aware figure extraction
+- **CSS sync**: `sync_css.py` — keeps all guides' styles in sync with the template
+- **Template**: `template/study_guide_base.html` — master HTML/CSS template for new guides
 
 ---
 
@@ -17,30 +20,38 @@ Generate HTML study guides from nursing/medical textbook PDFs, one guide per cha
 
 ```
 FundStudyGuide/
-  extract_pages.py        # PDF extraction script (book-agnostic)
-  books.json              # Registry: all books, offsets, completed chapters
+  guide.py                        # Pipeline CLI (replaces manual step-by-step)
+  extract_figures.py              # Smart figure extractor
+  extract_pages.py                # PDF text extraction
+  sync_css.py                     # Push CSS updates to all guides
+  books.json                      # Registry: all books, offsets, completed chapters
+  template/
+    study_guide_base.html         # Master CSS + HTML skeleton (copy for new chapters)
   books/
-    fundamentals-nursing/ # One folder per book slug
+    fundamentals-nursing/
       chapter42_study_guide.html
-    <new-book-slug>/
-      chapter<N>_study_guide.html
+    lewis-medsurg/
+      chapter17_study_guide.html
+      chapter46_study_guide.html
+      chapter47_study_guide.html
+      images/
+        ch17/   ch46/   ch46_v2/   ch47/   # figure image files + figures_manifest.json
 ```
 
-PDFs live in `C:\Users\logan\Projects\FundStudyGuide\` alongside this repo but are excluded from git via `.gitignore`.
+PDFs live at the project root but are excluded from git via `.gitignore`.
 
 ---
 
 ## Adding a New Book
 
 ### 1. Determine the page offset
-The PDF page index ≠ book page number because of front-matter pages. Run a probe:
 ```powershell
 python extract_pages.py <PdfFile.pdf> 1 3 probe_raw.txt
 ```
-Read `probe_raw.txt` and look for the actual page number printed on page 1 of the book body. The offset = PDF page index − book page number. Delete `probe_raw.txt` when done.
+Read `probe_raw.txt`, find the printed page number on page 1 of the book body.
+`offset = PDF page index − book page number`. Delete `probe_raw.txt` when done.
 
 ### 2. Register the book in books.json
-Add an entry to the `books` array:
 ```json
 {
   "slug": "short-kebab-name",
@@ -59,49 +70,96 @@ New-Item -ItemType Directory -Path "books\<slug>"
 
 ---
 
-## Workflow for Each New Chapter
+## Workflow for Each New Chapter  ← PRIMARY WORKFLOW
 
-### 1. Look up the book in books.json
-Find the book's `slug` and `page_offset`.
-
-### 2. Calculate PDF page range
-```
-pdf_start = book_page + page_offset
-```
-Extract a couple of pages at the expected end to confirm where the chapter ends.
-
-### 3. Extract chapter text
+### Step 1 — Prepare (extract text + figures)
 ```powershell
-python extract_pages.py <PdfFile.pdf> <pdf_start> <pdf_end> chapter<N>_raw.txt
+python guide.py prepare <slug> <chapter> <book_start_page> <book_end_page>
 ```
-
-### 4. Read extracted text
-Read `chapter<N>_raw.txt` in chunks with the Read tool (offset 0 through end, ~300 lines at a time for large chapters).
-
-### 5. Generate HTML study guide
-Output: `books/<slug>/chapter<N>_study_guide.html`
-
-Use `books/fundamentals-nursing/chapter42_study_guide.html` as the format template. Every guide must include:
-- **Collapsible sections** using native `<details>`/`<summary>` HTML (no JavaScript)
-- **Blue gradient summary bars** with ▼/▲ toggle indicators; Section 1 open by default, rest collapsed
-- **Proper chemical formula markup**: `<sub>` and `<sup>` tags — never raw HTML entities like `&sub2;`
-  - Examples: `Na<sup>+</sup>`, `K<sup>+</sup>`, `Ca<sup>2+</sup>`, `HCO<sub>3</sub><sup>-</sup>`, `CO<sub>2</sub>`, `H<sub>2</sub>O`
-- **NCLEX Critical To Knows** section at the end with red-themed cards (`#c0392b`) — 6–10 high-yield cards
-- **Expandable Q&A review questions** using inner `<details class="qa">` elements
-- Fully self-contained (inline CSS, no external dependencies)
-
-### 6. Record completion in books.json
-Add the completed chapter to the book's `completed_chapters` array.
-
-### 7. Delete the raw text file
-`chapter<N>_raw.txt` is an intermediate file — delete it after the guide is generated. It is already gitignored.
-
-### 8. Commit and push
+Example:
 ```powershell
-git add books/<slug>/chapter<N>_study_guide.html books.json
-git commit -m "Add <BookTitle> Chapter <N> study guide"
-git push
+python guide.py prepare lewis-medsurg 48 1135 1178
 ```
+This will:
+- Calculate PDF page range automatically (book page + offset)
+- Extract chapter text → `chapter<N>_raw.txt`
+- Run the smart figure extractor → `books/<slug>/images/ch<N>/`
+- Print a manifest of all figures found with their `<!-- FIG_N_NN -->` placeholder tags
+
+### Step 2 — Generate the HTML
+1. Read `chapter<N>_raw.txt` in ~300-line chunks.
+2. Copy `template/study_guide_base.html` as your starting point.
+3. Fill in all `<!-- FILL: ... -->` placeholder sections.
+4. Where figures belong in the content, write the corresponding placeholder comment:
+   ```html
+   <!-- FIG_48_01 -->
+   ```
+   (Exact placeholders are listed at the end of the `prepare` output and in `figures_manifest.json`.)
+5. Save as `books/<slug>/chapter<N>_study_guide.html`.
+
+Every guide must include (all already in the template):
+- **Collapsible sections** using native `<details>`/`<summary>` (no JavaScript)
+- **Blue gradient summary bars** with ▼/▲ toggle; Section 1 open by default, rest collapsed
+- **Close Section ▲ button** at the bottom of every section
+- **Common Conditions & Pharmacology** table in each content section (`.pharma-box`)
+- **NCLEX Critical To Know** section — 6–10 red-themed cards
+- **Expandable Q&A review questions** using `<details class="qa">`
+- **Proper chemical markup**: `<sub>` and `<sup>` tags — never raw HTML entities
+  - Examples: `Na<sup>+</sup>`, `HCO<sub>3</sub><sup>-</sup>`, `CO<sub>2</sub>`, `H<sub>2</sub>O`
+- **Fully self-contained**: inline CSS only, no external dependencies (preserves HTML preview)
+
+### Step 3 — Embed figures
+```powershell
+python guide.py embed <slug> <chapter>
+```
+Finds every `<!-- FIG_N_NN -->` placeholder in the HTML and replaces it with an
+inline base64 image. The guide remains fully self-contained after this step.
+
+### Step 4 — Finalize (books.json + cleanup + commit)
+```powershell
+python guide.py finalize <slug> <chapter> \
+  --title "Chapter Title Here" \
+  --book-pages "1135-1178" \
+  --pdf-pages "1170-1213" \
+  --clean \
+  --yes
+```
+Flags:
+- `--clean` — deletes `chapter<N>_raw.txt` and the `images/ch<N>/` directory
+- `--yes`   — runs `git add`, `git commit`, `git push` automatically
+- Omit `--yes` to get the git commands printed instead of run
+
+---
+
+## CSS Updates (Idea 2 — consistency tool)
+
+If you add a new CSS class or fix a style in `template/study_guide_base.html`:
+```powershell
+python sync_css.py             # updates ALL guides
+python sync_css.py --dry-run   # preview only
+python sync_css.py --file books/lewis-medsurg/chapter47_study_guide.html  # one file
+```
+This replaces the entire `<style>` block in each guide with the template's CSS.
+Output remains self-contained — no external stylesheets.
+
+---
+
+## Figure Extraction Details (Idea 3 — smart extractor)
+
+`extract_figures.py` (called automatically by `guide.py prepare`) detects:
+
+| Layout | Detection method | Crop bounds |
+|--------|-----------------|-------------|
+| Left column | caption midpoint < page midpoint − 20 pt | x: 0 → page_mid + 22 |
+| Right column | caption midpoint > page midpoint + 20 pt | x: page_mid − 22 → page_w |
+| Full width | caption span > 55 % of page width | x: 0 → page_w |
+
+For embedded JPEG photos (clinical images), the script extracts the raster
+directly from the PDF rather than rendering the page. Diagrams and charts
+(vector graphics) are rendered at the requested DPI (default 150).
+
+Manual override: if auto-cropping is still wrong for a specific figure, edit
+the manifest JSON and re-run `guide.py embed`.
 
 ---
 
@@ -112,32 +170,22 @@ See `books.json` for the authoritative registry. Quick reference:
 | Slug | PDF File | Page Offset |
 |------|----------|-------------|
 | fundamentals-nursing | FundamentalsNursing.pdf | +20 |
+| lewis-medsurg | LEWIS'S MEDICAL-SURGICAL NURSING … .pdf | +35 |
 
 ---
 
-## extract_pages.py Reference
+## Legacy Scripts (kept for reference, no longer needed)
 
-```python
-# Usage: python extract_pages.py <pdf> <start_pdf_page> <end_pdf_page> <output_file>
-import sys
-import fitz
+These one-off scripts still exist at the root but are superseded by the new tools:
 
-def extract(pdf_path, start_page, end_page):
-    doc = fitz.open(pdf_path)
-    text = []
-    for i in range(start_page - 1, min(end_page, len(doc))):
-        page = doc[i]
-        text.append(f"\n--- PDF Page {i+1} ---\n")
-        text.append(page.get_text())
-    return "\n".join(text)
-
-if __name__ == "__main__":
-    pdf = sys.argv[1]
-    start = int(sys.argv[2])
-    end = int(sys.argv[3])
-    out_file = sys.argv[4] if len(sys.argv) > 4 else "extracted.txt"
-    content = extract(pdf, start, end)
-    with open(out_file, "w", encoding="utf-8") as f:
-        f.write(content)
-    print(f"Extracted pages {start}-{end} to {out_file}")
-```
+| Script | Replaced by |
+|--------|-------------|
+| `crop_figures.py` | `extract_figures.py` |
+| `crop_figures2.py` | `extract_figures.py` |
+| `crop_figures_ch46.py` | `extract_figures.py` |
+| `crop_ch46_targeted.py` | manual manifest edit + `guide.py embed` |
+| `extract_fig_images.py` | `extract_figures.py` (embedded-raster detection) |
+| `extract_images.py` | `extract_figures.py` |
+| `embed_images.py` | `guide.py embed` |
+| `embed_ch46.py` | `guide.py embed` |
+| `render_pages.py` | kept — useful for visual inspection of PDF pages |

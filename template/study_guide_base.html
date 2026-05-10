@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter <!-- FILL: N --> Study Guide &ndash; <!-- FILL: Chapter Title --></title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #f4f6fb;
+    padding: 0 20px 60px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 2em; color: #0d3b66; border-bottom: 4px solid #0d3b66; padding: 28px 0 12px; margin-bottom: 6px; }
+  .subtitle { color: #555; font-style: italic; margin-bottom: 6px; font-size: 0.95em; }
+  .source-info {
+    background: #e8f4fd; border: 2px solid #3498db; border-radius: 6px;
+    padding: 12px 18px; margin: 14px 0 24px; font-size: 0.9em; color: #1a3a5c;
+  }
+  details.section { margin: 12px 0; border: 1px solid #b8cfe8; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 1px 4px rgba(13,59,102,.08); }
+  details.section > summary {
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(90deg,#0d3b66 0%,#155a8a 100%);
+    color: #fff; padding: 13px 18px; cursor: pointer; font-size: 1.13em;
+    font-weight: bold; font-family: 'Georgia', serif; list-style: none;
+    user-select: none; letter-spacing: 0.01em;
+  }
+  details.section > summary::-webkit-details-marker { display: none; }
+  details.section > summary::after { content: "&#9660;"; font-size: 0.75em; opacity: 0.8; transition: transform 0.2s; flex-shrink: 0; margin-left: 10px; }
+  details.section[open] > summary::after { content: "&#9650;"; }
+  details.section > summary:hover { background: linear-gradient(90deg,#0a2e50 0%,#0d3b66 100%); }
+  .section-body { padding: 18px 22px 22px; }
+  h3 { font-size: 1.08em; color: #0d3b66; margin: 20px 0 8px; border-bottom: 2px solid #c8d8ea; padding-bottom: 3px; }
+  h4 { font-size: 0.98em; color: #155a8a; margin: 14px 0 5px; font-style: italic; }
+  p { margin-bottom: 10px; }
+  ul, ol { margin: 6px 0 12px 22px; }
+  li { margin-bottom: 4px; }
+  dl { margin: 10px 0 16px; }
+  dt { font-weight: bold; color: #0d3b66; margin-top: 10px; }
+  dd { margin-left: 22px; margin-bottom: 2px; color: #333; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 0.91em; }
+  th { background: #0d3b66; color: #fff; padding: 8px 10px; text-align: left; }
+  td { padding: 7px 10px; border: 1px solid #c5d8e8; vertical-align: top; }
+  tr:nth-child(even) td { background: #f0f6fb; }
+  .callout { border-radius: 6px; padding: 12px 16px; margin: 14px 0; }
+  .callout.nursing  { background: #fff8e1; border-left: 5px solid #f0a500; }
+  .callout.danger   { background: #fde8e8; border-left: 5px solid #c0392b; }
+  .callout.tip      { background: #e8fde8; border-left: 5px solid #27ae60; }
+  .callout.mnemonic { background: #f5e8fd; border-left: 5px solid #8e44ad; font-family: monospace, sans-serif; }
+  .callout strong { display: block; margin-bottom: 4px; font-size: 0.93em; text-transform: uppercase; letter-spacing: 0.05em; }
+  .objectives { background: #e8f4fd; border: 2px solid #3498db; border-radius: 6px; padding: 16px 20px; margin: 10px 0 20px; }
+  .objectives h3 { color: #1a5276; border-bottom: none; margin-top: 0; }
+  .questions ol { list-style: decimal; }
+  .questions li { margin-bottom: 18px; }
+  details.qa summary { cursor: pointer; color: #155a8a; font-weight: bold; font-style: italic; margin-top: 6px; list-style: none; padding: 4px 0; user-select: none; }
+  details.qa summary::-webkit-details-marker { display: none; }
+  details.qa summary::before { content: "&#9654; "; font-size: 0.8em; }
+  details.qa[open] summary::before { content: "&#9660; "; }
+  details.qa summary:hover { text-decoration: underline; }
+  details.qa > div { margin-top: 8px; padding: 10px 14px; background: #f0f6fb; border-left: 3px solid #0d3b66; border-radius: 3px; }
+  .nclex-card { background: #fff; border: 2px solid #c0392b; border-radius: 8px; margin: 14px 0; overflow: hidden; }
+  .nclex-card .card-head { background: #c0392b; color: #fff; font-weight: bold; padding: 8px 14px; font-size: 1em; letter-spacing: 0.03em; }
+  .nclex-card .card-body { padding: 12px 16px; }
+  .nclex-card ul { margin: 4px 0 6px 18px; }
+  .nclex-card li { margin-bottom: 5px; }
+  .nclex-tag { display: inline-block; background: #c0392b; color: #fff; font-size: 0.72em; font-weight: bold; padding: 1px 6px; border-radius: 3px; margin-left: 5px; vertical-align: middle; letter-spacing: 0.05em; }
+  .toc { background: #fff; border: 1px solid #b8cfe8; border-radius: 8px; padding: 14px 20px; margin: 18px 0 24px; font-size: 0.92em; box-shadow: 0 1px 4px rgba(13,59,102,.08); }
+  .toc h3 { border-bottom: none; margin-top: 0; color: #0d3b66; font-size: 1em; }
+  .toc ol { margin-left: 18px; }
+  .toc li { margin-bottom: 3px; }
+  .toc a { color: #0d3b66; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  sup, sub { font-size: 0.78em; }
+  .need-to-know { background: #fffbe6; border: 1px solid #f0c040; border-left: 6px solid #f0a500; border-radius: 4px; padding: 10px 14px; margin: 12px 0; }
+  .need-to-know::before { content: "\2B50 NEED TO KNOW"; display: block; font-weight: bold; font-size: 0.8em; color: #a06800; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .close-bar { text-align: right; margin-top: 20px; padding-top: 12px; border-top: 1px solid #dde4ef; }
+  .close-section-btn { background: #0d3b66; color: #fff; border: none; border-radius: 4px; padding: 7px 20px; font-size: 0.9em; cursor: pointer; font-family: Georgia, serif; letter-spacing: 0.02em; }
+  .pharma-box { margin: 24px 0 10px; background: #f0f8ff; border: 2px solid #3498db; border-radius: 8px; padding: 14px 18px; }
+  .pharma-box h3 { color: #1a5276; border-bottom: 2px solid #aed6f1; padding-bottom: 4px; margin-top: 0; font-size: 1.02em; }
+  .fig-wrap { text-align: center; margin: 16px 0; }
+  .fig-wrap img { max-width: 100%; border-radius: 6px; border: 1px solid #c8d8ea; display: block; margin: 0 auto; }
+  .fig-wrap figcaption { font-size: 0.82em; color: #555; margin-top: 5px; font-style: italic; }
+  .badge { display:inline-block; font-size:0.68em; font-weight:bold; padding:1px 7px; border-radius:10px; margin-left:5px; vertical-align:middle; letter-spacing:0.04em; text-transform:uppercase; line-height:1.6; }
+  .badge-hallmark      { background:#e67e22; color:#fff; }
+  .badge-classic       { background:#d4a017; color:#fff; }
+  .badge-emergency     { background:#c0392b; color:#fff; }
+  .badge-pathognomonic { background:#8e44ad; color:#fff; }
+  .badge-distinguishing{ background:#2471a3; color:#fff; }
+  li.hl-item { background:linear-gradient(90deg,#fffde7 0%,#fff9c4 60%,#fff 100%); border-left:4px solid #f0a500; padding:5px 10px 5px 12px; border-radius:3px; margin:5px 0 5px -10px; font-weight:600; list-style-position:inside; }
+  li.hl-item.danger-hl { background:linear-gradient(90deg,#fde8e8 0%,#ffd5d5 60%,#fff 100%); border-left-color:#c0392b; }
+  li.hl-item.purple-hl { background:linear-gradient(90deg,#f5eefb 0%,#ead5f5 60%,#fff 100%); border-left-color:#8e44ad; }
+  .disease-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin:16px 0; }
+  .disease-card { border:1px solid #c8d8ea; border-radius:8px; padding:14px 16px; background:#f8fbff; }
+  .disease-card h4 { margin:0 0 6px; color:#0d3b66; font-size:1em; font-style:normal; border-bottom:1px solid #d4e6f5; padding-bottom:4px; }
+  .disease-card .hallmark-line { font-weight:700; color:#c0392b; font-size:0.91em; margin:4px 0 6px; }
+  .disease-card ul { margin:4px 0 0; padding-left:18px; font-size:0.89em; }
+  .disease-card li { margin-bottom:3px; }
+  @media print {
+    body { font-size: 11pt; background: #fff; padding: 0; }
+    details.section { border: 1px solid #aaa; box-shadow: none; }
+    details.section > summary { background: #2c3e50 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    details.section { display: block; }
+    details.section > summary::after { content: none; }
+    .nclex-card .card-head { background: #c0392b !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .close-bar { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Chapter <!-- FILL: N --> &mdash; <!-- FILL: Chapter Title --></h1>
+<p class="subtitle"><!-- FILL: Book Title, Edition --> &middot; <!-- FILL: Section/Part description --></p>
+
+<div class="source-info">
+  <strong>Source:</strong> <!-- FILL: Full book title, edition, chapter, pages. -->
+  <strong>Author:</strong> <!-- FILL: Author name(s) --> &middot; <strong>PDF pages:</strong> <!-- FILL: PDF page range -->
+</div>
+
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <!-- FILL: one <li><a href="#s1">Section Title</a></li> per section -->
+    <li><a href="#s1"><!-- FILL: Section 1 title --></a></li>
+    <li><a href="#s2"><!-- FILL: Section 2 title --></a></li>
+    <!-- ... continue for all sections ... -->
+    <li><a href="#s-nclex">NCLEX Critical To Know</a></li>
+    <li><a href="#s-review">Review Questions</a></li>
+  </ol>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CONTENT SECTIONS  (copy this block for each section; only s1 gets [open])
+     ═══════════════════════════════════════════════════════════════ -->
+
+<details class="section" id="s1" open>
+<summary>1. <!-- FILL: Section Title --></summary>
+<div class="section-body">
+
+  <!-- FILL: section content (h3 subsections, p, ul/ol, tables, callouts, figures) -->
+
+  <h3><!-- FILL: Subsection heading --></h3>
+  <p><!-- FILL: content --></p>
+
+  <!-- Figure placeholder — guide.py embed will replace this with base64 img -->
+  <!-- FIG_N_01 -->
+
+  <div class="callout nursing">
+    <strong>Nursing Alert</strong>
+    <!-- FILL: nursing priority text -->
+  </div>
+
+  <!-- Common Conditions & Pharmacology — fill in condition/drug/notes rows -->
+  <div class="pharma-box">
+    <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+    <table>
+      <thead><tr>
+        <th>Condition</th>
+        <th>Key Medications</th>
+        <th>Notes / Monitoring</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><strong><!-- FILL: condition --></strong></td>
+          <td><!-- FILL: drugs --></td>
+          <td style="font-size:0.87em;color:#555;"><!-- FILL: notes --></td>
+        </tr>
+        <!-- FILL: additional rows -->
+      </tbody>
+    </table>
+  </div>
+
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
+</div>
+</details>
+
+<details class="section" id="s2">
+<summary>2. <!-- FILL: Section Title --></summary>
+<div class="section-body">
+
+  <!-- FILL: section content -->
+
+  <div class="pharma-box">
+    <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+    <table>
+      <thead><tr><th>Condition</th><th>Key Medications</th><th>Notes / Monitoring</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong><!-- FILL: condition --></strong></td>
+          <td><!-- FILL: drugs --></td>
+          <td style="font-size:0.87em;color:#555;"><!-- FILL: notes --></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
+</div>
+</details>
+
+<!-- FILL: repeat <details class="section" id="sN"> blocks for all remaining sections -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     NCLEX CRITICAL TO KNOW  (6–10 high-yield cards, red theme)
+     ═══════════════════════════════════════════════════════════════ -->
+
+<details class="section" id="s-nclex">
+<summary>NCLEX Critical To Know <span class="nclex-tag">HIGH YIELD</span></summary>
+<div class="section-body">
+
+  <div class="nclex-card">
+    <div class="card-head"><!-- FILL: Card Title --></div>
+    <div class="card-body">
+      <ul>
+        <li><!-- FILL: key point --></li>
+        <li><!-- FILL: key point --></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FILL: 5–9 more nclex-card blocks -->
+
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
+</div>
+</details>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     REVIEW QUESTIONS  (10–15 expandable Q&A items)
+     ═══════════════════════════════════════════════════════════════ -->
+
+<details class="section" id="s-review">
+<summary>Review Questions</summary>
+<div class="section-body questions">
+  <ol>
+    <li>
+      <!-- FILL: Question text -->
+      <details class="qa">
+        <summary>Show Answer</summary>
+        <div><!-- FILL: Answer text --></div>
+      </details>
+    </li>
+    <!-- FILL: additional <li> question blocks -->
+  </ol>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
+</div>
+</details>
+
+</body>
+</html>

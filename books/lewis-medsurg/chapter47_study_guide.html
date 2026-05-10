@@ -79,6 +79,9 @@
   .need-to-know { background: #fffbe6; border: 1px solid #f0c040; border-left: 6px solid #f0a500; border-radius: 4px; padding: 10px 14px; margin: 12px 0; }
   .need-to-know::before { content: "\2B50 NEED TO KNOW"; display: block; font-weight: bold; font-size: 0.8em; color: #a06800; letter-spacing: 0.05em; margin-bottom: 6px; }
   .close-bar { text-align: right; margin-top: 20px; padding-top: 12px; border-top: 1px solid #dde4ef; }
+  .close-section-btn { background: #0d3b66; color: #fff; border: none; border-radius: 4px; padding: 7px 20px; font-size: 0.9em; cursor: pointer; font-family: Georgia, serif; letter-spacing: 0.02em; }
+  .pharma-box { margin: 24px 0 10px; background: #f0f8ff; border: 2px solid #3498db; border-radius: 8px; padding: 14px 18px; }
+  .pharma-box h3 { color: #1a5276; border-bottom: 2px solid #aed6f1; padding-bottom: 4px; margin-top: 0; font-size: 1.02em; }
   .badge { display:inline-block; font-size:0.68em; font-weight:bold; padding:1px 7px; border-radius:10px; margin-left:5px; vertical-align:middle; letter-spacing:0.04em; text-transform:uppercase; line-height:1.6; }
   .badge-hallmark      { background:#e67e22; color:#fff; }
   .badge-classic       { background:#d4a017; color:#fff; }
@@ -136,7 +139,7 @@
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 1 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s1" open>
+<details class="section" id="s1" open>1
 <summary>1 · Bowel Elimination Disorders — Diarrhea, Fecal Incontinence &amp; Constipation</summary>
 <div class="section-body">
 
@@ -242,13 +245,42 @@
   <strong>Nursing: Promoting Bowel Elimination</strong>
   Best defecation position: knees higher than hips (footstool). Sitting allows gravity to assist; hip flexion straightens anal canal angle. Teach 20–30 g fiber/day, 2 L fluid/day, regular exercise, respond promptly to urge to defecate.
 </div>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Clostridioides difficile (CDI)</strong></td>
+        <td>Vancomycin PO (first-line); fidaxomicin (superior for recurrence prevention); bezlotoxumab (monoclonal Ab, reduces recurrence)</td>
+        <td style="font-size:0.87em;color:#555;">Avoid antiperistaltics; metronidazole only if vancomycin unavailable</td>
+      </tr>
+      <tr>
+        <td><strong>Constipation</strong></td>
+        <td>Bulk-forming (psyllium); stool softeners (docusate); stimulants (bisacodyl, senna); osmotic (PEG, lactulose); secretagogues: linaclotide (Linzess), lubiprostone (Amitiza) for CIC/IBS-C</td>
+        <td style="font-size:0.87em;color:#555;">Avoid chronic stimulant laxatives; prucalopride (5-HT4 agonist) for refractory cases</td>
+      </tr>
+      <tr>
+        <td><strong>Fecal Incontinence</strong></td>
+        <td>Loperamide (reduces stool frequency/urgency); bulk-forming agents to firm stool</td>
+        <td style="font-size:0.87em;color:#555;">Biofeedback preferred first; sacral nerve stimulation for refractory</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 2 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s2">
+<details class="section" id="s2">2
 <summary>2 · Acute Abdominal Conditions — Pain, Trauma, Appendicitis &amp; Peritonitis</summary>
 <div class="section-body">
 
@@ -355,13 +387,37 @@
 
 <h3>Gastroenteritis</h3>
 <p>Sudden diarrhea, N/V, fever, cramping. Viruses (especially Norovirus) are most common cause. Most cases are self-limiting. Oral glucose-electrolyte fluids prevent/treat dehydration. IV fluids if severe dehydration. Nursing management same as for acute diarrhea.</p>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Appendicitis</strong></td>
+        <td>IV ceftriaxone + metronidazole pre-op; opioid analgesics (morphine, hydromorphone); ketorolac (NSAID adjunct)</td>
+        <td style="font-size:0.87em;color:#555;">Appendectomy is definitive; non-operative antibiotics-only approach emerging for uncomplicated</td>
+      </tr>
+      <tr>
+        <td><strong>Peritonitis</strong></td>
+        <td>Broad-spectrum IV antibiotics: piperacillin-tazobactam or imipenem; vasopressors if septic shock</td>
+        <td style="font-size:0.87em;color:#555;">Source control (surgery) is essential; IV fluid resuscitation; NG decompression</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 3 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s3">
+<details class="section" id="s3">3
 <summary>3 · Irritable Bowel Syndrome (IBS)</summary>
 <div class="section-body">
 
@@ -404,13 +460,42 @@
   <strong>Non-pharmacologic IBS Management</strong>
   Cognitive behavior therapy, stress management, low-FODMAP diet, probiotics, regular exercise (reduces bloating/constipation/stress), symptom diary to identify triggers.
 </div>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>IBS-C (constipation-predominant)</strong></td>
+        <td>Linaclotide (Linzess), lubiprostone (Amitiza), plecanatide (Trulance) — guanylate cyclase-C agonists; osmotic laxatives (PEG)</td>
+        <td style="font-size:0.87em;color:#555;">Low-FODMAP diet first; avoid stimulant laxatives</td>
+      </tr>
+      <tr>
+        <td><strong>IBS-D (diarrhea-predominant)</strong></td>
+        <td>Loperamide (mild symptom control); rifaximin (non-absorbable antibiotic, 2-week course); alosetron (5-HT3 antagonist — women with severe IBS-D only, REMS program)</td>
+        <td style="font-size:0.87em;color:#555;">Antispasmodics (dicyclomine, hyoscyamine); bile acid sequestrants if post-cholecystectomy diarrhea</td>
+      </tr>
+      <tr>
+        <td><strong>IBS — CNS-targeted agents</strong></td>
+        <td>Low-dose TCAs (amitriptyline 10–25 mg) for pain modulation; SSRIs (paroxetine) if depression comorbid</td>
+        <td style="font-size:0.87em;color:#555;">Treat comorbid anxiety/depression; gut-directed hypnotherapy evidence-based</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 4 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s4">
+<details class="section" id="s4">4
 <summary>4 · Inflammatory Bowel Disease (IBD)</summary>
 <div class="section-body">
 
@@ -489,13 +574,57 @@
   <strong>Nursing Management: IBD — Acute Care</strong>
   Monitor hemodynamic stability, pain, fluid/electrolyte balance, nutrition. Count and describe stools; assess for blood. Meticulous perianal skincare with plain water + moisture barrier. Dibucaine, witch hazel, sitz baths for irritation. Teach: importance of rest, diet, perianal care, drug side effects, when to seek care, stress management. Refer to Crohn's and Colitis Foundation.
 </div>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Mild–Moderate UC / Crohn's</strong></td>
+        <td>5-ASA agents: mesalamine (oral, suppository, enema), sulfasalazine</td>
+        <td style="font-size:0.87em;color:#555;">Rectal mesalamine for distal UC; well-tolerated for maintenance</td>
+      </tr>
+      <tr>
+        <td><strong>Induction of Remission</strong></td>
+        <td>Corticosteroids: prednisone PO, IV methylprednisolone, budesonide (Crohn's/collagenous colitis — lower systemic effect)</td>
+        <td style="font-size:0.87em;color:#555;">Not for maintenance — taper and transition; supplement calcium + vitamin D</td>
+      </tr>
+      <tr>
+        <td><strong>Maintenance — Immunomodulators</strong></td>
+        <td>Azathioprine (AZA), 6-mercaptopurine (6-MP): thiopurines; methotrexate (Crohn's)</td>
+        <td style="font-size:0.87em;color:#555;">Onset 3–6 months; check TPMT genotype; monitor CBC for myelosuppression</td>
+      </tr>
+      <tr>
+        <td><strong>Biologic Therapy — Anti-TNF</strong></td>
+        <td>Infliximab (Remicade) IV; adalimumab (Humira) SQ; certolizumab pegol (Crohn's); golimumab (UC)</td>
+        <td style="font-size:0.87em;color:#555;">Screen TB before starting; risk of serious infections, lymphoma; check hepatitis B</td>
+      </tr>
+      <tr>
+        <td><strong>Biologic Therapy — Integrin / IL Inhibitors</strong></td>
+        <td>Vedolizumab (Entyvio) — gut-selective α4β7 integrin inhibitor; ustekinumab (Stelara) — anti-IL-12/23</td>
+        <td style="font-size:0.87em;color:#555;">Vedolizumab: lower systemic immune risk; preferred in patients with prior serious infections</td>
+      </tr>
+      <tr>
+        <td><strong>Targeted Small Molecules</strong></td>
+        <td>JAK inhibitors: tofacitinib (Xeljanz) — UC; upadacitinib (Rinvoq) — Crohn's / UC; filgotinib</td>
+        <td style="font-size:0.87em;color:#555;">Avoid in active malignancy or high DVT/PE risk; do not combine with biologics</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 5 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s5">
+<details class="section" id="s5">5
 <summary>5 · Bowel Obstruction</summary>
 <div class="section-body">
 
@@ -543,13 +672,37 @@
   <li>IV fluids and electrolytes; pain management; check NG tube patency every 4 hours</li>
   <li>Monitor serum electrolytes and ABGs; report deterioration in vital signs, bowel sounds, or abdominal distention</li>
 </ul>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Mechanical Small Bowel Obstruction</strong></td>
+        <td>IV fluid resuscitation (NS or LR); NG decompression; analgesics (morphine); antiemetics</td>
+        <td style="font-size:0.87em;color:#555;">NPO; surgery if strangulation, complete obstruction, or failure to resolve in 24–48 hr</td>
+      </tr>
+      <tr>
+        <td><strong>Acute Colonic Pseudo-obstruction (Ogilvie's Syndrome)</strong></td>
+        <td>Neostigmine 2 mg IV (if no bradycardia/bronchospasm); colonoscopic decompression</td>
+        <td style="font-size:0.87em;color:#555;">Remove offending drugs (opioids, anticholinergics, calcium channel blockers); monitor for perforation</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 6 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s6">
+<details class="section" id="s6">6
 <summary>6 · Colorectal Polyps &amp; Colorectal Cancer (CRC)</summary>
 <div class="section-body">
 
@@ -639,13 +792,42 @@
   <li>Epidermal growth factor receptor blockers: cetuximab (Erbitux), panitumumab (Vectibix)</li>
   <li>Regorafenib (Stivarga) and Lonsurf (trifluridine/tipiracil): for metastatic CRC no longer responding to other therapy</li>
 </ul>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Adjuvant Chemotherapy (Stage III CRC)</strong></td>
+        <td>FOLFOX: oxaliplatin + 5-FU + leucovorin (IV) or CAPOX: capecitabine + oxaliplatin</td>
+        <td style="font-size:0.87em;color:#555;">Capecitabine is oral 5-FU prodrug; oxaliplatin causes peripheral neuropathy</td>
+      </tr>
+      <tr>
+        <td><strong>Metastatic CRC — First-Line</strong></td>
+        <td>FOLFOX or FOLFIRI (irinotecan + 5-FU + leucovorin) ± bevacizumab (anti-VEGF) or cetuximab / panitumumab (anti-EGFR, only if RAS/BRAF wild-type)</td>
+        <td style="font-size:0.87em;color:#555;">RAS/BRAF mutation testing required before EGFR therapy; left-sided tumors respond better to EGFR agents</td>
+      </tr>
+      <tr>
+        <td><strong>Refractory / Later-Line CRC</strong></td>
+        <td>Regorafenib (multi-kinase inhibitor); TAS-102 (trifluridine/tipiracil); encorafenib + cetuximab (BRAF V600E-mutant)</td>
+        <td style="font-size:0.87em;color:#555;">Immunotherapy (pembrolizumab/nivolumab) for MSI-H/dMMR tumors — can be first-line</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 7 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s7">
+<details class="section" id="s7">7
 <summary>7 · Bowel Resection &amp; Ostomy Surgery</summary>
 <div class="section-body">
 
@@ -717,13 +899,37 @@
   <li>Perianal skincare: mild cleanser, rinse, dry, moisture barrier ointment; perineal pad</li>
   <li>Phantom rectal pain/urge to defecate — normal and usually subsides</li>
 </ul>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>High-Output Ileostomy</strong></td>
+        <td>Loperamide (up to 16 mg/day); codeine phosphate; octreotide SC/IV for severe high-output (>2 L/day)</td>
+        <td style="font-size:0.87em;color:#555;">Output >1500 mL/day requires electrolyte monitoring; oral glucose-electrolyte solutions preferred</td>
+      </tr>
+      <tr>
+        <td><strong>Ostomy-Related Complications</strong></td>
+        <td>Stool softeners (docusate) if output too thick; psyllium to thicken watery output</td>
+        <td style="font-size:0.87em;color:#555;">Nutritional counseling critical; TPN if unable to maintain enteral absorption</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 8 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s8">
+<details class="section" id="s8">8
 <summary>8 · Diverticular Disease &amp; GI Fistulas</summary>
 <div class="section-body">
 
@@ -784,13 +990,42 @@
   <li>High-calorie, high-protein PN or EN; trace element supplements (copper, zinc, magnesium)</li>
   <li>Consult WOCN for skin protection; high-output fistulas need specialty pouches, barrier creams/sealants, negative pressure wound therapy</li>
 </ul>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Acute Diverticulitis — Uncomplicated, Mild</strong></td>
+        <td>Outpatient: ciprofloxacin 500 mg BID + metronidazole 500 mg TID for 7–10 days OR amoxicillin-clavulanate PO</td>
+        <td style="font-size:0.87em;color:#555;">Growing evidence: antibiotics may not be necessary for mild uncomplicated diverticulitis; clear liquid diet</td>
+      </tr>
+      <tr>
+        <td><strong>Acute Diverticulitis — Severe / Complicated</strong></td>
+        <td>IV: piperacillin-tazobactam OR cefazolin + metronidazole; gentamicin for renal-dosed regimens</td>
+        <td style="font-size:0.87em;color:#555;">CT-guided percutaneous drainage for abscess >3 cm; Hartmann's procedure for perforation/peritonitis</td>
+      </tr>
+      <tr>
+        <td><strong>Diverticular Bleeding</strong></td>
+        <td>Vasopressin infusion or embolization via angiography for active bleeding; endoscopic hemostasis</td>
+        <td style="font-size:0.87em;color:#555;">Supportive: IV fluids, packed RBC transfusion; most bleeding stops spontaneously; colectomy for recurrent</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 9 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s9">
+<details class="section" id="s9">9
 <summary>9 · Hernias</summary>
 <div class="section-body">
 
@@ -832,13 +1067,37 @@
   <strong>Post-Herniorrhaphy Nursing Care</strong>
   Monitor for voiding difficulty (intake &amp; output, assess for distended bladder). Scrotal edema after inguinal repair: scrotal support + ice bag + elevation. Encourage deep breathing but NOT coughing. Teach to splint incision; keep mouth open if coughing/sneezing unavoidable. Restrict heavy lifting (&gt;10 lb) for 6–8 weeks.
 </div>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Hernia — Perioperative Management</strong></td>
+        <td>IV opioids / ketorolac for pain; cefazolin prophylaxis for mesh repair</td>
+        <td style="font-size:0.87em;color:#555;">No disease-specific long-term medications; definitive treatment is surgical repair</td>
+      </tr>
+      <tr>
+        <td><strong>Incarcerated / Strangulated Hernia</strong></td>
+        <td>IV fluids, analgesics, antiemetics; broad-spectrum antibiotics if strangulation / bowel necrosis suspected</td>
+        <td style="font-size:0.87em;color:#555;">Emergency surgery; NPO; bowel resection if non-viable intestine</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 10 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s10">
+<details class="section" id="s10">10
 <summary>10 · Malabsorption Syndromes</summary>
 <div class="section-body">
 
@@ -897,13 +1156,47 @@
   <li>Antibiotic therapy for bacterial overgrowth</li>
   <li>Intestinal transplantation: only long-term option for intestinal failure; can include intestine alone, liver + intestine, or multivisceral</li>
 </ul>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Short Bowel Syndrome (SBS)</strong></td>
+        <td>Teduglutide (Gattex) — GLP-2 analog promotes intestinal adaptation, reduces TPN dependence; somatropin (Zorbtive); loperamide; cholestyramine for bile acid diarrhea</td>
+        <td style="font-size:0.87em;color:#555;">TPN often required initially; oral rehydration solution (high-Na, low-glucose) for SBS-IF</td>
+      </tr>
+      <tr>
+        <td><strong>Celiac Disease</strong></td>
+        <td>Strict lifelong gluten-free diet (GFD) — only proven treatment; dapsone for dermatitis herpetiformis</td>
+        <td style="font-size:0.87em;color:#555;">Replete: iron, folate, B12, vitamin D, calcium; oats tolerated by most if uncontaminated</td>
+      </tr>
+      <tr>
+        <td><strong>Lactase Deficiency</strong></td>
+        <td>Lactase enzyme supplements (Lactaid) taken with dairy; calcium + vitamin D supplementation</td>
+        <td style="font-size:0.87em;color:#555;">Dietary restriction of lactose; lactose-free dairy products; yogurt often tolerated due to bacterial lactase</td>
+      </tr>
+      <tr>
+        <td><strong>Tropical Sprue</strong></td>
+        <td>Folic acid + tetracycline for 3–6 months</td>
+        <td style="font-size:0.87em;color:#555;">Endemic in tropical regions; responds well to antibiotics unlike celiac</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 11 -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s11">
+<details class="section" id="s11">11
 <summary>11 · Anorectal Conditions</summary>
 <div class="section-body">
 
@@ -970,13 +1263,47 @@
   <li>Treatment: incision and drainage; wound closed or left open (secondary intention); sitz baths; wound packing</li>
   <li>Patient most comfortable lying prone or on side; avoid contaminating dressing; avoid straining</li>
 </ul>
+
+<div class="pharma-box">
+  <h3>&#128138; Common Conditions &amp; Pharmacology</h3>
+  <table>
+    <thead><tr>
+      <th>Condition</th>
+      <th>Key Medications</th>
+      <th>Notes / Monitoring</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Hemorrhoids</strong></td>
+        <td>Stool softeners (docusate); psyllium for bulk; topical: hydrocortisone 1%, lidocaine, witch hazel (Tucks)</td>
+        <td style="font-size:0.87em;color:#555;">Rubber band ligation for internal hemorrhoids; hemorrhoidectomy for severe/prolapsed grade III-IV</td>
+      </tr>
+      <tr>
+        <td><strong>Anal Fissure</strong></td>
+        <td>Topical glyceryl trinitrate (GTN) 0.2–0.4% or diltiazem 2% (relax internal anal sphincter); botulinum toxin injection</td>
+        <td style="font-size:0.87em;color:#555;">High-fiber diet + adequate hydration + stool softeners essential; lateral internal sphincterotomy if refractory (risk of incontinence)</td>
+      </tr>
+      <tr>
+        <td><strong>Anorectal Abscess</strong></td>
+        <td>Analgesics; IV antibiotics (ampicillin-sulbactam, or ertapenem for complex/immunocompromised)</td>
+        <td style="font-size:0.87em;color:#555;">Primary treatment is surgical incision and drainage (I&D); antibiotics are adjunct, not substitute</td>
+      </tr>
+      <tr>
+        <td><strong>Anal Fistula / Pilonidal Disease</strong></td>
+        <td>Antibiotics for acute infection; seton placement + antibiotics to control Crohn's-related fistulas; anti-TNF (infliximab) for Crohn's fistulizing disease</td>
+        <td style="font-size:0.87em;color:#555;">Surgical repair (fistulotomy, LIFT procedure, fibrin glue) is definitive for fistulas</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 12 — NCLEX CARDS -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s12">
+<details class="section" id="s12">12
 <summary>12 · NCLEX Critical-To-Know Cards</summary>
 <div class="section-body">
 
@@ -1121,13 +1448,15 @@
   </div>
 </div>
 
+
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 13 — REVIEW Q&A -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<details class="section" id="s13">
+<details class="section" id="s13">13
 <summary>13 · Review Q&amp;A</summary>
 <div class="section-body questions">
 <ol>
@@ -1203,6 +1532,8 @@
 </li>
 
 </ol>
+
+<div class="close-bar"><button class="close-section-btn" onclick="this.closest('details').removeAttribute('open')">Close Section &#9650;</button></div>
 </div>
 </details>
 

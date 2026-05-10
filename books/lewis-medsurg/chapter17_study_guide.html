@@ -16,201 +16,95 @@
     max-width: 980px;
     margin: 0 auto;
   }
-  h1 {
-    font-size: 2em;
-    color: #0d3b66;
-    border-bottom: 4px solid #0d3b66;
-    padding: 28px 0 12px;
-    margin-bottom: 6px;
-  }
+  h1 { font-size: 2em; color: #0d3b66; border-bottom: 4px solid #0d3b66; padding: 28px 0 12px; margin-bottom: 6px; }
   .subtitle { color: #555; font-style: italic; margin-bottom: 6px; font-size: 0.95em; }
   .source-info {
-    background: #e8f4fd;
-    border: 2px solid #3498db;
-    border-radius: 6px;
-    padding: 12px 18px;
-    margin: 14px 0 24px;
-    font-size: 0.9em;
-    color: #1a3a5c;
+    background: #e8f4fd; border: 2px solid #3498db; border-radius: 6px;
+    padding: 12px 18px; margin: 14px 0 24px; font-size: 0.9em; color: #1a3a5c;
   }
-  .source-info strong { display: inline; }
-
-  /* ── Collapsible sections ── */
-  details.section {
-    margin: 12px 0;
-    border: 1px solid #b8cfe8;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0 1px 4px rgba(13,59,102,.08);
-  }
+  details.section { margin: 12px 0; border: 1px solid #b8cfe8; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 1px 4px rgba(13,59,102,.08); }
   details.section > summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; justify-content: space-between; align-items: center;
     background: linear-gradient(90deg,#0d3b66 0%,#155a8a 100%);
-    color: #fff;
-    padding: 13px 18px;
-    cursor: pointer;
-    font-size: 1.13em;
-    font-weight: bold;
-    font-family: 'Georgia', serif;
-    list-style: none;
-    user-select: none;
-    letter-spacing: 0.01em;
+    color: #fff; padding: 13px 18px; cursor: pointer; font-size: 1.13em;
+    font-weight: bold; font-family: 'Georgia', serif; list-style: none;
+    user-select: none; letter-spacing: 0.01em;
   }
   details.section > summary::-webkit-details-marker { display: none; }
-  details.section > summary::after {
-    content: "▼";
-    font-size: 0.75em;
-    opacity: 0.8;
-    transition: transform 0.2s;
-    flex-shrink: 0;
-    margin-left: 10px;
-  }
-  details.section[open] > summary::after { content: "▲"; }
+  details.section > summary::after { content: "&#9660;"; font-size: 0.75em; opacity: 0.8; transition: transform 0.2s; flex-shrink: 0; margin-left: 10px; }
+  details.section[open] > summary::after { content: "&#9650;"; }
   details.section > summary:hover { background: linear-gradient(90deg,#0a2e50 0%,#0d3b66 100%); }
-
-  .section-body {
-    padding: 18px 22px 22px;
-  }
-
-  /* ── Inner headings ── */
-  h3 {
-    font-size: 1.08em;
-    color: #0d3b66;
-    margin: 20px 0 8px;
-    border-bottom: 2px solid #c8d8ea;
-    padding-bottom: 3px;
-  }
-  h4 {
-    font-size: 0.98em;
-    color: #155a8a;
-    margin: 14px 0 5px;
-    font-style: italic;
-  }
+  .section-body { padding: 18px 22px 22px; }
+  h3 { font-size: 1.08em; color: #0d3b66; margin: 20px 0 8px; border-bottom: 2px solid #c8d8ea; padding-bottom: 3px; }
+  h4 { font-size: 0.98em; color: #155a8a; margin: 14px 0 5px; font-style: italic; }
   p { margin-bottom: 10px; }
   ul, ol { margin: 6px 0 12px 22px; }
   li { margin-bottom: 4px; }
-
-  /* ── Key Terms ── */
   dl { margin: 10px 0 16px; }
   dt { font-weight: bold; color: #0d3b66; margin-top: 10px; }
   dd { margin-left: 22px; margin-bottom: 2px; color: #333; }
-
-  /* ── Tables ── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 12px 0 20px;
-    font-size: 0.91em;
-  }
-  th {
-    background: #0d3b66;
-    color: #fff;
-    padding: 8px 10px;
-    text-align: left;
-  }
-  td {
-    padding: 7px 10px;
-    border: 1px solid #c5d8e8;
-    vertical-align: top;
-  }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 0.91em; }
+  th { background: #0d3b66; color: #fff; padding: 8px 10px; text-align: left; }
+  td { padding: 7px 10px; border: 1px solid #c5d8e8; vertical-align: top; }
   tr:nth-child(even) td { background: #f0f6fb; }
-
-  /* ── Callout boxes ── */
-  .callout {
-    border-radius: 6px;
-    padding: 12px 16px;
-    margin: 14px 0;
-  }
+  .callout { border-radius: 6px; padding: 12px 16px; margin: 14px 0; }
   .callout.nursing  { background: #fff8e1; border-left: 5px solid #f0a500; }
   .callout.danger   { background: #fde8e8; border-left: 5px solid #c0392b; }
   .callout.tip      { background: #e8fde8; border-left: 5px solid #27ae60; }
   .callout.mnemonic { background: #f5e8fd; border-left: 5px solid #8e44ad; font-family: monospace, sans-serif; }
   .callout strong { display: block; margin-bottom: 4px; font-size: 0.93em; text-transform: uppercase; letter-spacing: 0.05em; }
-
-  /* ── Objectives box ── */
-  .objectives {
-    background: #e8f4fd;
-    border: 2px solid #3498db;
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin: 10px 0 20px;
-  }
+  .objectives { background: #e8f4fd; border: 2px solid #3498db; border-radius: 6px; padding: 16px 20px; margin: 10px 0 20px; }
   .objectives h3 { color: #1a5276; border-bottom: none; margin-top: 0; }
-
-  /* ── Review Q&A ── */
   .questions ol { list-style: decimal; }
   .questions li { margin-bottom: 18px; }
-  details.qa summary {
-    cursor: pointer;
-    color: #155a8a;
-    font-weight: bold;
-    font-style: italic;
-    margin-top: 6px;
-    list-style: none;
-    padding: 4px 0;
-    user-select: none;
-  }
+  details.qa summary { cursor: pointer; color: #155a8a; font-weight: bold; font-style: italic; margin-top: 6px; list-style: none; padding: 4px 0; user-select: none; }
   details.qa summary::-webkit-details-marker { display: none; }
-  details.qa summary::before { content: "▶ "; font-size: 0.8em; }
-  details.qa[open] summary::before { content: "▼ "; }
+  details.qa summary::before { content: "&#9654; "; font-size: 0.8em; }
+  details.qa[open] summary::before { content: "&#9660; "; }
   details.qa summary:hover { text-decoration: underline; }
   details.qa > div { margin-top: 8px; padding: 10px 14px; background: #f0f6fb; border-left: 3px solid #0d3b66; border-radius: 3px; }
-
-  /* ── NCLEX section ── */
-  .nclex-card {
-    background: #fff;
-    border: 2px solid #c0392b;
-    border-radius: 8px;
-    margin: 14px 0;
-    overflow: hidden;
-  }
-  .nclex-card .card-head {
-    background: #c0392b;
-    color: #fff;
-    font-weight: bold;
-    padding: 8px 14px;
-    font-size: 1em;
-    letter-spacing: 0.03em;
-  }
+  .nclex-card { background: #fff; border: 2px solid #c0392b; border-radius: 8px; margin: 14px 0; overflow: hidden; }
+  .nclex-card .card-head { background: #c0392b; color: #fff; font-weight: bold; padding: 8px 14px; font-size: 1em; letter-spacing: 0.03em; }
   .nclex-card .card-body { padding: 12px 16px; }
   .nclex-card ul { margin: 4px 0 6px 18px; }
   .nclex-card li { margin-bottom: 5px; }
-  .nclex-tag {
-    display: inline-block;
-    background: #c0392b;
-    color: #fff;
-    font-size: 0.72em;
-    font-weight: bold;
-    padding: 1px 6px;
-    border-radius: 3px;
-    margin-left: 5px;
-    vertical-align: middle;
-    letter-spacing: 0.05em;
-  }
-
-  /* ── TOC ── */
-  .toc {
-    background: #fff;
-    border: 1px solid #b8cfe8;
-    border-radius: 8px;
-    padding: 14px 20px;
-    margin: 18px 0 24px;
-    font-size: 0.92em;
-    box-shadow: 0 1px 4px rgba(13,59,102,.08);
-  }
+  .nclex-tag { display: inline-block; background: #c0392b; color: #fff; font-size: 0.72em; font-weight: bold; padding: 1px 6px; border-radius: 3px; margin-left: 5px; vertical-align: middle; letter-spacing: 0.05em; }
+  .toc { background: #fff; border: 1px solid #b8cfe8; border-radius: 8px; padding: 14px 20px; margin: 18px 0 24px; font-size: 0.92em; box-shadow: 0 1px 4px rgba(13,59,102,.08); }
   .toc h3 { border-bottom: none; margin-top: 0; color: #0d3b66; font-size: 1em; }
   .toc ol { margin-left: 18px; }
   .toc li { margin-bottom: 3px; }
   .toc a { color: #0d3b66; text-decoration: none; }
   .toc a:hover { text-decoration: underline; }
-  .lab-value { font-weight: bold; color: #0d3b66; }
-
   sup, sub { font-size: 0.78em; }
-
-  /* ── Print ── */
+  .need-to-know { background: #fffbe6; border: 1px solid #f0c040; border-left: 6px solid #f0a500; border-radius: 4px; padding: 10px 14px; margin: 12px 0; }
+  .need-to-know::before { content: "\2B50 NEED TO KNOW"; display: block; font-weight: bold; font-size: 0.8em; color: #a06800; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .close-bar { text-align: right; margin-top: 20px; padding-top: 12px; border-top: 1px solid #dde4ef; }
+  .close-section-btn { background: #0d3b66; color: #fff; border: none; border-radius: 4px; padding: 7px 20px; font-size: 0.9em; cursor: pointer; font-family: Georgia, serif; letter-spacing: 0.02em; }
+  .pharma-box { margin: 24px 0 10px; background: #f0f8ff; border: 2px solid #3498db; border-radius: 8px; padding: 14px 18px; }
+  .pharma-box h3 { color: #1a5276; border-bottom: 2px solid #aed6f1; padding-bottom: 4px; margin-top: 0; font-size: 1.02em; }
+  .fig-wrap { text-align: center; margin: 16px 0; }
+  .fig-wrap img { max-width: 100%; border-radius: 6px; border: 1px solid #c8d8ea; display: block; margin: 0 auto; }
+  .fig-wrap figcaption { font-size: 0.82em; color: #555; margin-top: 5px; font-style: italic; }
+  .fig-cap { font-size: 0.81em; color: #666; font-style: italic; margin-top: 4px; }
+  .lab-value { font-weight: bold; color: #0d3b66; }
+  li.u-item::marker { color: #e67e22; }
+  li.u-item { color: #7d3c0e; font-weight: 600; }
+  .unique-sign { display: inline-block; background: #fdebd0; border: 1px solid #e67e22; color: #7d3c0e; font-size: 0.8em; font-weight: bold; padding: 1px 7px; border-radius: 10px; margin-left: 4px; vertical-align: middle; }
+  .badge { display:inline-block; font-size:0.68em; font-weight:bold; padding:1px 7px; border-radius:10px; margin-left:5px; vertical-align:middle; letter-spacing:0.04em; text-transform:uppercase; line-height:1.6; }
+  .badge-hallmark      { background:#e67e22; color:#fff; }
+  .badge-classic       { background:#d4a017; color:#fff; }
+  .badge-emergency     { background:#c0392b; color:#fff; }
+  .badge-pathognomonic { background:#8e44ad; color:#fff; }
+  .badge-distinguishing{ background:#2471a3; color:#fff; }
+  li.hl-item { background:linear-gradient(90deg,#fffde7 0%,#fff9c4 60%,#fff 100%); border-left:4px solid #f0a500; padding:5px 10px 5px 12px; border-radius:3px; margin:5px 0 5px -10px; font-weight:600; list-style-position:inside; }
+  li.hl-item.danger-hl { background:linear-gradient(90deg,#fde8e8 0%,#ffd5d5 60%,#fff 100%); border-left-color:#c0392b; }
+  li.hl-item.purple-hl { background:linear-gradient(90deg,#f5eefb 0%,#ead5f5 60%,#fff 100%); border-left-color:#8e44ad; }
+  .disease-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin:16px 0; }
+  .disease-card { border:1px solid #c8d8ea; border-radius:8px; padding:14px 16px; background:#f8fbff; }
+  .disease-card h4 { margin:0 0 6px; color:#0d3b66; font-size:1em; font-style:normal; border-bottom:1px solid #d4e6f5; padding-bottom:4px; }
+  .disease-card .hallmark-line { font-weight:700; color:#c0392b; font-size:0.91em; margin:4px 0 6px; }
+  .disease-card ul { margin:4px 0 0; padding-left:18px; font-size:0.89em; }
+  .disease-card li { margin-bottom:3px; }
   @media print {
     body { font-size: 11pt; background: #fff; padding: 0; }
     details.section { border: 1px solid #aaa; box-shadow: none; }
@@ -218,214 +112,7 @@
     details.section { display: block; }
     details.section > summary::after { content: none; }
     .nclex-card .card-head { background: #c0392b !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  }
-
-  /* ── Need to Know boxes ── */
-  .need-to-know {
-    background: #fffbe6;
-    border: 1px solid #f0c040;
-    border-left: 6px solid #f0a500;
-    border-radius: 4px;
-    padding: 10px 14px;
-    margin: 12px 0;
-  }
-  .need-to-know::before {
-    content: "\2B50 NEED TO KNOW";
-    display: block;
-    font-weight: bold;
-    font-size: 0.8em;
-    color: #a06800;
-    letter-spacing: 0.05em;
-    margin-bottom: 6px;
-  }
-
-  /* ── Close section button ── */
-  .close-bar {
-    text-align: right;
-    margin-top: 20px;
-    padding-top: 12px;
-    border-top: 1px solid #dde4ef;
-  }
-  .close-section-btn {
-    background: #0d3b66;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 7px 20px;
-    font-size: 0.9em;
-    cursor: pointer;
-    font-family: Georgia, serif;
-    letter-spacing: 0.02em;
-  }
-
-  /* ── Figure image boxes ── */
-  .fig-box { text-align: center; margin: 16px 0; }
-  .fig-box img {
-    max-width: 78%;
-    border-radius: 6px;
-    border: 1px solid #c8d8ea;
-    box-shadow: 0 2px 8px rgba(13,59,102,.12);
-    cursor: zoom-in;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .fig-box img:hover {
-    transform: scale(1.025);
-    box-shadow: 0 4px 18px rgba(13,59,102,.22);
-  }
-  .fig-caption { font-size: 0.84em; color: #555; margin-top: 6px; font-style: italic; }
-
-  /* ── NCLEX Quiz ── */
-  .quiz-question {
-    background: #fff; border: 1px solid #c8d8ea; border-radius: 8px;
-    padding: 16px 20px; margin: 14px 0;
-    box-shadow: 0 1px 4px rgba(13,59,102,.06);
-  }
-  .q-num { font-size: 0.78em; color: #888; font-weight: bold; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; font-family: sans-serif; }
-  .q-text { font-weight: bold; color: #1a1a2e; margin-bottom: 12px; line-height: 1.55; font-size: 0.98em; }
-  .q-options { display: flex; flex-direction: column; gap: 7px; margin-bottom: 12px; }
-  .q-opt {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 8px 12px; border-radius: 5px; border: 1.5px solid #c8d8ea;
-    cursor: pointer; font-size: 0.94em; line-height: 1.45;
-    font-family: 'Segoe UI', system-ui, Arial, sans-serif; transition: background 0.12s;
-  }
-  .q-opt:hover { background: #f0f6fb; border-color: #3498db; }
-  .q-opt input[type=radio] { flex-shrink: 0; margin-top: 3px; accent-color: #0d3b66; }
-  .q-opt.correct-opt { background: #e6f9ee; border-color: #27ae60; font-weight: bold; color: #1a5e30; }
-  .q-opt.wrong-opt   { background: #fde8e8; border-color: #c0392b; color: #7b1a1a; }
-  .check-btn {
-    background: #0d3b66; color: #fff; border: none; border-radius: 4px;
-    padding: 7px 22px; cursor: pointer; font-size: 0.9em; font-family: Georgia, serif;
-  }
-  .check-btn:hover { background: #155a8a; }
-  .q-rationale {
-    display: none; margin-top: 12px; padding: 10px 14px;
-    background: #f0f6fb; border-left: 4px solid #0d3b66;
-    border-radius: 4px; font-size: 0.92em; line-height: 1.65;
-    font-family: 'Segoe UI', system-ui, Arial, sans-serif; color: #222;
-  }
-  .q-rationale .correct-ans { color: #1e8449; font-weight: bold; display: block; margin-bottom: 4px; }
-  .quiz-score-bar {
-    background: linear-gradient(90deg, #0d3b66, #155a8a);
-    color: #fff; border-radius: 8px; padding: 20px 28px;
-    text-align: center; margin: 22px 0 10px;
-  }
-  .quiz-score-bar .score-num { font-size: 2.8em; font-weight: bold; line-height: 1; }
-  .quiz-score-bar .score-sub { font-size: 0.95em; opacity: 0.85; margin-top: 4px; }
-  .quiz-score-bar .grade { font-size: 1.1em; font-weight: bold; margin-top: 6px; }
-  .score-btn, .reset-btn {
-    border: none; border-radius: 5px; padding: 9px 28px; font-size: 0.97em;
-    cursor: pointer; font-family: Georgia, serif; font-weight: bold; margin: 4px;
-  }
-  .score-btn { background: #f0a500; color: #fff; }
-  .score-btn:hover { background: #d4890a; }
-  .reset-btn { background: #7f8c8d; color: #fff; }
-  .reset-btn:hover { background: #636e72; }
-  .quiz-controls { text-align: center; margin: 10px 0; }
-
-  /* ── Lightbox ── */
-  #img-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    cursor: zoom-out;
-  }
-  #img-modal.open { display: flex; }
-  #img-modal img {
-    max-width: 93vw;
-    max-height: 91vh;
-    border-radius: 6px;
-    box-shadow: 0 10px 50px rgba(0,0,0,.7);
-    cursor: default;
-    object-fit: contain;
-  }
-  #img-modal-close {
-    position: fixed;
-    top: 14px; right: 22px;
-    color: #fff;
-    font-size: 2.2em;
-    line-height: 1;
-    cursor: pointer;
-    user-select: none;
-    text-shadow: 0 2px 8px rgba(0,0,0,.6);
-    font-family: sans-serif;
-  }
-  #img-modal-close:hover { color: #f0a500; }
-
-  /* ── Mnemonic cards ── */
-  .mnemonic-card {
-    background: linear-gradient(135deg, #f9f0ff 0%, #ede0ff 100%);
-    border: 2px solid #8e44ad;
-    border-radius: 10px;
-    padding: 16px 20px;
-    margin: 16px 0;
-  }
-  .mnem-header { font-size: 0.74em; font-weight: bold; color: #6c3483; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
-  .mnem-title { font-size: 1.12em; font-weight: bold; color: #4a235a; margin-bottom: 12px; }
-  .mnem-row { display: flex; align-items: flex-start; margin: 7px 0; gap: 10px; }
-  .mnem-letter {
-    display: inline-flex; align-items: center; justify-content: center;
-    background: #8e44ad; color: #fff; font-weight: bold; font-size: 1em;
-    width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;
-  }
-  .mnem-def { color: #333; line-height: 1.5; }
-  .mnem-def strong { color: #4a235a; }
-  .mnem-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
-  .mnem-col { background: rgba(142,68,173,.09); border-radius: 8px; padding: 12px 14px; }
-  .mnem-col h5 { font-size: 0.88em; color: #6c3483; margin-bottom: 8px; font-weight: bold; font-style: normal; }
-  .mnem-col ul { margin: 0 0 0 16px; }
-  .mnem-col li { margin-bottom: 4px; font-size: 0.95em; }
-  .mnem-word-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-  .mnem-word-card { background: #fff; border: 2px solid #8e44ad; border-radius: 10px; padding: 10px 14px; min-width: 110px; text-align: center; flex: 1; }
-  .mnem-word-card .word { font-weight: bold; color: #4a235a; font-size: 1em; }
-  .mnem-word-card .meaning { font-size: 0.8em; color: #555; margin-top: 5px; }
-
-  /* ── Unique / Pathognomonic sign highlight ── */
-  .unique-sign {
-    display: block; background: #fff8f0;
-    border: 1.5px solid #e67e22; border-left: 5px solid #e67e22;
-    border-radius: 4px; padding: 6px 12px; margin: 6px 0;
-  }
-  .unique-sign::before {
-    content: "\2605  UNIQUE TO THIS CONDITION \2014  ";
-    font-weight: bold; font-size: 0.78em; color: #c0392b; letter-spacing: 0.04em;
-  }
-
-  /* ── Disease section: unique symptom list item ── */
-  li.u-item {
-    background: #fff8f0;
-    border-left: 4px solid #e67e22;
-    padding: 5px 6px 5px 10px;
-    margin: 6px 0;
-    list-style: none;
-    border-radius: 3px;
-  }
-  li.u-item::before {
-    content: "\2605 UNIQUE \2014 ";
-    color: #c0392b;
-    font-weight: bold;
-    font-size: 0.8em;
-    letter-spacing: 0.04em;
-  }
-  /* ── Disease dropdowns — sans-serif for readability ── */
-  #s13 details.qa > div {
-    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
-    font-size: 0.97em;
-    line-height: 1.75;
-    color: #222;
-  }
-  #s13 details.qa > div p { margin-bottom: 8px; }
-  #s13 details.qa > div ul { margin: 4px 0 10px 20px; }
-  #s13 details.qa > div li { margin-bottom: 5px; }
-  details.qa div h4 {
-    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
-    font-size: 0.88em; font-weight: 700; color: #0d3b66;
-    text-transform: uppercase; letter-spacing: 0.06em;
-    margin: 14px 0 6px; border-bottom: 1px solid #c8d8ea; padding-bottom: 3px;
+    .close-bar { display: none; }
   }
 </style>
 </head>

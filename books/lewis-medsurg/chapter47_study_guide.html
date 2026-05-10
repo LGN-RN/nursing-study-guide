@@ -31,8 +31,8 @@
     user-select: none; letter-spacing: 0.01em;
   }
   details.section > summary::-webkit-details-marker { display: none; }
-  details.section > summary::after { content: "▼"; font-size: 0.75em; opacity: 0.8; transition: transform 0.2s; flex-shrink: 0; margin-left: 10px; }
-  details.section[open] > summary::after { content: "▲"; }
+  details.section > summary::after { content: "&#9660;"; font-size: 0.75em; opacity: 0.8; transition: transform 0.2s; flex-shrink: 0; margin-left: 10px; }
+  details.section[open] > summary::after { content: "&#9650;"; }
   details.section > summary:hover { background: linear-gradient(90deg,#0a2e50 0%,#0d3b66 100%); }
   .section-body { padding: 18px 22px 22px; }
   h3 { font-size: 1.08em; color: #0d3b66; margin: 20px 0 8px; border-bottom: 2px solid #c8d8ea; padding-bottom: 3px; }
@@ -59,8 +59,8 @@
   .questions li { margin-bottom: 18px; }
   details.qa summary { cursor: pointer; color: #155a8a; font-weight: bold; font-style: italic; margin-top: 6px; list-style: none; padding: 4px 0; user-select: none; }
   details.qa summary::-webkit-details-marker { display: none; }
-  details.qa summary::before { content: "▶ "; font-size: 0.8em; }
-  details.qa[open] summary::before { content: "▼ "; }
+  details.qa summary::before { content: "&#9654; "; font-size: 0.8em; }
+  details.qa[open] summary::before { content: "&#9660; "; }
   details.qa summary:hover { text-decoration: underline; }
   details.qa > div { margin-top: 8px; padding: 10px 14px; background: #f0f6fb; border-left: 3px solid #0d3b66; border-radius: 3px; }
   .nclex-card { background: #fff; border: 2px solid #c0392b; border-radius: 8px; margin: 14px 0; overflow: hidden; }
@@ -82,6 +82,14 @@
   .close-section-btn { background: #0d3b66; color: #fff; border: none; border-radius: 4px; padding: 7px 20px; font-size: 0.9em; cursor: pointer; font-family: Georgia, serif; letter-spacing: 0.02em; }
   .pharma-box { margin: 24px 0 10px; background: #f0f8ff; border: 2px solid #3498db; border-radius: 8px; padding: 14px 18px; }
   .pharma-box h3 { color: #1a5276; border-bottom: 2px solid #aed6f1; padding-bottom: 4px; margin-top: 0; font-size: 1.02em; }
+  .fig-wrap { text-align: center; margin: 16px 0; }
+  .fig-wrap img { max-width: 100%; border-radius: 6px; border: 1px solid #c8d8ea; display: block; margin: 0 auto; }
+  .fig-wrap figcaption { font-size: 0.82em; color: #555; margin-top: 5px; font-style: italic; }
+  .fig-cap { font-size: 0.81em; color: #666; font-style: italic; margin-top: 4px; }
+  .lab-value { font-weight: bold; color: #0d3b66; }
+  li.u-item::marker { color: #e67e22; }
+  li.u-item { color: #7d3c0e; font-weight: 600; }
+  .unique-sign { display: inline-block; background: #fdebd0; border: 1px solid #e67e22; color: #7d3c0e; font-size: 0.8em; font-weight: bold; padding: 1px 7px; border-radius: 10px; margin-left: 4px; vertical-align: middle; }
   .badge { display:inline-block; font-size:0.68em; font-weight:bold; padding:1px 7px; border-radius:10px; margin-left:5px; vertical-align:middle; letter-spacing:0.04em; text-transform:uppercase; line-height:1.6; }
   .badge-hallmark      { background:#e67e22; color:#fff; }
   .badge-classic       { background:#d4a017; color:#fff; }
@@ -104,6 +112,7 @@
     details.section { display: block; }
     details.section > summary::after { content: none; }
     .nclex-card .card-head { background: #c0392b !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .close-bar { display: none; }
   }
 </style>
 </head>
